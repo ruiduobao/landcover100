@@ -1,0 +1,186 @@
+/* 内联CSS样式，实际开发中应该使用外部CSS文件 */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#left_DIV, #right_DIV {
+    position: relative;
+    top: 0; /* 这是top_DIV的高度，确保left_DIV和right_DIV从top_DIV的底部开始 */
+    padding-top: 10px; /* 顶部的内边距，以免内容紧贴边缘 */
+    box-sizing: border-box; /* 确保padding被包含在宽度计算中 */
+}
+
+
+#left_DIV {
+    width: 30%;
+    height: calc(100% - 45px); /* 减去顶部DIV的高度 */
+    float: left;
+    overflow: auto; /* 如果内容过多则显示滚动条 */
+    background: #fff; /* 白色背景 */
+}
+
+#right_DIV {
+    width: 70%;
+    height: calc(100% - 45px); /* 减去顶部DIV的高度 */
+    float: right;
+    overflow: auto; /* 如果内容过多则显示滚动条 */
+    background: #e9ecef; /* 淡灰色背景 */
+}
+
+/* 清除浮动效果 */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#top_DIV {
+    width: 100%;
+    height: 45px; /* 假设top_DIV的高度为60px */
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#top_DIV .logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: left;
+    padding-left: 10px; /* 或者根据实际情况调整 */
+}
+
+#top_DIV .logo img {
+    height: 80%; /* Logo的大小可以根据需求调整 */
+}
+
+#top_DIV .title-container {
+    text-align: center;
+}
+
+#top_DIV h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em; /* 根据实际需要调整大小 */
+}
+
+#top_DIV h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1em; /* 根据实际需要调整大小 */
+    color: #6c757d; /* 副标题颜色调整，可以根据需要改变 */
+}
+
+#top_DIV .top_DIV_nav {
+    right: 0;
+    top: 10px; /* 更正为添加px单位 */
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    align-items: right; /* 更正为正确的CSS属性值，如 flex-end */
+    font-size: 1em; /* 根据实际需要调整大小 */
+    color: #6c757d; /* 副标题颜色调整，可以根据需要改变 */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+/* 添加针对二级菜单的样式 */
+.menu .submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 0; /* 子菜单缩进 */
+}
+
+.menu .menu-toggle {
+    cursor: pointer;
+}
+
+.menu .menu-item {
+    margin-bottom: 5px;
+}
+
+/* 单选按钮样式 */
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* 确保label和单选按钮在一行显示 */
+.submenu label {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.submenu li {
+    display: flex;
+    align-items: center;
+}
+
+.submenu li a img {
+    margin-right: 8px; /* 根据需要调整间距 */
+    width: 24px; /* 根据实际图标大小调整 */
+    height: auto;
+}
+
+/* 数据菜单栏的扩展与折叠图标 */
+.menu-toggle::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('/img/slip.png');
+    background-size: cover;
+    margin-right: 8px;
+}
+
+.menu-toggle.active::before {
+    background-image: url('/img/up.png');
+}
+
+/* 移除ul中li前面的小圆点 */
+ul.menu > li {
+    list-style: none;
+}
+
+/* 移除a标签的下划线 */
+a.menu-toggle {
+    text-decoration: none;
+    color: #000; /* 黑色 */
+}
+
+/* 重置数据框的<ul>和<li>的默认外边距和内边距 */
+ul.menu, ul.menu > li {
+    margin: 0;
+    padding: 0;
+}
+
+/* 为一级菜单项设置样式 */
+.menu > .menu-item {
+    padding-left: 10px; /* 一级菜单无缩进，或根据需要调整 */
+}
+
+/* 为二级菜单项设置样式 */
+.menu .menu-item > .submenu > li {
+    padding-left: 15px; /* 二级菜单缩进更多 */
+}
+
+/* 为三级菜单项设置样式 */
+.menu .menu-item > .submenu .submenu > li {
+
+    padding-left: 40px; /* 三级菜单缩进更多 */
+}
+
+/* 地图容器 */
+#mapContainer {
+    width: 100%;
+    height: 100%;
+}

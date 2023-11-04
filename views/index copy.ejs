@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>遥感产品数据云</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div id="top_DIV">
+    <div class="logo"><img src="/img/logo.png" alt="Logo"></div>
+    <div class="title-container">
+        <h1>遥感产品数据云</h1>
+    </div>
+    <div class="top_DIV_nav">
+        <a href="#">注册/登录</a>
+    </div>
+
+</div>
+
+<div class="clearfix">
+    <div id="left_DIV">
+        <!-- 左侧边栏内容，比如链接或菜单项 -->
+        <h3>数据选择</h3>
+        <!-- 在左侧边栏内容下添加二级菜单的控制 -->
+        <!-- 数据列表 -->
+        <ul class="menu">
+            <li class="menu-item">
+                <a href="#0" class="menu-toggle">土地覆盖数据</a>
+                <ul class="submenu">
+                    <li>
+                        <input type="radio" name="menu_choice" id="esa_choice"><label for="esa_choice">ESA</label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
+                        <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
+                    </li>
+
+                    <li>
+                        <input type="radio" name="menu_choice" id="glc30_choice"><label for="glc30_choice">GLC30</label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
+                        <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
+                    </li>
+                    <li>
+                        <input type="radio" name="menu_choice" id="nasa_choice"><label for="nasa_choice">NASA</label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
+                        <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
+                    </li>
+                    <li>
+                        <input type="radio" name="menu_choice" id="alos_choice"><label for="alos_choice">ALOS</label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
+                        <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
+                    </li>
+                    <!-- 更多菜单项 -->
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-toggle">DEM数据</a>
+                <ul class="submenu">
+                    <li>
+                        <input type="radio" name="menu_choice" id="nasa_dem_choice"><label for="nasa_dem_choice">NASA_DEM</label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
+                        <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
+                    </li>
+                    <li>
+                        <input type="radio" name="menu_choice" id="alos_dem_choice"><label for="alos_dem_choice">ALOS_DEM</label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
+                        <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
+                    </li>
+                    <li>
+                        <input type="radio" name="menu_choice" id="copernicus_dem_choice"><label for="copernicus_dem_choice">哥白尼DEM</label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
+                        <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
+                    </li>
+                    <!-- 更多菜单项 -->
+                </ul>
+            </li>
+        </ul>
+        <!-- 年份选择 -->
+        <label for="year_select">时间选择：</label>
+        <select id="year_select">
+            <option value="2023">2023年</option>
+            <option value="2022">2022年</option>
+            <!-- 更多年份选项 -->
+        </select>
+        <!-- 矢量选择 -->
+        <label for="data_type_select" display: block;>空间位置：</label>
+        <select id="data_type_select">
+            <option value="type1">按行政区划</option>
+            <option value="type2">本地上传</option>
+            <option value="type2">在线勾画</option>
+        </select>
+    </div>
+
+    <div id="right_DIV">
+        <!-- 主要内容区，用于放置地图或其他信息 -->
+        <h3>数据展示区域</h3>
+        <!-- 在这里嵌入您的地图或内容 -->
+        <p>这里将显示地图或数据信息。</p>
+    </div>
+</div>
+<script>
+    //二级标签控制代码
+    document.addEventListener('DOMContentLoaded', function () {
+    var toggles = document.querySelectorAll('.menu-toggle');
+    toggles.forEach(function (toggle) {
+            toggle.addEventListener('click', function () {
+                var submenu = this.nextElementSibling;
+                if (submenu.style.display === "block") {
+                    submenu.style.display = "none";
+                    //菜单向下图标
+                    this.classList.remove('active');
+                } else {
+                    submenu.style.display = "block";
+                    //菜单向上图标
+                    this.classList.add('active');
+                }
+            });
+        });
+    });
+    //单选数据的控制
+    document.addEventListener('DOMContentLoaded', (event) => {
+    const radios = document.querySelectorAll('.menu input[type="radio"]');
+    radios.forEach(radio => {
+        radio.addEventListener('change', (event) => {
+            // 当一个新的单选按钮被选中时，取消其他所有单选按钮的选中状态
+            radios.forEach(radio => {
+                if (radio !== event.target) {
+                    radio.checked = false;
+                    }
+                });
+            });
+        });
+    });
+
+    
+</script>
+</body>
+</html>
