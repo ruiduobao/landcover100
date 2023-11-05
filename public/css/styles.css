@@ -21,13 +21,13 @@ body, html {
     overflow: auto; /* 如果内容过多则显示滚动条 */
     background: #fff; /* 白色背景 */
 }
-
 #right_DIV {
+    display: flex; /* 将这个DIV设置为flex容器 */
+    flex-direction: column; /* 项目垂直排列 */
     width: 70%;
-    height: calc(100% - 45px); /* 减去顶部DIV的高度 */
-    float: right;
+    height: 100%; /* 设置高度为100% */
     overflow: auto; /* 如果内容过多则显示滚动条 */
-    background: #e9ecef; /* 淡灰色背景 */
+    background: #ffffff; 
 }
 
 /* 清除浮动效果 */
@@ -181,6 +181,12 @@ ul.menu, ul.menu > li {
 
 /* 地图容器 */
 #mapContainer {
-    width: 100%;
-    height: 100%;
+    flex: 1; /* 这样就会填充所有可用空间 */
+    position: relative;
+    z-index: 1000;
+}
+
+#container {
+    display: flex;
+    height: calc(100% - 45px); /* 减去顶部div的高度 */
 }

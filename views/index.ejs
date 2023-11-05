@@ -6,6 +6,11 @@
 <title>遥感产品数据云</title>
 <link rel="stylesheet" href="/css/styles.css">
 <script src="https://webapi.amap.com/maps?v=1.4.15&key=b6ba147ffd1e49158d12f7cb16d0f381"></script>
+<!-- 引入二三级菜单的折叠脚本js -->
+<script src="/js/Menu_Fold.js"></script>
+<!-- 单选数据的控制 -->
+<script src="/js/Single_choice_data.js"></script>
+
 </head>
 <body>
 
@@ -38,11 +43,6 @@
                     <ul class="submenu">
                         <li>
                             <input type="radio" name="menu_choice" id="esa_choice"><label for="esa_choice">ESA</label>
-                            <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
-                            <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
-                        </li>
-                        <li>
-                            <input type="radio" name="menu_choice" id="glc30_choice"><label for="glc30_choice">GLC30</label>
                             <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
                             <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
                         </li>
@@ -112,22 +112,21 @@
 
         </ul>
         <!-- 年份选择 -->
-        <label for="year_select">时间选择：</label>
+        <h3>时间选择:</h3>
         <select id="year_select">
             <option value="2023">2023年</option>
             <option value="2022">2022年</option>
             <!-- 更多年份选项 -->
         </select>
         <!-- 矢量选择 -->
-        <label for="data_type_select" display: block;>空间位置：</label>
+        <h3>空间位置:</h3>
         <select id="data_type_select">
             <option value="type1">按行政区划</option>
             <option value="type2">本地上传</option>
             <option value="type2">在线勾画</option>
         </select>
-        
+        <img id="drawIcon" src="/img/draw_rect.png" style="display: none; cursor: pointer;" onclick="startDrawing()" />
     </div>
-
     <div id="right_DIV">
         <div id="mapContainer" style="flex: 1; position: relative; z-index: 1000;">
             <!-- 地图图层切换的下拉框，悬浮在左下角 -->
@@ -143,81 +142,9 @@
         </div>
     </div>
 </div>
-<script>
-    // 二级和三级菜单控制代码
-    document.addEventListener('DOMContentLoaded', function () {
-    var toggles = document.querySelectorAll('.menu-toggle');
-    toggles.forEach(function (toggle) {
-        toggle.addEventListener('click', function (e) {
-        e.preventDefault(); // 阻止默认的链接行为
-        var submenu = this.nextElementSibling;
-
-        if (submenu && submenu.classList.contains('submenu')) {
-            // 检查这个子菜单是否已经打开
-            if (submenu.style.display === "block") {
-            submenu.style.display = "none";
-            this.classList.remove('active');
-            } else {
-            // 关闭同一级别的其他子菜单
-            let siblingSubmenus = this.parentElement.parentElement.querySelectorAll('.submenu');
-            siblingSubmenus.forEach(function (menu) {
-                if(menu !== submenu) {
-                menu.style.display = 'none';
-                }
-            });
-
-            // 打开当前子菜单
-            submenu.style.display = "block";
-            // 移除其他所有active状态
-            siblingSubmenus.forEach(function (menu) {
-                if(menu.previousElementSibling) {
-                menu.previousElementSibling.classList.remove('active');
-                }
-            });
-            // 给当前toggle添加active状态
-            this.classList.add('active');
-            }
-        }
-        });
-    });
-    });
-
-    //单选数据的控制
-    document.addEventListener('DOMContentLoaded', (event) => {
-    const radios = document.querySelectorAll('.menu input[type="radio"]');
-    radios.forEach(radio => {
-        radio.addEventListener('change', (event) => {
-            // 当一个新的单选按钮被选中时，取消其他所有单选按钮的选中状态
-            radios.forEach(radio => {
-                if (radio !== event.target) {
-                    radio.checked = false;
-                    }
-                });
-            });
-        });
-    });
-
-    //加载高德在线地图
-    // 定义地图层
-    let basicLayer = new AMap.TileLayer();
-    let satelliteLayer = new AMap.TileLayer.Satellite();
-    let roadNetLayer = new AMap.TileLayer.RoadNet();
-    let satelliteAndRoadNetLayer = [new AMap.TileLayer.Satellite(), new AMap.TileLayer.RoadNet()];
-    //定义星图地球
-    let XINGTU = new AMap.TileLayer({
-        getTileUrl: function(x, y, z) {
-            return 'https://tiles.geovisearth.com/base/v1/img/' + z + '/' + x + '/' + y + '.webp?format=webp&tmsIds=w&token=0aeb02f29320b060c2e2d0c04eb4887c6b8d5a8ed479b3aacff2b6a273b0d38d';
-        },
-        tileSize: 256,
-        zIndex: 100
-        });
-    // 初始化地图
-    const map = new AMap.Map('mapContainer', {
-        zoom: 2,
-        center: [35, 105],
-        layers: [XINGTU]  // 默认显示遥感图层
-    });
-
-</script>
+<!-- 底图加载 -->
+<script src="/js/BaseMap.js"></script>
+<!-- 在地图上绘制图形 -->
+<script src="/js/drawingTool.js"></script>
 </body>
 </html>
