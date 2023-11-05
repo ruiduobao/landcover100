@@ -70,6 +70,38 @@ function drawPolygon () {
     })
   }
 
+
+
+// 针对高德地图的polygonToGeoJSON函数
+function polygonToGeoJSON(polygon) {
+    // 获取多边形的路径点
+    var path = polygon.getPath();
+
+    // 构建GeoJSON坐标数组
+    var coordinates = [];
+
+    // 遍历路径点，转换为GeoJSON需要的坐标格式
+    path.forEach(function(lnglat) {
+        coordinates.push([lnglat.getLng(), lnglat.getLat()]);
+    });
+
+    // 为了确保多边形闭合，将起始点坐标复制到数组末尾
+    coordinates.push([path[0].getLng(), path[0].getLat()]);
+
+    // 构建GeoJSON对象
+    var geojson = {
+        "type": "Feature",
+        "properties": {}, // 可以添加自定义属性
+        "geometry": {
+        "type": "Polygon",
+        "coordinates": [coordinates] // 多边形坐标是一个数组的数组
+        }
+    };
+
+    return geojson;
+}
+
+
 // 将矩形转换为 GeoJSON 的函数
 function rectangleToGeoJSON(rectangle) {
         var bounds = rectangle.getBounds();
@@ -94,23 +126,63 @@ function rectangleToGeoJSON(rectangle) {
     return geojson;
 }
 
+// 将圆形转换为 GeoJSON 的函数
+function circleToGeoJSON(circle) {
+    var center = circle.getCenter();
+    var radius = circle.getRadius();
+    var coords = [];
+  
+    for (var i = 0; i < 360; i++) {
+      var angle = i * Math.PI / 180;
+      var lat = center.lat + (radius * Math.cos(angle) / 111320);
+      var lng = center.lng + (radius * Math.sin(angle) / (111320 * Math.cos(center.lat * Math.PI / 180)));
+      coords.push([lng, lat]);
+    }
+  
+    // 闭合圆形
+    coords.push(coords[0]);
+  
+    return {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [coords]
+      }
+    };
+  }
+  
+
+
 // 监听绘制完毕事件并存储形状
 mouseTool.on('draw', function(event) {
     shapes.push(event.obj); // 将新绘制的形状添加到数组中
-    var geojson_file = rectangleToGeoJSON(event.obj);
+    //使用坐标点将图形保存
+    var geojson_file;
+    if (event.obj instanceof AMap.Polygon) { // 判断是否为多边形
+      geojson_file = polygonToGeoJSON(event.obj);
+    } else if (event.obj instanceof AMap.Circle) { // 判断是否为圆形
+      geojson_file = circleToGeoJSON(event.obj);
+    } else if (event.obj instanceof AMap.Rectangle) { // 判断是否为矩形
+      geojson_file = rectangleToGeoJSON(event.obj);
+    }
     // 发送POST请求到服务器保存GeoJSON
     fetch('/savegeojson', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(geojson_file)
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(geojson_file)
+      })
+      .then(response => response.json())  // 注意现在我们期望一个JSON响应
+      .then(data => {
+          // 在这里处理文件URL/路径
+          console.log('Success:', data.fileUrl);
+      
+          // 你可能想要做一些事情用这个文件URL，
+          // 比如存储它，展示给用户等。
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
   });

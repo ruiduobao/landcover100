@@ -26,8 +26,9 @@ app.post('/savegeojson', (req, res) => {
   // 需要一个解析JSON的中间件比如express.json()
   const geojsonData = req.body;
   
-  // 生成文件名，基于当前时间
-  const filename = `${new Date().toISOString()}.geojson`;
+  // 生成文件名，基于当前时间，格式为 YYYYMMDDHHmmss
+  const timestamp = new Date().toISOString().replace(/[^0-9]/g, "").slice(0,14);
+  const filename = `${timestamp}.geojson`;
   
   // 文件保存路径
   const filePath = path.join(__dirname, 'public', 'vector', filename);
@@ -35,11 +36,16 @@ app.post('/savegeojson', (req, res) => {
   // 将GeoJSON数据写入文件
   fs.writeFile(filePath, JSON.stringify(geojsonData), (err) => {
     if (err) {
-      console.log('Error saving the file:', err); // 先记录日志
-      return res.status(500).send('Error saving the file.'); // 然后发送响应
+      console.log('Error saving the file:', err);
+      return res.status(500).send('Error saving the file.');
     }
     console.log('File saved successfully.');
-    res.send('File saved successfully.'); // 成功保存文件后发送成功消息
+
+    // 构造访问文件的URL或相对路径
+    const fileUrl = `/vector/${filename}`;
+
+    // 将文件URL或路径回传给客户端
+    res.json({ fileUrl: fileUrl });
   });
 
 });
