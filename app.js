@@ -50,3 +50,37 @@ app.post('/savegeojson', (req, res) => {
 
 });
 
+//用户文件上传
+const fileUpload = require('express-fileupload');
+// 在 app.js 中，使用中间件
+app.use(fileUpload({
+    createParentPath: true // 允许创建多级目录
+}));
+// 一个POST路由，用于处理文件上传
+app.post('/uploadvector', (req, res) => {
+    console.log('Received request for /uploadvector'); // 调试信息
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+    // `file` 是前端传来的文件对象名称
+    let file = req.files.file; // 确保这里的`file`与前端发送的字段名一致
+    // 对URL编码过的文件名进行解码
+    let fileName = decodeURIComponent(file.name);
+    // 检查文件格式
+    const validFormats = ['.gson', '.geogson', '.shp', '.geojson', '.kml'];
+    const fileExtension = path.extname(file.name).toLowerCase();
+    
+    if (validFormats.includes(fileExtension)) {
+        // 设置文件保存路径
+        let uploadPath = path.join(__dirname, 'public', 'vector_upload', fileName);
+
+        file.mv(uploadPath, function(err) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            res.json({ message: 'File uploaded successfully', fileUrl: `/vector_upload/${fileName}` });
+        });
+    } else {
+        res.status(400).send('Invalid file format.');
+    }
+});

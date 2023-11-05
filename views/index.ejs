@@ -119,13 +119,20 @@
             <!-- 更多年份选项 -->
         </select>
         <!-- 矢量选择 -->
-        <h3>空间位置:</h3>
+        <h3>位置选择:</h3>
         <div id="selector-container" style="display: flex;">
             <select id="data_type_select"  onchange="handleSelectChange()">
                 <option value="type1">按行政区划</option>
                 <option value="type2">本地上传</option>
                 <option value="type3">在线勾画</option>
             </select>
+
+            <!-- 用于上传文件的 div 框 -->
+            <div id="file-upload-container" >
+                <span>请上传矢量文件（支持上传shp、geojson和kml格式）</span>
+            </div>
+
+            <!-- 在线画矢量的框 -->
             <div id="drawIcons" style="display: none;">
                 <span>矩形</span>
                 <img id="drawIcon_rect" src="/img/rect.png" style="cursor: pointer;" onclick="drawRectangle()" />
@@ -155,9 +162,12 @@
 </div>
 <!-- 底图加载 -->
 <script src="/js/BaseMap.js"></script>
+<!-- 显示面矢量 -->
+<script src="/js/add_vector2map.js"></script>
 <!-- 在地图上绘制图形 -->
 <script src="/js/drawingTool.js"></script>
-
+<!-- 上传裁剪矢量函数 -->
+<script src="/js/file_upload.js"></script>
 <script>
 </script>
 </body>

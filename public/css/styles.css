@@ -190,3 +190,26 @@ ul.menu, ul.menu > li {
     display: flex;
     height: calc(100% - 45px); /* 减去顶部div的高度 */
 }
+
+/* 上传文件的框 */
+#file-upload-container {
+    display: none; 
+    border: 2px dashed #aaa; 
+    background-color: #f0f0f0; 
+    text-align: center; 
+    padding: 20px; 
+    margin-top: 10px; 
+    cursor: pointer;
+    /* 添加一些hover效果，让用户知道可以点击 */
+    transition: background-color 0.2s;
+}
+
+#file-upload-container:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+
+
+
