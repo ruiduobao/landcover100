@@ -4,6 +4,7 @@ let basicLayer = new AMap.TileLayer();
 let satelliteLayer = new AMap.TileLayer.Satellite();
 let roadNetLayer = new AMap.TileLayer.RoadNet();
 let satelliteAndRoadNetLayer = [new AMap.TileLayer.Satellite(), new AMap.TileLayer.RoadNet()];
+
 //定义星图地球
 let XINGTU = new AMap.TileLayer({
     getTileUrl: function(x, y, z) {
@@ -47,3 +48,9 @@ function switchToSatelliteAndRoadNetMap() {
 function switchToStarMap() {
     map.setLayers([XINGTU]);
     }
+//绘制工具初始化
+AMap.plugin(["AMap.MouseTool"],function () {
+    mouseTool = new AMap.MouseTool(map);
+});
+
+var mouseTool = new AMap.MouseTool(map)

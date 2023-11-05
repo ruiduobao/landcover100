@@ -120,12 +120,17 @@
         </select>
         <!-- 矢量选择 -->
         <h3>空间位置:</h3>
-        <select id="data_type_select">
+        
+        <select id="data_type_select"  onchange="handleSelectChange()">
             <option value="type1">按行政区划</option>
             <option value="type2">本地上传</option>
-            <option value="type2">在线勾画</option>
+            <option value="type3">在线勾画</option>
         </select>
-        <img id="drawIcon" src="/img/draw_rect.png" style="display: none; cursor: pointer;" onclick="startDrawing()" />
+        <div id="drawIcons" style="display: none;">
+            <img id="drawIcon_rect" src="/img/rect.png" style="cursor: pointer;" onclick="drawRectangle()" />
+            <img id="drawIcon_polygon" src="/img/polygon.png" style="cursor: pointer;" onclick="drawPolygon()" />
+            <img id="drawIcon_circle" src="/img/circle.png" style="cursor: pointer;" onclick="drawCircle()" />
+        </div>
     </div>
     <div id="right_DIV">
         <div id="mapContainer" style="flex: 1; position: relative; z-index: 1000;">
@@ -146,5 +151,8 @@
 <script src="/js/BaseMap.js"></script>
 <!-- 在地图上绘制图形 -->
 <script src="/js/drawingTool.js"></script>
+
+<script>
+</script>
 </body>
 </html>

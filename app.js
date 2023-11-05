@@ -21,7 +21,7 @@ app.listen(port, () => {
 });
 
 //POST路由，处理从前端接收到的GeoJSON数据并保存到文件
-app.post('/save-geojson', (req, res) => {
+app.post('/savegeojson', (req, res) => {
   // 假设我们从请求体中得到了GeoJSON数据
   // 需要一个解析JSON的中间件比如express.json()
   const geojsonData = req.body;
@@ -35,9 +35,12 @@ app.post('/save-geojson', (req, res) => {
   // 将GeoJSON数据写入文件
   fs.writeFile(filePath, JSON.stringify(geojsonData), (err) => {
     if (err) {
-      return res.status(500).send('Error saving the file.');
+      console.log('Error saving the file:', err); // 先记录日志
+      return res.status(500).send('Error saving the file.'); // 然后发送响应
     }
-    res.send('File saved successfully.');
+    console.log('File saved successfully.');
+    res.send('File saved successfully.'); // 成功保存文件后发送成功消息
   });
+
 });
 
