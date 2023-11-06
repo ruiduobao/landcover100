@@ -1,15 +1,15 @@
 // 用来在地图上绘制图形
 
-// 监听select的变化，显示或隐藏绘制图标
-function handleSelectChange() {
-    var select = document.getElementById('data_type_select');
-    var drawIcon = document.getElementById('drawIcons');
-    if (select.value === 'type3') { // 确认选中的是在线勾画
-        drawIcon.style.display = 'inline'; // 显示图标
-    } else {
-        drawIcon.style.display = 'none'; // 隐藏图标
-    }
-}
+// // 监听select的变化，显示或隐藏绘制图标
+// function handleSelectChange() {
+//     var select = document.getElementById('data_type_select');
+//     var drawIcon = document.getElementById('drawIcons');
+//     if (select.value === 'type3') { // 确认选中的是在线勾画
+//         drawIcon.style.display = 'inline'; // 显示图标
+//     } else {
+//         drawIcon.style.display = 'none'; // 隐藏图标
+//     }
+// }
 
 // 在地图上绘制图形的数组
 let shapes = [];

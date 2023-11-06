@@ -1,20 +1,3 @@
-//设置用户上传功能
-function handleSelectChange() {
-    const selectElement = document.getElementById('data_type_select');
-    const fileUploadContainer = document.getElementById('file-upload-container');
-    const drawIcons = document.getElementById('drawIcons');
-    // 隐藏所有相关的div
-    fileUploadContainer.style.display = 'none';
-    drawIcons.style.display = 'none';
-    
-    // 根据选中的选项显示相应的div
-    if (selectElement.value === 'type2') { // 如果是本地上传
-        fileUploadContainer.style.display = 'block';
-    } else if (selectElement.value === 'type3') { // 如果是在线勾画
-        drawIcons.style.display = 'flex';
-    }
-}
-
 // 点击上传文件区域时的处理
 document.getElementById('file-upload-container').addEventListener('click', function() {
     // 创建一个隐藏的文件输入元素

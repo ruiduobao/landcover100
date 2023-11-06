@@ -126,7 +126,24 @@
                 <option value="type2">本地上传</option>
                 <option value="type3">在线勾画</option>
             </select>
-
+            <!-- 省级、地级、县级选择框，默认不显示 -->
+            <div id="administrative-select-container" style="display: none;">
+                <label>请选择省级：
+                    <select id="province_select">
+                        <!-- 省级选项 -->
+                    </select>
+                </label>
+                <label>请选择地级：
+                    <select id="city_select">
+                        <!-- 地级选项 -->
+                    </select>
+                </label>
+                <label>请选择县级：
+                    <select id="county_select">
+                        <!-- 县级选项 -->
+                    </select>
+                </label>
+            </div>
             <!-- 用于上传文件的 div 框 -->
             <div id="file-upload-container" >
                 <span>请上传矢量文件（支持上传shp、geojson和kml格式）</span>
@@ -164,6 +181,8 @@
 <script src="/js/BaseMap.js"></script>
 <!-- 显示面矢量 -->
 <script src="/js/add_vector2map.js"></script>
+<!-- 地区选择省市县 -->
+<script src="/js/select_shengshixian.js"></script>
 <!-- 在地图上绘制图形 -->
 <script src="/js/drawingTool.js"></script>
 <!-- 上传裁剪矢量函数 -->
