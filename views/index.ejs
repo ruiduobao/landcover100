@@ -42,8 +42,8 @@
                     <!-- 原有的三级菜单 -->
                     <ul class="submenu">
                         <li>
-                            <input type="radio" name="menu_choice" id="esa_choice"><label for="esa_choice">ESA</label>
-                            <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
+                            <input type="radio" name="menu_choice" id="esa_choice"><label for="esa_choice">1000米DEM</label>
+                            <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" onclick="GETdemMap()"/></a>
                             <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
                         </li>
                         <!-- 其他三级菜单项 -->
@@ -120,6 +120,7 @@
         </select>
         <!-- 矢量选择 -->
         <h3>位置选择:</h3>
+        
         <div id="selector-container" style="display: flex;">
             <select id="data_type_select"  onchange="handleSelectChange()">
                 <option value="type1">按行政区划</option>
@@ -166,9 +167,12 @@
                 <img id="drawIcon_circle" src="/img/circle.png" style="cursor: pointer;" onclick="drawCircle()" />
             </div>
         </div>
+        <h3>数据下载:</h3>
+        <button onclick="clipDataDownload('E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson')">下载数据</button>
     </div>
     <div id="right_DIV">
         <div id="mapContainer" style="flex: 1; position: relative; z-index: 1000;">
+
             <!-- 地图图层切换的下拉框，悬浮在左下角 -->
             <div style="position: absolute; bottom: 10px; right: 10px; z-index: 1000;">
                 <label for="mapLayer">底图:</label>
@@ -177,6 +181,7 @@
                     <option value="satellite" selected>高德遥感卫星</option>
                     <option value="satellite_road">高德卫星和路网</option>
                     <option value="basic">高德标准图层</option>
+                    <option value="DEM">DEM图层</option>
                 </select>
             </div>                
         </div>
@@ -192,6 +197,8 @@
 <script src="/js/drawingTool.js"></script>
 <!-- 上传裁剪矢量函数 -->
 <script src="/js/file_upload.js"></script>
+<!-- 裁剪所选矢量，并下载栅格函数 -->
+<script src="/js/clip_data_download.js"></script>
 <script>
 </script>
 </body>

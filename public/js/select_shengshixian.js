@@ -261,86 +261,63 @@ function countySelectChangeHandler() {
         console.error('Error:', error);
     });
     // 更新乡级选择框
-    var CITY_NAME=county_code.substring(0, 4) + "00"
-    fetch(`/shengshixian/xianxiangcun/${CITY_NAME}.md`)
+    var COUNTY_MD_PATH = `/shengshixian/xianxiang/${county_code}.md`;
+    fetch(COUNTY_MD_PATH)
         .then(response => response.text())
         .then(text => {
-            console.log('更新乡镇成功打开市级文件CITY_NAME', CITY_NAME);
-            console.log('更新乡镇成功打开市级文件county_name', county_name);
-            // 使用正则表达式的非贪婪模式定位到选中的县级标题及其之后的内容，直到下一个一级标题或文档结尾
-            const countySectionRegex = new RegExp(`# ${county_name}\\s+.*?(?:\\n# |$)`, 'gm');
-            let countySectionMatch = countySectionRegex.exec(text);
-            console.log('匹配的乡级数据为：', countySectionMatch);
-            updateXiangSelect(text,county_name);
+            console.log('成功获取县级Markdown数据:', COUNTY_MD_PATH);
+            updateXiangSelect(text);
         })
         .catch(error => {
             console.error('Error:', error);
-            console.log('乡镇打开市级文件失败', county_code);
-    });
+            console.log('获取县级Markdown数据失败', COUNTY_MD_PATH);
+        });
 }
 
-// 更新乡级选择框，仅解析选中的县级标题下的二级标题
-function updateXiangSelect(mdContent, countyName) {
+// 更新乡级选择框，仅解析选中的县级标题下的一级标题
+function updateXiangSelect(mdContent) {
     const xiangSelect = document.getElementById('xiang_select');
     xiangSelect.innerHTML = ''; // 清空现有的乡级列表
 
-    // 使用正则表达式的非贪婪模式定位到选中的县级标题及其之后的内容，直到下一个一级标题或文档结尾
-    const countySectionRegex = new RegExp(`# ${countyName}\\s+.*?(?:\\n# |$)`, 'gm');
-    let countySectionMatch = countySectionRegex.exec(mdContent);
-    if (!countySectionMatch) return; // 如果没有找到对应的县，就直接返回
-    console.log('匹配的乡级数据为：', countySectionMatch);
-    // 取得选中县级之后的全部内容
-    let countySection = countySectionMatch[0];
-
-    // 此处我们限定了只在此县级范围内匹配乡级标题
-    const xiangRegex = /^## (.+?)\s/gm;
+    // 使用正则表达式匹配乡级标题及其编码
+    const xiangRegex = /# (.+?) (\d+)/gm;
     let match;
-    while ((match = xiangRegex.exec(countySection)) !== null) {
+    while ((match = xiangRegex.exec(mdContent)) !== null) {
         const xiangName = match[1].trim();
-        // ...添加option到xiangSelect
+        const xiangCode = match[2].trim();
+        
+        // 添加option到xiangSelect，使用编码作为option的value
         const option = document.createElement('option');
-        option.value = xiangName;
+        option.value = xiangCode;
         option.textContent = xiangName;
         xiangSelect.appendChild(option);
     }
-    // 添加乡级监视器
+    // 添加乡级选择框的事件监听器
     xiangSelect.addEventListener('change', xiangSelectChangeHandler);
-
-    
 }
 
 // 乡级选择框变化时的处理函数
 function xiangSelectChangeHandler() {
     var xiang_code = this.value;
     console.log('选中的乡级代码是:', xiang_code);
-    // 更新村级选择框
-    updateCunSelect(xiang_code);
-}
-
-// 用于更新村级选择框的函数，假设村级信息在三级标题下
-function updateCunSelect(mdContent, xiangName) {
-    const cunSelect = document.getElementById('cun_select');
-    cunSelect.innerHTML = ''; // 清空现有的村级列表
-    // 为了匹配乡下面的村，首先要定位到当前乡的位置
-    const lines = mdContent.split('\n');
-    let xiangFound = false;
-    for (const line of lines) {
-        // 检查是否为当前选中的乡
-        if (line.startsWith('## ') && line.includes(xiangName)) {
-            xiangFound = true;
-            continue;
+    // 调用POST路由来获取乡级矢量数据
+    fetch('/getGsonDB', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ code: xiang_code}) // 发送省份代码
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            // 使用从POST路由获得的路径加载矢量
+            loadGeoJSONfromPath(data.filepath);
+        } else {
+            throw new Error(data.message);
         }
-        // 如果乡已找到，开始查找下面的村
-        if (xiangFound && line.startsWith('### ')) {
-            const cunName = line.substring(4).trim(); // 去掉"### "部分
-            const option = document.createElement('option');
-            option.value = cunName;
-            option.text = cunName;
-            cunSelect.appendChild(option);
-        }
-        // 如果到达下一个乡的标题，停止查找村
-        if (xiangFound && line.startsWith('## ') && !line.includes(xiangName)) {
-            break;
-        }
-    }
+    })
+    .catch(error => {
+        console.error('加载乡级数据失败，Error:', error);
+    });
 }

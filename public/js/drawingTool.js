@@ -1,32 +1,11 @@
-// 用来在地图上绘制图形
-
-// // 监听select的变化，显示或隐藏绘制图标
-// function handleSelectChange() {
-//     var select = document.getElementById('data_type_select');
-//     var drawIcon = document.getElementById('drawIcons');
-//     if (select.value === 'type3') { // 确认选中的是在线勾画
-//         drawIcon.style.display = 'inline'; // 显示图标
-//     } else {
-//         drawIcon.style.display = 'none'; // 隐藏图标
-//     }
-// }
-
 // 在地图上绘制图形的数组
 let shapes = [];
-
-// 移除地图上所有的形状
-function removeShapes() {
-  for (let shape of shapes) {
-    shape.setMap(null); // 移除形状
-  }
-  shapes = []; // 清空数组
-}
-
 
 // ... 这里可以添加更多处理绘制和GeoJSON转换的代码 ...
 //初始化绘制工具
 function drawPolygon () {
     removeShapes(); // 移除旧的形状
+    selectIcon('drawIcon_polygon');
     mouseTool.polygon({
       strokeColor: "#FF33FF", 
       strokeOpacity: 1,
@@ -42,6 +21,7 @@ function drawPolygon () {
   }
 
   function drawRectangle () {
+    selectIcon('drawIcon_rect');
     removeShapes(); // 移除旧的形状
     mouseTool.rectangle({
       strokeColor:'red',
@@ -56,6 +36,7 @@ function drawPolygon () {
   }
 
   function drawCircle () {
+    selectIcon('drawIcon_circle');
     removeShapes(); // 移除旧的形状
     mouseTool.circle({
       strokeColor: "#FF33FF",
@@ -178,11 +159,25 @@ mouseTool.on('draw', function(event) {
       .then(data => {
           // 在这里处理文件URL/路径
           console.log('Success:', data.fileUrl);
-      
+          loadGeoJSONfromPath(data.fileUrl)
           // 你可能想要做一些事情用这个文件URL，
           // 比如存储它，展示给用户等。
       })
       .catch((error) => {
           console.error('Error:', error);
       });
+
+      
   });
+
+//给选中的标签添加背景
+function selectIcon(selectedId) {
+    // 移除所有图标的选中样式
+    document.querySelectorAll('#drawIcons img').forEach(img => {
+        img.classList.remove('selected-icon');
+    });
+
+    // 为选中的图标添加选中样式
+    document.getElementById(selectedId).classList.add('selected-icon');
+}
+

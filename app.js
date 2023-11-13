@@ -221,3 +221,36 @@ app.post('/uploadvector', (req, res) => {
         res.status(400).send('Invalid file format.');
     }
 });
+
+//调用python裁剪栅格
+const { exec } = require('child_process');
+
+app.post('/clip-dem', (req, res) => {
+    // 假设请求体中包含了矢量数据文件的路径
+    const vectorDataFilePath = req.body.vectorDataFilePath;
+    console.log('vectorDataFilePath:', vectorDataFilePath);
+    const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
+    const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/clip_data.py";
+    const inputRasterPath = "E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif";
+    const outputRasterPath = "E:/node_gdal_waibu22223452.tif";
+    
+    exec(`${pythonEnv} "${scriptPath}" "${vectorDataFilePath}" "${inputRasterPath}" "${outputRasterPath}"`, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`执行出错: ${error}`);
+            return res.status(500).send(`Server error: ${error.message}`);
+        }
+        if (stderr) {
+            console.error(`stderr: ${stderr}`);
+            return res.status(500).send(`Script error: ${stderr}`);
+        }
+        // 检查stdout是否包含成功的消息
+        if (stdout.includes("doneclip") || stdout.includes("done")) {
+            console.log(`stdout: ${stdout}`);
+            res.send({ outputPath: outputRasterPath });
+        } else {
+            // 如果没有成功消息，发送一个通用错误
+            console.error(`未知错误: ${stdout}`);
+            return res.status(500).send('Unknown script error');
+        }
+    });
+});

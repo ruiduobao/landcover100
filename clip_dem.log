@@ -1,0 +1,68 @@
+2023-11-13 18:35:24,822:INFO:ï¿½ï¿½Ê¼ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½Õ¤ï¿½ï¿½=E:\ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½\landcover100.com\public\raster_data_DB\DEM_1000_3857.tif, ï¿½ï¿½ï¿½Õ¤ï¿½ï¿½=E:\ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½\landcover100.com\public\raster_output\output4.tif, Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½=E:\ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½\landcover100.com\public\vector\20231105120051.geojson
+2023-11-13 18:35:24,985:INFO:ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½
+2023-11-13 19:23:47,682:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_data_DB\DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output\output_node2.tif', Ê¸Á¿Êı¾İ='E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/vector/20231105120051.geojson'
+2023-11-13 19:23:47,695:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output" does not exist!
+2023-11-13 19:27:09,601:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_data_DB\DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output\output_node2.tif', Ê¸Á¿Êı¾İ='E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/vector/20231105120051.geojson'
+2023-11-13 19:27:09,617:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output" does not exist!
+2023-11-13 19:27:37,146:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_data_DB\DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output\output_node2.tif', Ê¸Á¿Êı¾İ='E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/vector/20231105120051.geojson'
+2023-11-13 19:27:37,165:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output" does not exist!
+2023-11-13 19:30:48,972:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_data_DB\DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output\output_node2.tif', Ê¸Á¿Êı¾İ='E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/vector/20231105120051.geojson'
+2023-11-13 19:30:48,984:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output" does not exist!
+2023-11-13 19:34:45,550:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_data_DB\DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output\output_node2.tif', Ê¸Á¿Êı¾İ='E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/vector/20231105120051.geojson'
+2023-11-13 19:34:45,563:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:\¸öÈË\ÍøÕ¾±¸·İ\landcover100.com\public\raster_output" does not exist!
+2023-11-13 19:43:38,454:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/raster_data_DB/DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/raster_output/output_node2.tif', Ê¸Á¿Êı¾İ='E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/vector/20231105120051.geojson'
+2023-11-13 19:43:38,467:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:/¸öÈË/ÍøÕ¾±¸·İ/landcover100.com/public/raster_output" does not exist!
+2023-11-13 19:49:07,555:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100.com/public/raster_data_DB/DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100.com/public/raster_output/output_node2.tif', Ê¸Á¿Êı¾İ='E:/ruiduobao/MY_website/landcover100.com/public/vector/20231105120051.geojson'
+2023-11-13 19:49:07,568:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:/ruiduobao/MY_website/landcover100.com/public/raster_output" does not exist!
+2023-11-13 19:51:58,350:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100_com/public/raster_output/output_node2.tif', Ê¸Á¿Êı¾İ='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 19:51:58,363:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:/ruiduobao/MY_website/landcover100_com/public/raster_output" does not exist!
+2023-11-13 19:55:12,067:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100_com/public/raster_output/output_node2.tif', Ê¸Á¿Êı¾İ='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 19:55:12,080:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:/ruiduobao/MY_website/landcover100_com/public/raster_output" does not exist!
+2023-11-13 20:04:01,085:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:/node2.tif', Ê¸Á¿Êı¾İ='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:04:01,097:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:" does not exist!
+2023-11-13 20:04:23,179:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:\node2.tif', Ê¸Á¿Êı¾İ='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:04:23,194:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:" does not exist!
+2023-11-13 20:05:33,552:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:\node2.tif', Ê¸Á¿Êı¾İ='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:05:33,571:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:" does not exist!
+2023-11-13 20:11:07,898:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node2.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:11:08,069:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:13:29,147:INFO:¿ªÊ¼²Ã¼ô²Ù×÷: ÊäÈëÕ¤¸ñ='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', Êä³öÕ¤¸ñ='E:/node2.tif', Ê¸Á¿Êı¾İ='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:13:29,160:ERROR:²Ã¼ô²Ù×÷·¢Éú´íÎó: The path "'E:" does not exist!
+2023-11-13 20:17:37,787:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', è¾“å‡ºæ …æ ¼='E:/node2.tif', çŸ¢é‡æ•°æ®='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:17:37,799:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: The path "'E:" does not exist!
+2023-11-13 20:18:24,025:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', è¾“å‡ºæ …æ ¼='node2.tif', çŸ¢é‡æ•°æ®='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:18:24,042:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: The path "" does not exist!
+2023-11-13 20:25:40,251:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', è¾“å‡ºæ …æ ¼='node2.tif', çŸ¢é‡æ•°æ®='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:25:40,253:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: `'E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif'' does not exist in the file system, and is not recognized as a supported dataset name.
+2023-11-13 20:26:21,213:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node2.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:26:21,298:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:26:32,109:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:26:32,189:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:29:26,938:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_neibu.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:29:27,061:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:31:29,142:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_neibu.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:31:29,285:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:31:40,002:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_neibu.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:31:40,082:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:32:35,562:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', è¾“å‡ºæ …æ ¼='E:/node_gdal_waibu.tif', çŸ¢é‡æ•°æ®='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:32:35,562:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: `'E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif'' does not exist in the file system, and is not recognized as a supported dataset name.
+2023-11-13 20:33:12,759:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', è¾“å‡ºæ …æ ¼='E:/node_gdal_waibu.tif', çŸ¢é‡æ•°æ®='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:33:12,760:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: `'E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif'' does not exist in the file system, and is not recognized as a supported dataset name.
+2023-11-13 20:33:35,329:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', è¾“å‡ºæ …æ ¼='E:/node_gdal_waibu.tif', çŸ¢é‡æ•°æ®='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:33:35,330:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: `'E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif'' does not exist in the file system, and is not recognized as a supported dataset name.
+2023-11-13 20:39:48,141:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_neibu.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:39:48,298:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:40:38,907:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_neibu.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:40:39,036:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:41:56,131:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼='E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif', è¾“å‡ºæ …æ ¼='E:/node_gdal_waibu.tif', çŸ¢é‡æ•°æ®='E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson'
+2023-11-13 20:41:56,132:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: `'E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif'' does not exist in the file system, and is not recognized as a supported dataset name.
+2023-11-13 20:46:16,142:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_waibu.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:46:16,270:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ
+2023-11-13 20:48:38,227:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_waibu.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:48:38,457:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: local variable 'ds' referenced before assignment
+2023-11-13 20:49:01,107:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_waibu2.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:49:01,317:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: local variable 'ds' referenced before assignment
+2023-11-13 20:53:58,427:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_waibu222.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:53:58,578:ERROR:è£å‰ªæ“ä½œå‘ç”Ÿé”™è¯¯: local variable 'ds' referenced before assignment
+2023-11-13 20:56:58,815:INFO:å¼€å§‹è£å‰ªæ“ä½œ: è¾“å…¥æ …æ ¼=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, è¾“å‡ºæ …æ ¼=E:/node_gdal_waibu22223452.tif, çŸ¢é‡æ•°æ®=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
+2023-11-13 20:56:58,974:INFO:è£å‰ªæ“ä½œæˆåŠŸå®Œæˆ

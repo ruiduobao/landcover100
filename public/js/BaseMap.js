@@ -5,6 +5,8 @@ let satelliteLayer = new AMap.TileLayer.Satellite();
 let roadNetLayer = new AMap.TileLayer.RoadNet();
 let satelliteAndRoadNetLayer = [new AMap.TileLayer.Satellite(), new AMap.TileLayer.RoadNet()];
 
+
+
 //定义星图地球
 let XINGTU = new AMap.TileLayer({
     getTileUrl: function(x, y, z) {
@@ -30,7 +32,7 @@ function switchMapLayer() {
             switchToBasicMap();
         } else if (selectedLayer === 'satellite_road') {
             switchToSatelliteAndRoadNetMap();            
-        }else if (selectedLayer === 'star_map') {
+        } else if (selectedLayer === 'star_map') {
             switchToStarMap();
         }
     }
@@ -48,6 +50,18 @@ function switchToSatelliteAndRoadNetMap() {
 function switchToStarMap() {
     map.setLayers([XINGTU]);
     }
+//添加自定义wmts图层
+let wmtsLayer = new AMap.TileLayer({
+    getTileUrl: function(x, y, z) {
+        return `http://182.254.147.254:8080/geoserver/landcover100_DEM/gwc/service/wmts?layer=landcover100_DEM%3ADEM1000%E7%B1%B33857%E5%9D%90%E6%A0%87%E7%B3%BB&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix=${z}&TileCol=${x}&TileRow=${y}`;
+    },
+    tileSize: 256,
+    zIndex: 100
+});
+function GETdemMap() {
+    map.add([wmtsLayer]);;
+    }
+            
 //绘制工具初始化
 AMap.plugin(["AMap.MouseTool"],function () {
     mouseTool = new AMap.MouseTool(map);

@@ -208,6 +208,9 @@ ul.menu, ul.menu > li {
     background-color: #e0e0e0;
 }
 
+.selected-icon {
+    border: 2px solid red;
+}
 
 
 
