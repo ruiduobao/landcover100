@@ -168,7 +168,9 @@
             </div>
         </div>
         <h3>数据下载:</h3>
-        <button onclick="clipDataDownload('E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson')">下载数据</button>
+        <button onclick="clipDataDownload()">下载数据</button>
+        <h3>数据发布到geoserver:</h3>
+        <button onclick="publish_Raster()">发布数据</button>
     </div>
     <div id="right_DIV">
         <div id="mapContainer" style="flex: 1; position: relative; z-index: 1000;">
@@ -199,6 +201,8 @@
 <script src="/js/file_upload.js"></script>
 <!-- 裁剪所选矢量，并下载栅格函数 -->
 <script src="/js/clip_data_download.js"></script>
+<!-- 发布栅格数据 -->
+<script src="/js/publish_raster.js"></script>
 <script>
 </script>
 </body>

@@ -66,3 +66,13 @@
 2023-11-13 20:53:58,578:ERROR:裁剪操作发生错误: local variable 'ds' referenced before assignment
 2023-11-13 20:56:58,815:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif, 输出栅格=E:/node_gdal_waibu22223452.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231105120051.geojson
 2023-11-13 20:56:58,974:INFO:裁剪操作成功完成
+2023-11-15 20:38:34,914:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif, 矢量数据=/vector_fromDB/410000.gson
+2023-11-15 20:38:34,914:ERROR:裁剪操作发生错误: module 'gma.rasp' has no attribute 'Clip'
+2023-11-15 20:46:56,197:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif, 矢量数据=/vector_fromDB/350125205000.gson
+2023-11-15 20:46:56,347:ERROR:裁剪操作发生错误: Unable to open /vector_fromDB/350125205000.gson! Unsupported vector file!
+2023-11-15 20:49:06,873:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/370902005000.gson
+2023-11-15 20:49:07,089:INFO:裁剪操作成功完成
+2023-11-15 20:49:31,937:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/371400.gson
+2023-11-15 20:49:32,243:INFO:裁剪操作成功完成
+2023-11-15 21:45:12,882:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/310000.gson
+2023-11-15 21:45:13,230:INFO:裁剪操作成功完成

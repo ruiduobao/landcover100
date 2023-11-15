@@ -1,3 +1,4 @@
 node_modules/
 public/vector
 public/vector_upload
+public/vector_fromDB

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import gma
+# import gma
+from gma import rasp
 import sys
 from osgeo import gdal
 
@@ -12,7 +13,10 @@ def clip_dem(vector_data, input_raster, output_raster):
 
     try:
         logging.info(f"开始裁剪操作: 输入栅格={input_raster}, 输出栅格={output_raster}, 矢量数据={vector_data}")
-        gma.rasp.Clip(input_raster, output_raster, vector_data)
+        #GMA 1.0版本
+        # gma.rasp.Clip(input_raster, output_raster, vector_data)
+        #GMA 2.0版本
+        rasp.Basic.Clip(input_raster, output_raster, vector_data)
         logging.info("裁剪操作成功完成")
         print("doneclip")
     except Exception as e:

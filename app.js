@@ -4,6 +4,7 @@ const app = express();
 const port = 3003;
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
 
 app.set('view engine', 'ejs');
 
@@ -22,12 +23,21 @@ app.listen(port, () => {
 
 //设置一个数据库属性
 const pgp = require('pg-promise')();
+//本地数据库
+// const dbConfig = {
+//     host: 'localhost',
+//     port: 5434,
+//     database: 'postgis_34_sample',
+//     user: 'postgres',
+//     password: '12345678'
+// };
+//云端数据库
 const dbConfig = {
-    host: 'localhost',
-    port: 5434,
-    database: 'postgis_34_sample',
-    user: 'postgres',
-    password: '12345678'
+    host: '182.254.147.254',
+    port: 5432,
+    database: 'shengshixian',
+    user: 'ruiduobao',
+    password: 'RDB123456.'
 };
 const db = pgp(dbConfig);
 
@@ -229,11 +239,19 @@ app.post('/clip-dem', (req, res) => {
     // 假设请求体中包含了矢量数据文件的路径
     const vectorDataFilePath = req.body.vectorDataFilePath;
     console.log('vectorDataFilePath:', vectorDataFilePath);
-    const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
-    const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/clip_data.py";
-    const inputRasterPath = "E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif";
-    const outputRasterPath = "E:/node_gdal_waibu22223452.tif";
-    
+    //办公室电脑路径
+    // const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
+    // const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/clip_data.py";
+    // const inputRasterPath = "E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif";
+    // const outputRasterPath = "E:/node_gdal_waibu22223452.tif";
+    //家里电脑路径
+    const pythonEnv = " C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
+    const scriptPath = "D:/website/landcover100/public/python_gma/clip_data.py";
+    const inputRasterPath = "D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif";
+    const outputRasterPath = "D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif";
+
+
+
     exec(`${pythonEnv} "${scriptPath}" "${vectorDataFilePath}" "${inputRasterPath}" "${outputRasterPath}"`, (error, stdout, stderr) => {
         if (error) {
             console.error(`执行出错: ${error}`);
@@ -253,4 +271,80 @@ app.post('/clip-dem', (req, res) => {
             return res.status(500).send('Unknown script error');
         }
     });
+});
+
+//创建栅格通过geoserver发布的路由
+const publishRasterData = async (workspace, storename, coverageName, filePath, username, password) => {
+    const geoserverUrl = 'http://182.254.147.254:8080/geoserver';
+    const data = fs.readFileSync(filePath);
+
+    // 设置基本认证信息
+    const auth = { username, password };
+
+    // 步骤1：创建覆盖存储
+    await axios.post(`${geoserverUrl}/rest/workspaces/${workspace}/coveragestores`, {
+        coverageStore: {
+            name: storename,
+            type: 'GeoTIFF',
+            enabled: true,
+            workspace: {
+                name: workspace
+            }
+        }
+    }, { auth });
+
+    // 步骤2：上传栅格数据
+    await axios.put(`${geoserverUrl}/rest/workspaces/${workspace}/coveragestores/${storename}/file.geotiff`, data, {
+        headers: { 'Content-type': 'image/tiff' },
+        auth
+    });
+
+    // 步骤4：为图层配置 Gridset
+    const gridSetId = 'WebMercatorQuad'; // 这是一个 GeoServer 中预定义的 Gridset ID
+    await axios.post(`${geoserverUrl}/gwc/rest/layers/${workspace}:${coverageName}.xml`, {
+    // 以下配置需要根据你的实际需求和 GeoServer 文档进行调整
+    geoServerLayer: {
+        name: `${workspace}:${coverageName}`,
+        mimeFormats: ['image/png', 'image/jpeg'],
+        gridSubsets: {
+        gridSubset: [
+            {
+            gridSetName: gridSetId,
+            // 其他可能的 Gridset 配置
+            }
+        ]
+        },
+        // 其他可能的图层配置
+    }
+    }, {
+    headers: {
+        'Content-type': 'application/xml'
+    },
+    auth
+    });
+
+    // 构建WMTS服务链接
+    
+    const wmtsLink ='http://182.254.147.254:8080/geoserver/${workspace}/gwc/service/wmts?layer=${workspace}:${coverageName}&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix=12&TileCol=3431&TileRow=1673'
+
+
+
+    return wmtsLink;
+}
+
+app.post('/publishRaster', async (req, res) => {
+    try {
+        const wmtsLink = await publishRasterData(
+            req.body.workspace,
+            req.body.storename,
+            req.body.coverageName,
+            req.body.filePath,
+            req.body.username,
+            req.body.password
+        );
+        res.status(200).send({ wmtsLink });
+    } catch (error) {
+        console.error('Error publishing raster data:', error);
+        res.status(500).send('Error publishing raster data');
+    }
 });

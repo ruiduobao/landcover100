@@ -1,4 +1,8 @@
-function clipDataDownload(vectorDataFilePath) {
+function clipDataDownload() {
+
+    // 矢量文件的绝对路径的文件夹
+    const VECTOR_DIR_PATH="D:/website/landcover100/public"
+    const vectorDataFilePath=VECTOR_DIR_PATH+geojson_path[0]
     // 准备发送到服务器的数据
     const data = { vectorDataFilePath };
 
@@ -23,4 +27,5 @@ function clipDataDownload(vectorDataFilePath) {
     .catch(error => {
         console.error('裁剪栅格数据时发生错误:', error);
     });
+    console.log(geojson_path)
 }
