@@ -2,7 +2,7 @@ import pandas as pd
 from tqdm import tqdm 
 import os
 
-# 读取CSV文件
+# 读取CSV文件2
 PATH = r"E:\个人\网站备份\landcover100.com\脚本处理\行政区域数据\原始csv数据\\2.生成的数据位一到五级(含编码)2023.csv"
 df = pd.read_csv(PATH)
 
