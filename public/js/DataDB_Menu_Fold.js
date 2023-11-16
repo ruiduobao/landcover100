@@ -1,6 +1,11 @@
+// 定义全局变量 用于获取选中的数据源
+let selected_DataDB_NAME;
+
 // 二级和三级菜单控制代码
 document.addEventListener('DOMContentLoaded', function () {
     var toggles = document.querySelectorAll('.menu-toggle');
+    // 设置单选按钮的监听器  用于获取选中的数据源名称
+    setupRadioButtons();
     toggles.forEach(function (toggle) {
         toggle.addEventListener('click', function (e) {
         e.preventDefault(); // 阻止默认的链接行为
@@ -35,3 +40,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     });
+
+
+// 设置单选按钮的监听器函数 
+function setupRadioButtons() {
+    var menuChoices = document.querySelectorAll('input[type="radio"][name="menu_choice"]');
+    menuChoices.forEach(function(choice) {
+        choice.addEventListener('change', function() {
+            // 当单选按钮被选中时，更新全局变量
+            if (this.checked) {
+                selected_DataDB_NAME = this.id;
+                console.log("Selected raster_DB ID: " + selected_DataDB_NAME); // 在控制台输出所选ID
+            }
+        });
+    });
+}

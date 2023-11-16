@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/css/styles.css">
 <script src="https://webapi.amap.com/maps?v=1.4.15&key=b6ba147ffd1e49158d12f7cb16d0f381"></script>
 <!-- 引入二三级菜单的折叠脚本js -->
-<script src="/js/Menu_Fold.js"></script>
+<script src="/js/DataDB_Menu_Fold.js"></script>
 <!-- 单选数据的控制 -->
 <script src="/js/Single_choice_data.js"></script>
 
@@ -34,16 +34,21 @@
         <ul class="menu">
             <!-- 在土地覆盖数据下添加一个新的二级菜单 -->
         <li class="menu-item">
-            <a href="#0" class="menu-toggle">土地覆盖数据</a>
+            <a href="#0" class="menu-toggle">数字高程DEM</a>
             <!-- 新添加的二级菜单 -->
             <ul class="submenu">
                 <li>
-                    <a href="#0" class="menu-toggle">10米分辨率</a>
+                    <a href="#0" class="menu-toggle">低分辨率</a>
                     <!-- 原有的三级菜单 -->
                     <ul class="submenu">
                         <li>
-                            <input type="radio" name="menu_choice" id="esa_choice"><label for="esa_choice">1000米DEM</label>
-                            <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" onclick="GETdemMap()"/></a>
+                            <input type="radio" name="menu_choice" id="DEM1000"><label for="DEM1000">1000米DEM</label>
+                            <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" onclick="GETSEEMAP2MAP()"/></a>
+                            <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
+                        </li>
+                        <li>
+                            <input type="radio" name="menu_choice" id="DEM250"><label for="DEM250">250米DEM</label>
+                            <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" onclick="GETSEEMAP2MAP()"/></a>
                             <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
                         </li>
                         <!-- 其他三级菜单项 -->
@@ -167,10 +172,10 @@
                 <img id="drawIcon_circle" src="/img/circle.png" style="cursor: pointer;" onclick="drawCircle()" />
             </div>
         </div>
-        <h3>数据下载:</h3>
-        <button onclick="clipDataDownload()">下载数据</button>
-        <h3>数据发布到geoserver:</h3>
+        <h3>查询</h3>
         <button onclick="publish_Raster()">发布数据</button>
+        <h3>下载:</h3>
+        <button onclick="Download_Clip_raster()">下载数据</button>
     </div>
     <div id="right_DIV">
         <div id="mapContainer" style="flex: 1; position: relative; z-index: 1000;">
@@ -199,10 +204,10 @@
 <script src="/js/drawingTool.js"></script>
 <!-- 上传裁剪矢量函数 -->
 <script src="/js/file_upload.js"></script>
-<!-- 裁剪所选矢量，并下载栅格函数 -->
-<script src="/js/clip_data_download.js"></script>
-<!-- 发布栅格数据 -->
+<!-- 裁剪与发布栅格数据 -->
 <script src="/js/publish_raster.js"></script>
+<!-- 下载裁剪后的栅格函数 -->
+<script src="/js/download_clipdata.js"></script>
 <script>
 </script>
 </body>

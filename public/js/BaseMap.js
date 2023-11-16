@@ -58,7 +58,7 @@ let wmtsLayer = new AMap.TileLayer({
     tileSize: 256,
     zIndex: 100
 });
-function GETdemMap() {
+function GETSEEMAP2MAP() {
     map.add([wmtsLayer]);;
     }
             

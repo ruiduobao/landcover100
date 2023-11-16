@@ -2,3 +2,4 @@ node_modules/
 public/vector
 public/vector_upload
 public/vector_fromDB
+public/raster_data_DB

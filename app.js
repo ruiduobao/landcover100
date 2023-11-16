@@ -7,7 +7,13 @@ const path = require('path');
 const axios = require('axios');
 
 app.set('view engine', 'ejs');
+//python路径
+//家里电脑路径
 
+
+//办公室电脑路径
+// const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
+// const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/clip_data.py";
 // 在 app.js 中
 app.use(express.static('public'));
 // 用于解析JSON格式的请求体
@@ -220,7 +226,6 @@ app.post('/uploadvector', (req, res) => {
     if (validFormats.includes(fileExtension)) {
         // 设置文件保存路径
         let uploadPath = path.join(__dirname, 'public', 'vector_upload', fileName);
-
         file.mv(uploadPath, function(err) {
             if (err) {
                 return res.status(500).send(err);
@@ -232,25 +237,95 @@ app.post('/uploadvector', (req, res) => {
     }
 });
 
+app.post('/uploadvector', async (req, res) => {
+    //文件上传和类型判断的代码
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+    let file = req.files.file;
+    let fileName = decodeURIComponent(file.name);
+    const fileExtension = path.extname(fileName).toLowerCase();
+
+    // 用于存储处理后的文件名
+    let processedFileName; 
+    //处理gson格式
+    if (['.gson', '.geojson'].includes(fileExtension)) {
+        // 直接保存文件并处理
+        processedFileName = fileName;
+        // ... 保存文件的代码
+        // 设置文件保存路径
+        const uploadPath = path.join(__dirname, 'public', 'vector_upload', processedFileName);
+        file.mv(uploadPath, function(err) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            res.json({ message: 'File uploaded successfully', fileUrl: `/vector_upload/${processedFileName}` });
+        });
+    } 
+    //处理kml格式
+    else if (fileExtension === '.kml') {
+        // 保存并转换文件
+        processedFileName = fileName.replace('.kml', '.gson');
+        // ... 保存文件的代码
+        // 设置文件保存路径
+        const uploadPath = path.join(__dirname, 'public', 'vector_upload', fileName);
+        console.log(uploadPath)
+        file.mv(uploadPath, function(err) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+        });
+        // ... 调用 Python 脚本转换文件的代码
+        //kml转gson脚本路径
+        const scriptPath = "D:/website/landcover100/public/python_gma/kml2gson.py";
+        //矢量文件路径+输出geoson文件路径
+        const vectorInFile = req.body.vectorDataFilePath;
+        const vectorOutFile = req.body.outputRasterPath;
+
+    } else if (fileExtension === '.shp') {
+        // 检查相关文件并转换
+        processedFileName = fileName.replace('.shp', '.gson');
+        // ... 轃用 Python 脚本转换文件的代码
+    } else if (fileExtension === '.zip') {
+        // 解压并根据内部文件类型进行处理
+        // ... 解压并检查文件类型的代码
+        // 根据文件类型设置 processedFileName
+    } else {
+        return res.status(400).send('Invalid file format.');
+    }
+
+    // 处理文件并保存的逻辑
+    // ...
+
+    // 返回成功响应
+    res.json({ message: 'File processed successfully', fileUrl: `/vector_upload/${processedFileName}` });
+});
+
+
+
+
+
 //调用python裁剪栅格
 const { exec } = require('child_process');
 
 app.post('/clip-dem', (req, res) => {
     // 假设请求体中包含了矢量数据文件的路径
     const vectorDataFilePath = req.body.vectorDataFilePath;
+    const outputRasterPath = req.body.outputRasterPath;
+    const inputRasterPath=req.body.inputRasterPath;
     console.log('vectorDataFilePath:', vectorDataFilePath);
-    //办公室电脑路径
-    // const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
-    // const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/clip_data.py";
+    console.log('outputRasterPath:', outputRasterPath);
+    console.log('inputRasterPath:', inputRasterPath);
+
     // const inputRasterPath = "E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif";
     // const outputRasterPath = "E:/node_gdal_waibu22223452.tif";
-    //家里电脑路径
+
+    // const inputRasterPath = "D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif";
+    // const outputRasterPath = "D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif";
+    //python的路径
     const pythonEnv = " C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
+    //裁剪脚本路径
     const scriptPath = "D:/website/landcover100/public/python_gma/clip_data.py";
-    const inputRasterPath = "D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif";
-    const outputRasterPath = "D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif";
-
-
 
     exec(`${pythonEnv} "${scriptPath}" "${vectorDataFilePath}" "${inputRasterPath}" "${outputRasterPath}"`, (error, stdout, stderr) => {
         if (error) {
@@ -274,7 +349,13 @@ app.post('/clip-dem', (req, res) => {
 });
 
 //创建栅格通过geoserver发布的路由
-const publishRasterData = async (workspace, storename, coverageName, filePath, username, password) => {
+const publishRasterData = async (workspace, storename, coverageName, filePath) => {
+
+    
+    // 这里需要根据实际的用户名和密码进行替换
+    const username = 'admin'; 
+    const password = 'RDB123456.';
+
     const geoserverUrl = 'http://182.254.147.254:8080/geoserver';
     const data = fs.readFileSync(filePath);
 
@@ -299,36 +380,9 @@ const publishRasterData = async (workspace, storename, coverageName, filePath, u
         auth
     });
 
-    // 步骤4：为图层配置 Gridset
-    const gridSetId = 'WebMercatorQuad'; // 这是一个 GeoServer 中预定义的 Gridset ID
-    await axios.post(`${geoserverUrl}/gwc/rest/layers/${workspace}:${coverageName}.xml`, {
-    // 以下配置需要根据你的实际需求和 GeoServer 文档进行调整
-    geoServerLayer: {
-        name: `${workspace}:${coverageName}`,
-        mimeFormats: ['image/png', 'image/jpeg'],
-        gridSubsets: {
-        gridSubset: [
-            {
-            gridSetName: gridSetId,
-            // 其他可能的 Gridset 配置
-            }
-        ]
-        },
-        // 其他可能的图层配置
-    }
-    }, {
-    headers: {
-        'Content-type': 'application/xml'
-    },
-    auth
-    });
-
-    // 构建WMTS服务链接
+    // 步骤3：构建WMTS服务链接
     
-    const wmtsLink ='http://182.254.147.254:8080/geoserver/${workspace}/gwc/service/wmts?layer=${workspace}:${coverageName}&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix=12&TileCol=3431&TileRow=1673'
-
-
-
+    const wmtsLink =`http://182.254.147.254:8080/geoserver/${workspace}/gwc/service/wmts?layer=${workspace}%3A${coverageName}&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix=12&TileCol=3431&TileRow=1673`
     return wmtsLink;
 }
 
@@ -348,3 +402,73 @@ app.post('/publishRaster', async (req, res) => {
         res.status(500).send('Error publishing raster data');
     }
 });
+
+
+//下载文件路由 请求路径，下载文件
+app.get('/download_raster', function(req, res) {
+    // 直接使用 rasterDataFilePath 变量进行下载
+    // 获取相对于 public 目录的文件路径
+    const raster_output_NAME_FULL = req.query.filePath;
+    
+    // 构建完整的文件路径
+    const fullPath = path.join(__dirname, 'public', 'raster_output_fromDB', raster_output_NAME_FULL);
+    if (fullPath) {
+        res.download(fullPath);
+    } else {
+        res.status(400).send('No file path provided');
+    }
+});
+
+//定时清除工作空间和已发布的文件
+async function recreateWorkspace(workspace) {
+    const username = 'admin'; 
+    const password = 'RDB123456.';
+    const geoserverUrl = 'http://182.254.147.254:8080/geoserver';
+
+    try {
+        // 删除现有的工作空间
+        await axios.delete(`${geoserverUrl}/rest/workspaces/${workspace}?recurse=true`, {
+            auth: { username, password }
+        });
+        console.log(`Successfully deleted workspace ${workspace}.`);
+
+        // 等待一段时间后再创建新工作空间（例如，等待5秒）
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        // 创建新的工作空间
+        const response = await axios.post(`${geoserverUrl}/rest/workspaces`, {
+            workspace: {
+                name: workspace
+            }
+        }, {
+            auth: { username, password },
+            headers: { 'Content-type': 'application/json' }
+        });
+
+        console.log(`Successfully created workspace ${workspace}. Response: `, response.data);
+    } catch (error) {
+        console.error(`Error in managing workspace ${workspace}:`, error);
+    }
+}
+//定时删除服务器中的文件
+async function deleteFilesInDirectory(directory) {
+    fs.readdir(directory, (err, files) => {
+        if (err) throw err;
+
+        for (const file of files) {
+            fs.unlink(path.join(directory, file), err => {
+                if (err) throw err;
+            });
+        }
+    });
+}
+
+setInterval(async () => {
+    const workspace = 'landcover100_DEM';
+    const directory = '/usr/share/geoserver/data_dir/data/landcover100_DEM';
+
+    await recreateWorkspace(workspace);
+    //需要等待部署到服务器之后再进行下一步
+    // await deleteFilesInDirectory(directory);
+}, 3600000); // 每小时执行一次
+
