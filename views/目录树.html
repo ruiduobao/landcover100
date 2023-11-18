@@ -94,10 +94,10 @@
                   <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
                   <ul class="hidden">
                     <li class="item">
-                      <input type="radio" name="menu_choice" id="DEM5002"><label for="DEM5002"><span class="toggle">2020年</span></label>
+                      <input type="radio" name="menu_choice" id="modis2020"><label for="modis2020"><span class="toggle">2020年</span></label>
                     </li>
                     <li class="item">
-                      <input type="radio" name="menu_choice" id="DEM5001"><label for="DEM5001"><span class="toggle">2019年</span></label>
+                      <input type="radio" name="menu_choice" id="modis2019"><label for="modis2019"><span class="toggle">2019年</span></label>
                     </li>
                   </ul>
                 </li>
@@ -108,10 +108,10 @@
                   <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
                   <ul class="hidden">
                     <li class="item">
-                      <input type="radio" name="menu_choice" id="DEM5002"><label for="DEM5002"><span class="toggle">2015年</span></label>
+                      <input type="radio" name="menu_choice" id="IGBP2010"><label for="IGBP2010"><span class="toggle">2015年</span></label>
                     </li>
                     <li class="item">
-                      <input type="radio" name="menu_choice" id="DEM5001"><label for="DEM5001"><span class="toggle">2010年</span></label>
+                      <input type="radio" name="menu_choice" id="IGBP2005"><label for="IGBP2005"><span class="toggle">2010年</span></label>
                     </li>
                   </ul>
                 </li>
@@ -121,6 +121,46 @@
 
         <li class="item">
           <span class="toggle">中分辨率土地覆盖数据</span> 
+          <ul class="hidden">
+          <!-- GLC30土地覆盖 1.2.1 -->
+            <li>
+              <span class="toggle">GLC30土地覆盖</span> 
+              <ul class="hidden">
+                <li class="item">
+                  <input type="radio" name="menu_choice" id="GLC30_2000"><label for="GLC30_2000"><span class="toggle">2000年</span></label>
+                  <a href="#" title="数据预览"><img src="../public/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this)"/></a>
+                  <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                </li>
+                <li class="item">
+                  <input type="radio" name="menu_choice" id="GLC30_2010"><label for="GLC30_2010"><span class="toggle">2010年</span></label>
+                  <a href="#" title="数据预览"><img src="../public/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this)"/></a>
+                  <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#" /></a>
+                </li>
+              </ul>
+              
+            </li>
+           <!-- CLCD土地覆盖 1.2.2 -->
+            <li>
+              <span class="toggle">CLCD土地覆盖</span> 
+              <ul class="hidden">
+                <li class="item">
+                  <input type="radio" name="menu_choice" id="CLCD1985"><label for="CLCD1985"><span class="toggle">1985年</span></label>
+                  <a href="#" title="数据预览"><img src="../public/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this)"/></a>
+                  <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                </li>
+                <li class="item">
+                  <input type="radio" name="menu_choice" id="CLCD1990"><label for="CLCD1990"><span class="toggle">1990年</span></label>
+                  <a href="#" title="数据预览"><img src="../public/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this)"/></a>
+                  <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#" /></a>
+                </li>
+              </ul>
+            </li>
+          
+          </ul>
+        </li>
+
+        <li>
+          <span class="toggle">高分辨率土地覆盖数据</span> 
           <ul class="hidden">
                 <li class="item">
                   <input type="radio" name="menu_choice" id="DEM5004"><label for="DEM5004"><span class="toggle">250米DEM</span></label>
@@ -147,37 +187,6 @@
                     </li>
                   </ul>
                 </li>
-          </ul>
-        </li>
-
-        <li>
-          <span class="toggle">高分辨率土地覆盖数据</span> 
-          <ul class="hidden">
-                <li class="item">
-                  <input type="radio" name="menu_choice" id="DEM5004"><label for="DEM5004"><span class="toggle">250米DEM</span></label>
-                  <a href="#" title="数据预览"><img src="../public/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this)"/></a>
-                  <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
-                </li>
-                <li class="item">
-                  <input type="radio" name="menu_choice" id="DEM5003"><label for="DEM5003"><span class="toggle">250米DEM</span></label>
-                  <a href="#" title="数据预览"><img src="../public/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this)"/></a>
-                  <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
-                </li>
-                      <li>
-                        <span class="toggle">中分辨率DEM</span> 
-                        <ul class="hidden">
-                          <li class="item">
-                            <input type="radio" name="menu_choice" id="DEM5002"><label for="DEM5002"><span class="toggle">NASA_DEM_30m</span></label>
-                            <a href="#" title="数据预览"><img src="../public/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this)"/></a>
-                            <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
-                          </li>
-                          <li class="item">
-                            <input type="radio" name="menu_choice" id="DEM5001"><label for="DEM5001"><span class="toggle">ALOS_30m</span></label>
-                            <a href="#" title="数据预览"><img src="../public/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this)"/></a>
-                            <a href="#" title="数据说明"><img src="../public/img/quo.png" alt="Icon 1" class="icon-size" herf="#" /></a>
-                          </li>
-                        </ul>
-                      </li>
            </ul>
         </li>
         </ul>

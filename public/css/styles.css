@@ -94,91 +94,6 @@ label {
     margin-top: 10px;
 }
 
-/* 添加针对二级菜单的样式 */
-.menu .submenu {
-    display: none;
-    list-style-type: none;
-    padding-left: 0; /* 子菜单缩进 */
-}
-
-.menu .menu-toggle {
-    cursor: pointer;
-}
-
-.menu .menu-item {
-    margin-bottom: 5px;
-}
-
-/* 单选按钮样式 */
-input[type="radio"] {
-    margin-right: 10px;
-}
-
-/* 确保label和单选按钮在一行显示 */
-.submenu label {
-    display: inline-block;
-    margin-right: 5px;
-}
-
-.submenu li {
-    display: flex;
-    align-items: center;
-}
-
-.submenu li a img {
-    margin-right: 8px; /* 根据需要调整间距 */
-    width: 24px; /* 根据实际图标大小调整 */
-    height: auto;
-}
-
-/* 数据菜单栏的扩展与折叠图标 */
-.menu-toggle::before {
-    content: '';
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background-image: url('/img/slip.png');
-    background-size: cover;
-    margin-right: 8px;
-}
-
-.menu-toggle.active::before {
-    background-image: url('/img/up.png');
-}
-
-/* 移除ul中li前面的小圆点 */
-ul.menu > li {
-    list-style: none;
-}
-
-/* 移除a标签的下划线 */
-a.menu-toggle {
-    text-decoration: none;
-    color: #000; /* 黑色 */
-}
-
-/* 重置数据框的<ul>和<li>的默认外边距和内边距 */
-ul.menu, ul.menu > li {
-    margin: 0;
-    padding: 0;
-}
-
-/* 为一级菜单项设置样式 */
-.menu > .menu-item {
-    padding-left: 10px; /* 一级菜单无缩进，或根据需要调整 */
-}
-
-/* 为二级菜单项设置样式 */
-.menu .menu-item > .submenu > li {
-    padding-left: 15px; /* 二级菜单缩进更多 */
-}
-
-/* 为三级菜单项设置样式 */
-.menu .menu-item > .submenu .submenu > li {
-
-    padding-left: 40px; /* 三级菜单缩进更多 */
-}
-
 /* 地图容器 */
 #mapContainer {
     flex: 1; /* 这样就会填充所有可用空间 */
@@ -213,6 +128,50 @@ ul.menu, ul.menu > li {
 }
 
 
-
+.directory-tree ul {
+    list-style-type: none;
+  }
+  .directory-tree li {
+    margin: 5px 0;
+    position: relative;
+  }
+  .directory-tree .item:before, .directory-tree .toggle:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    bottom: 0;
+    width: 1px;
+    background: #ccc;
+  }
+  .directory-tree .item:after, .directory-tree .toggle:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: -10px;
+    width: 9px;
+    height: 1px;
+    background: #ccc;
+  }
+  .toggle {
+    cursor: pointer;
+    display: inline;
+  }
+  .toggle_label  {
+    display: inline;
+  }
+  .toggle:hover {
+    color: blue; /* Change color to blue when hovering */
+  }
+  .hidden {
+    display: none;
+  }
+  .icon-size {
+  width: 22px;
+  height: 18px;
+  }
+  .selected-img {
+  border: 2px solid red;
+}
 
 

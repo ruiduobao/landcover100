@@ -55,26 +55,3 @@ function setupRadioButtons() {
         });
     });
 }
-
-//新的扩展
-document.addEventListener('DOMContentLoaded', function () {
-    const toggles = document.getElementsByClassName('toggle');
-    for (const toggle of toggles) {
-      toggle.addEventListener('click', function () {
-        const children = this.parentElement.querySelector('ul').classList.toggle('hidden');
-      });
-    }
-  });
-  
-  function toggleImageBorder(img) {
-  // 移除所有其他图片的选中状态
-  var currentlySelected = document.querySelector('.selected-img');
-  if (currentlySelected) {
-    currentlySelected.classList.remove('selected-img');
-  }
-  
-  // 如果点击的不是当前已选中的图片，给它添加选中效果
-  if (currentlySelected !== img) {
-    img.classList.toggle('selected-img');
-  }
-}
