@@ -42,7 +42,7 @@
                     <!-- 原有的三级菜单 -->
                     <ul class="submenu">
                         <li>
-                            <input type="radio" name="menu_choice" id="DEM1000"><label for="DEM1000">1000米DEM</label>
+                            <input type="radio" name="menu_choice" id="CHINA_DEM_1000m"><label for="CHINA_DEM_1000m">1000米DEM</label>
                             <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" onclick="GETSEEMAP2MAP()"/></a>
                             <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
                         </li>
@@ -79,11 +79,11 @@
             <!-- 新添加的二级菜单 -->
             <ul class="submenu">
                 <li>
-                    <a href="#0" class="menu-toggle">10米分辨率</a>
+                    <a href="#0" class="menu-toggle">30米分辨率</a>
                     <!-- 原有的三级菜单 -->
                     <ul class="submenu">
                         <li>
-                            <input type="radio" name="menu_choice" id="esa_choice"><label for="esa_choice">ESA</label>
+                            <input type="radio" name="menu_choice" id="GLC30"><label for="GLC30">GLC30</label>
                             <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" /></a>
                             <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" /></a>
                         </li>
@@ -188,12 +188,13 @@
                     <option value="satellite" selected>高德遥感卫星</option>
                     <option value="satellite_road">高德卫星和路网</option>
                     <option value="basic">高德标准图层</option>
-                    <option value="DEM">DEM图层</option>
                 </select>
             </div>                
         </div>
     </div>
 </div>
+
+
 <!-- 底图加载 -->
 <script src="/js/BaseMap.js"></script>
 <!-- 显示面矢量 -->

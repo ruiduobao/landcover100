@@ -18,7 +18,7 @@ def clip_dem(vector_data, input_raster, output_raster):
         #GMA 2.0版本
         rasp.Basic.Clip(input_raster, output_raster, vector_data)
         logging.info("裁剪操作成功完成")
-        print("doneclip")
+        print("donecovert")
     except Exception as e:
         logging.error(f"裁剪操作发生错误: {e}")
         print(f"裁剪操作发生错误: {e}")

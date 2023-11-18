@@ -19,8 +19,12 @@ app.use(express.static('public'));
 // 用于解析JSON格式的请求体
 app.use(express.json()); 
 
+// //用于存储数据源的gson文件
+// const dataDBPath = path.join(__dirname, 'public', 'raster_data_DB', 'dataDB_time.gson');
+// const dataDB = JSON.parse(fs.readFileSync(dataDBPath, 'utf8'));
+
 app.get('/', (req, res) => {
-  res.render('index', { title: '首页' });
+  res.render('index', { title: '首页'});
 });
 
 app.listen(port, () => {
@@ -209,34 +213,34 @@ const fileUpload = require('express-fileupload');
 app.use(fileUpload({
     createParentPath: true // 允许创建多级目录
 }));
-// 一个POST路由，用于处理文件上传
-app.post('/uploadvector', (req, res) => {
-    console.log('Received request for /uploadvector'); // 调试信息
-    if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).send('No files were uploaded.');
-    }
-    // `file` 是前端传来的文件对象名称
-    let file = req.files.file; // 确保这里的`file`与前端发送的字段名一致
-    // 对URL编码过的文件名进行解码
-    let fileName = decodeURIComponent(file.name);
-    // 检查文件格式
-    const validFormats = ['.gson', '.geogson', '.shp', '.geojson', '.kml'];
-    const fileExtension = path.extname(file.name).toLowerCase();
-    
-    if (validFormats.includes(fileExtension)) {
-        // 设置文件保存路径
-        let uploadPath = path.join(__dirname, 'public', 'vector_upload', fileName);
-        file.mv(uploadPath, function(err) {
-            if (err) {
-                return res.status(500).send(err);
-            }
-            res.json({ message: 'File uploaded successfully', fileUrl: `/vector_upload/${fileName}` });
-        });
-    } else {
-        res.status(400).send('Invalid file format.');
-    }
-});
 
+// app.post('/uploadvector', (req, res) => {
+//     console.log('Received request for /uploadvector'); // 调试信息
+//     if (!req.files || Object.keys(req.files).length === 0) {
+//         return res.status(400).send('No files were uploaded.');
+//     }
+//     // `file` 是前端传来的文件对象名称
+//     let file = req.files.file; // 确保这里的`file`与前端发送的字段名一致
+//     // 对URL编码过的文件名进行解码
+//     let fileName = decodeURIComponent(file.name);
+//     // 检查文件格式
+//     const validFormats = ['.gson', '.geogson', '.shp', '.geojson', '.kml'];
+//     const fileExtension = path.extname(file.name).toLowerCase();
+    
+//     if (validFormats.includes(fileExtension)) {
+//         // 设置文件保存路径
+//         let uploadPath = path.join(__dirname, 'public', 'vector_upload', fileName);
+//         file.mv(uploadPath, function(err) {
+//             if (err) {
+//                 return res.status(500).send(err);
+//             }
+//             res.json({ message: 'File uploaded successfully', fileUrl: `/vector_upload/${fileName}` });
+//         });
+//     } else {
+//         res.status(400).send('Invalid file format.');
+//     }
+// });
+// 一个POST路由，用于处理文件上传
 app.post('/uploadvector', async (req, res) => {
     //文件上传和类型判断的代码
     if (!req.files || Object.keys(req.files).length === 0) {
@@ -248,67 +252,143 @@ app.post('/uploadvector', async (req, res) => {
 
     // 用于存储处理后的文件名
     let processedFileName; 
-    //处理gson格式
-    if (['.gson', '.geojson'].includes(fileExtension)) {
-        // 直接保存文件并处理
-        processedFileName = fileName;
-        // ... 保存文件的代码
-        // 设置文件保存路径
-        const uploadPath = path.join(__dirname, 'public', 'vector_upload', processedFileName);
-        file.mv(uploadPath, function(err) {
-            if (err) {
-                return res.status(500).send(err);
-            }
-            res.json({ message: 'File uploaded successfully', fileUrl: `/vector_upload/${processedFileName}` });
-        });
-    } 
-    //处理kml格式
-    else if (fileExtension === '.kml') {
-        // 保存并转换文件
-        processedFileName = fileName.replace('.kml', '.gson');
-        // ... 保存文件的代码
-        // 设置文件保存路径
-        const uploadPath = path.join(__dirname, 'public', 'vector_upload', fileName);
-        console.log(uploadPath)
-        file.mv(uploadPath, function(err) {
-            if (err) {
-                return res.status(500).send(err);
-            }
-        });
-        // ... 调用 Python 脚本转换文件的代码
-        //kml转gson脚本路径
-        const scriptPath = "D:/website/landcover100/public/python_gma/kml2gson.py";
-        //矢量文件路径+输出geoson文件路径
-        const vectorInFile = req.body.vectorDataFilePath;
-        const vectorOutFile = req.body.outputRasterPath;
+    try {
+        //处理gson格式
+        if (['.gson', '.geojson'].includes(fileExtension)) {
+            // 直接保存文件并处理
+            processedFileName = fileName;
+            // ... 保存文件的代码
+            // 设置文件保存路径
+            const uploadPath = path.join(__dirname, 'public', 'vector_upload', processedFileName);
+            file.mv(uploadPath, function(err) {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                res.json({ message: 'File uploaded successfully', fileUrl: `/vector_upload/${processedFileName}` });
+            });
+        } 
+        //处理kml格式
+        else if (fileExtension === '.kml') {
+            // 保存并转换文件
+            processedFileName = fileName.replace('.kml', '.gson');
+            // ... 保存文件的代码
+            // 设置文件保存路径
+            const uploadPath = path.join(__dirname, 'public', 'vector_upload', fileName);
+            console.log(uploadPath)
+            file.mv(uploadPath, function(err) {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+            });
+            // ... 调用 Python 脚本转换文件的代码
+            //python的路径
+            const pythonEnv = " C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
+            //kml转gson脚本路径
+            const scriptPath = "D:/website/landcover100/public/python_gma/kml2gson.py";
+            //矢量文件路径+输出geoson文件路径
+            const vectorInFile = uploadPath;
+            const vectorOutFile = path.join(__dirname, 'public', 'vector_upload', processedFileName);
 
-    } else if (fileExtension === '.shp') {
-        // 检查相关文件并转换
-        processedFileName = fileName.replace('.shp', '.gson');
-        // ... 轃用 Python 脚本转换文件的代码
-    } else if (fileExtension === '.zip') {
-        // 解压并根据内部文件类型进行处理
-        // ... 解压并检查文件类型的代码
-        // 根据文件类型设置 processedFileName
-    } else {
-        return res.status(400).send('Invalid file format.');
+            //调用python脚本
+            exec(`${pythonEnv} "${scriptPath}" "${vectorInFile}" "${vectorOutFile}"`, (error, stdout, stderr) => {
+                if (error) {
+                    console.error(`执行出错: ${error}`);
+                    return res.status(500).send(`Server error: ${error.message}`);
+                }
+                if (stderr) {
+                    console.error(`stderr: ${stderr}`);
+                    return res.status(500).send(`Script error: ${stderr}`);
+                }
+                // 检查stdout是否包含成功的消息
+                if (stdout.includes("donecovert") || stdout.includes("done")) {
+                    console.log(`stdout: ${stdout}`);
+                    res.json({ message: 'File uploaded and kml2gson successfully ', fileUrl: `/vector_upload/${processedFileName}` });
+                } else {
+                    // 如果没有成功消息，发送一个通用错误
+                    console.error(`未知错误: ${stdout}`);
+                    return res.status(500).send('Unknown script error');
+                }
+            });
+
+
+        } else if (fileExtension === '.shp') {
+            // 检查相关文件并转换
+            processedFileName = fileName.replace('.shp', '.gson');
+            // ... 轃用 Python 脚本转换文件的代码
+        } 
+        
+        else {
+            return res.status(400).send('Invalid file format.');
+        }
+    } catch (error) {
+        console.error('Error publishing raster data:', error);
+        res.status(500).send('upload data gson、kml failed');
     }
-
-    // 处理文件并保存的逻辑
-    // ...
-
-    // 返回成功响应
-    res.json({ message: 'File processed successfully', fileUrl: `/vector_upload/${processedFileName}` });
 });
 
+//上传的矢量shp转为gson的单独路由
+app.post('/uploadSHPvector', async (req, res) => {
+    try {
+        //文件上传和类型判断的代码
+        if (!req.files || !req.files['files[]']) {
+            return res.status(400).send('No files were uploaded.');
+        }
 
+        const files = req.files['files[]'];
+        const fileNames = files.map(f => decodeURIComponent(f.name));
+
+        // 检查是否包含必要的文件
+        const requiredExtensions = ['.shp', '.shx', '.dbf'];
+        const hasAllFiles = requiredExtensions.every(ext => 
+            fileNames.some(name => name.toLowerCase().endsWith(ext))
+        );
+
+        if (!hasAllFiles) {
+            return res.status(400).send('Missing necessary SHP files (.shp, .shx, .dbf).');
+        }
+
+        // 处理和移动文件
+        const uploadDirectory = path.join(__dirname, 'public', 'vector_upload');
+        let shpFilePath;
+        for (const file of files) {
+            let uploadPath = path.join(uploadDirectory, decodeURIComponent(file.name));
+            await file.mv(uploadPath);
+            if (file.name.toLowerCase().endsWith('.shp')) {
+                shpFilePath = uploadPath;
+            }
+        }
+
+        // 转换文件
+        if (shpFilePath) {
+            const processedFileName = path.basename(shpFilePath, '.shp') + '.gson';
+            const vectorOutFile = path.join(uploadDirectory, processedFileName);
+            const pythonEnv = "C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
+            const scriptPath = "D:/website/landcover100/public/python_gma/shp2gson.py";
+
+
+            exec(`${pythonEnv} "${scriptPath}" "${shpFilePath}" "${vectorOutFile}"`, (error, stdout, stderr) => {
+                if (error || stderr) {
+                    console.error(`Error: ${error}`, `Stderr: ${stderr}`);
+                    return res.status(500).send(`Server error: ${error ? error.message : 'Unknown error'}`);
+                }
+
+                res.json({ message: 'File uploaded and converted successfully', fileUrl: `/vector_upload/${processedFileName}` });
+            });
+        } else {
+            return res.status(400).send('No SHP file found.');
+        }
+    } catch (error) {
+        console.error('Error publishing raster data:', error);
+        res.status(500).send('Upload SHP data failed');
+    }
+});
 
 
 
 //调用python裁剪栅格
 const { exec } = require('child_process');
 
-app.post('/clip-dem', (req, res) => {
+app.post('/clip_raster', (req, res) => {
     // 假设请求体中包含了矢量数据文件的路径
     const vectorDataFilePath = req.body.vectorDataFilePath;
     const outputRasterPath = req.body.outputRasterPath;

@@ -11,7 +11,7 @@ function clipRasterData() {
         const VECTOR_DIR_PATH="D:/website/landcover100/public"
         const vectorDataFilePath=VECTOR_DIR_PATH+geojson_path[0]
         //准备裁剪的栅格数据路径
-        const inputRasterDirPath="D:/website/landcover100/public/raster_data_DB/"
+        const inputRasterDirPath="D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/"
         const inputRasterPath=inputRasterDirPath+selected_DataDB_NAME+".tif"
 
         //裁剪后的栅格绝对路径
@@ -26,7 +26,7 @@ function clipRasterData() {
         const data = {vectorDataFilePath,outputRasterPath,inputRasterPath};
 
         // 发送 POST 请求到服务器
-        fetch('/clip-dem', {
+        fetch('/clip_raster', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

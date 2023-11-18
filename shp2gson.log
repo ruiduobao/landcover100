@@ -1,0 +1,26 @@
+2023-11-17 16:05:48,883:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\22.shp, 输出矢量=D:\website\landcover100\public\vector_upload\22.gson
+2023-11-17 16:05:49,252:INFO:shp2gson操作成功完成
+2023-11-17 16:06:01,001:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\%E8%9A%95%E9%A3%9F.shp, 输出矢量=D:\website\landcover100\public\vector_upload\%E8%9A%95%E9%A3%9F.gson
+2023-11-17 16:06:01,059:ERROR:shp2gson操作发生错误: The layer name may not contain special characters or spaces
+2023-11-17 16:06:17,438:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\%E8%9A%95%E9%A3%9F.shp, 输出矢量=D:\website\landcover100\public\vector_upload\%E8%9A%95%E9%A3%9F.gson
+2023-11-17 16:06:17,501:ERROR:shp2gson操作发生错误: The layer name may not contain special characters or spaces
+2023-11-17 16:06:42,620:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\%E8%9A%95%E9%A3%9F.shp, 输出矢量=D:\website\landcover100\public\vector_upload\%E8%9A%95%E9%A3%9F.gson
+2023-11-17 16:06:42,674:ERROR:shp2gson操作发生错误: The layer name may not contain special characters or spaces
+2023-11-17 16:06:49,676:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\22.shp, 输出矢量=D:\website\landcover100\public\vector_upload\22.gson
+2023-11-17 16:06:49,743:INFO:shp2gson操作成功完成
+2023-11-17 16:08:32,500:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\%E4%B8%AD%E6%96%87%E5%90%8D.shp, 输出矢量=D:\website\landcover100\public\vector_upload\%E4%B8%AD%E6%96%87%E5%90%8D.gson
+2023-11-17 16:08:32,572:ERROR:shp2gson操作发生错误: The layer name may not contain special characters or spaces
+2023-11-17 16:08:50,252:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\%E4%B8%AD%E6%96%87%E5%90%8D.shp, 输出矢量=D:\website\landcover100\public\vector_upload\%E4%B8%AD%E6%96%87%E5%90%8D.gson
+2023-11-17 16:08:50,313:ERROR:shp2gson操作发生错误: The layer name may not contain special characters or spaces
+2023-11-17 16:09:07,854:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\22.shp, 输出矢量=D:\website\landcover100\public\vector_upload\22.gson
+2023-11-17 16:09:07,920:INFO:shp2gson操作成功完成
+2023-11-17 16:09:22,849:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\22.shp, 输出矢量=D:\website\landcover100\public\vector_upload\22.gson
+2023-11-17 16:09:22,928:INFO:shp2gson操作成功完成
+2023-11-17 16:15:22,495:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\22.shp, 输出矢量=D:\website\landcover100\public\vector_upload\22.gson
+2023-11-17 16:15:22,563:INFO:shp2gson操作成功完成
+2023-11-17 16:15:31,783:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\中文名.shp, 输出矢量=D:\website\landcover100\public\vector_upload\中文名.gson
+2023-11-17 16:15:31,855:INFO:shp2gson操作成功完成
+2023-11-17 16:15:48,485:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\中文名.shp, 输出矢量=D:\website\landcover100\public\vector_upload\中文名.gson
+2023-11-17 16:15:48,560:INFO:shp2gson操作成功完成
+2023-11-18 01:39:52,496:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\22.shp, 输出矢量=D:\website\landcover100\public\vector_upload\22.gson
+2023-11-18 01:39:52,578:INFO:shp2gson操作成功完成

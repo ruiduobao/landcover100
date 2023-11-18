@@ -25,4 +25,4 @@ def kml2gson(InFile, OutFile):
 if __name__ == '__main__':
     InFile = sys.argv[1]
     OutFile = sys.argv[2]
-    clip_dem(InFile, OutFile)
+    kml2gson(InFile, OutFile)
