@@ -70,19 +70,24 @@ function createWmtsLayer(wmtsBaseUrl) {
 }
 
 function addWmtsLayerToMap(map, wmtsBaseUrl) {
-    // 如果当前已有 WMTS 图层，则先移除
-    if (currentWmtsLayer) {
-        map.remove([currentWmtsLayer]);
+    try {
+        // 如果当前已有 WMTS 图层，则先移除
+        if (currentWmtsLayer) {
+            map.remove([currentWmtsLayer]);
+        }
+
+        // 创建新的 WMTS 图层
+        let wmtsLayer = createWmtsLayer(wmtsBaseUrl);
+
+        // 更新当前图层引用
+        currentWmtsLayer = wmtsLayer;
+
+        // 将图层添加到地图
+        map.add([wmtsLayer]);
+    } catch (error) {
+        console.log(error);
     }
-
-    // 创建新的 WMTS 图层
-    let wmtsLayer = createWmtsLayer(wmtsBaseUrl);
-
-    // 更新当前图层引用
-    currentWmtsLayer = wmtsLayer;
-
-    // 将图层添加到地图
-    map.add([wmtsLayer]);
+    
 }
 
 

@@ -17,7 +17,7 @@ let XINGTU = new AMap.TileLayer({
     });
 
 // 初始化地图
-const map = new AMap.Map('mapContainer', {
+let map = new AMap.Map('mapContainer', {
     zoom: 2,
     center: [105, 35],
     layers: [basicLayer]  // 默认显示遥感图层
@@ -53,7 +53,8 @@ function switchToStarMap() {
 //添加自定义wmts图层
 let wmtsLayer = new AMap.TileLayer({
     getTileUrl: function(x, y, z) {
-        return `http://182.254.147.254:8080/geoserver/landcover100_DEM/gwc/service/wmts?layer=landcover100_DEM%3ADEM1000%E7%B1%B33857%E5%9D%90%E6%A0%87%E7%B3%BB&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix=${z}&TileCol=${x}&TileRow=${y}`;
+        return `http://182.254.147.254:8080/geoserver/landcover100_DEM/gwc/service/wmts?landcover100_resample_china%3ACHINA_DEM_1000m&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix=${z}&TileCol=${x}&TileRow=${y}`;
+        
     },
     tileSize: 256,
     zIndex: 100
