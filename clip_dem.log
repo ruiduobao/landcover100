@@ -178,3 +178,33 @@
 2023-11-18 01:40:19,373:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif! Unsupported raster file!
 2023-11-18 01:40:38,903:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231117174034_CHINA_DEM_1000m.tif, 矢量数据=D:/website/landcover100/public/vector/20231117174034.geojson
 2023-11-18 01:40:39,081:INFO:裁剪操作成功完成
+2023-11-20 15:18:53,776:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120071848_DEM250.tif, 矢量数据=D:/website/landcover100/public/vector/20231120071848.geojson
+2023-11-20 15:18:53,813:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif! Unsupported raster file!
+2023-11-20 15:19:21,344:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120071918_DEM250.tif, 矢量数据=D:/website/landcover100/public/vector/20231120071918.geojson
+2023-11-20 15:19:21,353:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif! Unsupported raster file!
+2023-11-20 15:19:26,408:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120071918_DEM250.tif, 矢量数据=D:/website/landcover100/public/vector/20231120071918.geojson
+2023-11-20 15:19:26,420:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif! Unsupported raster file!
+2023-11-20 15:44:57,348:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM1000.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120074454_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector/20231120074454.geojson
+2023-11-20 15:44:57,357:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM1000.tif! Unsupported raster file!
+2023-11-20 15:45:02,489:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM1000.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120074454_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector/20231120074454.geojson
+2023-11-20 15:45:02,501:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM1000.tif! Unsupported raster file!
+2023-11-20 15:57:27,980:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120075715_DEM250.tif, 矢量数据=D:/website/landcover100/public/vector/20231120075715.geojson
+2023-11-20 15:57:27,989:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif! Unsupported raster file!
+2023-11-20 16:03:02,220:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120080258_DEM250.tif, 矢量数据=D:/website/landcover100/public/vector/20231120080258.geojson
+2023-11-20 16:03:02,229:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/DEM250.tif! Unsupported raster file!
+2023-11-20 16:29:41,864:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120082938_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector/20231120082938.geojson
+2023-11-20 16:29:42,180:INFO:裁剪操作成功完成
+2023-11-20 16:41:30,809:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120084126_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector/20231120084126.geojson
+2023-11-20 16:41:30,940:INFO:裁剪操作成功完成
+2023-11-20 16:44:27,070:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120084424_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector/20231120084424.geojson
+2023-11-20 16:44:27,484:INFO:裁剪操作成功完成
+2023-11-20 16:44:54,498:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120084451_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector/20231120084451.geojson
+2023-11-20 16:44:54,739:INFO:裁剪操作成功完成
+2023-11-20 16:45:09,156:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120084505_DEM250.tif, 矢量数据=D:/website/landcover100/public/vector/20231120084505.geojson
+2023-11-20 16:45:09,464:INFO:裁剪操作成功完成
+2023-11-20 16:46:57,157:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/20231120084635_DEM250.tif, 矢量数据=D:/website/landcover100/public/vector/20231120084635.geojson
+2023-11-20 16:46:57,380:INFO:裁剪操作成功完成
+2023-11-20 16:50:43,122:INFO:开始裁剪操作: 输入栅格=undefined, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/230183107000_undefined.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/230183107000.gson
+2023-11-20 16:50:43,131:ERROR:裁剪操作发生错误: Unable to open undefined! Unsupported raster file!
+2023-11-20 16:50:53,235:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/230183107000_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/230183107000.gson
+2023-11-20 16:50:53,479:INFO:裁剪操作成功完成

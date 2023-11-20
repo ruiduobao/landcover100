@@ -50,18 +50,6 @@ function switchToSatelliteAndRoadNetMap() {
 function switchToStarMap() {
     map.setLayers([XINGTU]);
     }
-//添加自定义wmts图层
-let wmtsLayer = new AMap.TileLayer({
-    getTileUrl: function(x, y, z) {
-        return `http://182.254.147.254:8080/geoserver/landcover100_DEM/gwc/service/wmts?landcover100_resample_china%3ACHINA_DEM_1000m&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix=${z}&TileCol=${x}&TileRow=${y}`;
-        
-    },
-    tileSize: 256,
-    zIndex: 100
-});
-function GETSEEMAP2MAP() {
-    map.add([wmtsLayer]);;
-    }
             
 //绘制工具初始化
 AMap.plugin(["AMap.MouseTool"],function () {

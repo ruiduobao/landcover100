@@ -151,12 +151,12 @@
                   <ul class="hidden">
                         <li class="item">
                           <input type="radio" name="menu_choice" id="DEM250"><label for="DEM250" class="toggle_label"><span class="toggle">250米DEM</span></label>
-                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM250" onclick="toggleImageBorder(this,this.id)"/></a>
                           <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
                         </li>
                         <li class="item">
                           <input type="radio" name="menu_choice" id="DEM1000"><label for="DEM1000" class="toggle_label"><span class="toggle">1000米DEM</span></label>
-                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM1000" onclick="toggleImageBorder(this,this.id)"/></a>
                           <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
                         </li>
                   </ul>
@@ -276,10 +276,13 @@
                 <img id="drawIcon_circle" src="/img/circle.png" style="cursor: pointer;" onclick="drawCircle()" />
             </div>
         </div>
-        <h3>查询</h3>
-        <button onclick="publish_Raster()">发布数据</button>
-        <h3>下载:</h3>
-        <button onclick="Download_Clip_raster()">下载数据</button>
+        <h3>查询数据</h3>
+          <button onclick="publish_Raster()">查询</button>
+        
+        <div id="DOWNLOAD_DIV" style="display: none;">
+          <h3>数据裁剪完毕，请下载:</h3>
+          <button onclick="Download_Clip_raster()">下载</button>
+        </div>
     </div>
     <div id="right_DIV">
         <div id="mapContainer" style="flex: 1; position: relative; z-index: 1000;">
@@ -314,7 +317,7 @@
 <!-- 下载裁剪后的栅格函数 -->
 <script src="/js/download_clipdata.js"></script>
 <!-- 引入二三级菜单的折叠脚本js -->
-<script src="/js/DataDB_Menu_Fold.js"></script>
+<script src="/js/Menu_Fold_loadwmts.js"></script>
 <!-- 单选数据的控制 -->
 <script src="/js/Single_choice_data.js"></script>
 <script>
