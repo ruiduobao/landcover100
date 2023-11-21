@@ -26,7 +26,7 @@ function findDBpathByIdAndExecute(id) {
                 const csvData = parseCSV(data);
                 const entry = csvData.find(row => row.id === id);
                 if (entry) {
-                    resolve(entry.Absolute_path);
+                    resolve(entry.Absolute_path2);
                 } else {
                     reject('No matching ID found');
                 }
@@ -39,7 +39,7 @@ function findDBpathByIdAndExecute(id) {
 function clipRasterData() {
     return new Promise((resolve, reject) => {
         // 矢量文件的绝对路径
-        const VECTOR_DIR_PATH="D:/website/landcover100/public"
+        const VECTOR_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public"
         const vectorDataFilePath=VECTOR_DIR_PATH+geojson_path[0]
         //准备裁剪的栅格数据路径
         const selected_DataDB_NAME_ID=selected_DataDB_NAME
@@ -52,7 +52,7 @@ function clipRasterData() {
             //裁剪后的栅格绝对路径
             var filenameWithExtension = geojson_path[0].split('/').pop(); // 获取文件名和后缀
             raster_filename = filenameWithExtension.split('.').shift()+"_"+selected_DataDB_NAME; // 获取不包含后缀的文件名
-            var raster_output_DIR_PATH="D:/website/landcover100/public/raster_output_fromDB/"
+            var raster_output_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/"
             outputRasterPath =raster_output_DIR_PATH+raster_filename+".tif"
             //裁剪后的文件名
             raster_output_NAME_FULL=raster_filename+".tif"

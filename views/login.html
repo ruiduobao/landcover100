@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/casdoor-js-sdk"></script>
+</head>
+<body>
+
+  <button id="loginBtn">登录</button>
+
+  <script>
+    // 定义 sdk 配置
+    const sdkConfig = {
+        serverUrl: 'http://150.158.143.210:8000',
+        clientId: '6496bfec59e0a597c9bd',
+        appName: 'landcover100',
+        organizationName: 'landcover100',
+        redirectPath: '/callback',
+        signinPath: "/api/signin"
+    };
+
+    // 初始化sdk实例 
+    const sdk = new Sdk(sdkConfig); 
+
+    // 登陆按钮点击事件
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.addEventListener('click', () => {
+      // 跳转到登陆页面
+      sdk.signin_redirect(); 
+    });
+
+    // 登陆成功后的回调处理
+    window.addEventListener('message', (event) => {
+
+      if (event.origin !== sdkConfig.serverUrl) return;
+
+      if(event.data.type === 'loginSuccess') {
+        // 处理登录成功...
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

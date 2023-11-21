@@ -208,3 +208,11 @@
 2023-11-20 16:50:43,131:ERROR:裁剪操作发生错误: Unable to open undefined! Unsupported raster file!
 2023-11-20 16:50:53,235:INFO:开始裁剪操作: 输入栅格=D:/website/landcover100/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/230183107000_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/230183107000.gson
 2023-11-20 16:50:53,479:INFO:裁剪操作成功完成
+2023-11-21 15:17:24,870:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/220623_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/220623.gson
+2023-11-21 15:17:24,870:ERROR:裁剪操作发生错误: module 'gma.rasp' has no attribute 'Basic'
+2023-11-21 15:20:09,283:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=D:/website/landcover100/public/raster_output_fromDB/420704003000_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/420704003000.gson
+2023-11-21 15:20:09,297:ERROR:裁剪操作发生错误: The path "D:/website/landcover100/public/raster_output_fromDB/420704003000_DEM1000.tif" does not exist!
+2023-11-21 15:21:54,107:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/150721201000_DEM1000.tif, 矢量数据=D:/website/landcover100/public/vector_fromDB/150721201000.gson
+2023-11-21 15:21:54,171:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/vector_fromDB/150721201000.gson! Unsupported vector file!
+2023-11-21 15:22:34,617:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/410172360000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/410172360000.gson
+2023-11-21 15:22:34,713:INFO:裁剪操作成功完成

@@ -11,9 +11,7 @@ app.set('view engine', 'ejs');
 //家里电脑路径
 
 
-//办公室电脑路径
-// const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
-// const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/clip_data.py";
+
 // 在 app.js 中
 app.use(express.static('public'));
 // 用于解析JSON格式的请求体
@@ -402,10 +400,13 @@ app.post('/clip_raster', (req, res) => {
 
     // const inputRasterPath = "D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif";
     // const outputRasterPath = "D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif";
+    //办公室电脑路径
+    const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
+    const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/clip_data.py";
     //python的路径
-    const pythonEnv = " C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
+    // const pythonEnv = " C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
     //裁剪脚本路径
-    const scriptPath = "D:/website/landcover100/public/python_gma/clip_data.py";
+    // const scriptPath = "D:/website/landcover100/public/python_gma/clip_data.py";
 
     exec(`${pythonEnv} "${scriptPath}" "${vectorDataFilePath}" "${inputRasterPath}" "${outputRasterPath}"`, (error, stdout, stderr) => {
         if (error) {
@@ -552,3 +553,19 @@ setInterval(async () => {
     // await deleteFilesInDirectory(directory);
 }, 3600000); // 每小时执行一次
 
+// 引入SDK和SdkConfig类型
+// 引入sdk模块
+// const { default: Sdk } = require('casdoor-js-sdk');
+// console.log(Sdk);
+// // 定义sdkConfig符合SdkConfig类型
+// const sdkConfig = {
+// serverUrl: 'http://150.158.143.210:8000',
+// clientId: '6496bfec59e0a597c9bd',
+// appName: 'landcover100',
+// organizationName: 'landcover100',
+// redirectPath: '/callback',
+// signinPath: "/api/signin"
+// };
+
+// // 使用构造函数初始化实例
+// const sdkInstance = new Sdk(sdkConfig);
