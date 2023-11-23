@@ -216,3 +216,5 @@
 2023-11-21 15:21:54,171:ERROR:裁剪操作发生错误: Unable to open D:/website/landcover100/public/vector_fromDB/150721201000.gson! Unsupported vector file!
 2023-11-21 15:22:34,617:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/410172360000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/410172360000.gson
 2023-11-21 15:22:34,713:INFO:裁剪操作成功完成
+2023-11-22 18:00:42,981:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/140212200000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/140212200000.gson
+2023-11-22 18:00:43,209:INFO:裁剪操作成功完成
