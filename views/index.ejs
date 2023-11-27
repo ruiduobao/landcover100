@@ -25,33 +25,15 @@
 
 <div id="top_DIV">
     <!-- 注册登录界面 -->
-    <div style="display: flex;height: 20vh; align-items: center; justify-content: center;">
-      <button class="hidden" id="info_url" style="width: 50px;height: 10px;" onclick="gotoUserPage()">我的</button>
-      <div class="login" style="width: 50px; text-align: center;">
-        <span id="username" class="hidden">userName: <span class="username"></span></span>
-        <div style="width: 50px ;height:20px;">
-          <button class="show" id="signIn" style="width: 50px;height: 10px;">Login with Casdoor</button>
-          <button class="hidden" id="signOut" style="width: 50px;height: 10px;">logout </button>
-        </div>
-      </div>
-    </div>
     <div class="logo"><img src="/img/logo.png" alt="Logo"></div>
     <div class="title-container">
         <h1>遥感产品数据云</h1>
     </div>
     <div class="top_DIV_nav">
-      <!-- 注册登录界面 -->
-      <div  id="login_div" style="display: flex;height: 10vh; align-items: center; justify-content: center;">
-        <div class="login" style="width: 20px; text-align: center;">
-    
-          <button class="hidden" id="info_url" style="width: 20px;height: 5px;" onclick="gotoUserPage()">我的</button>
-          
-          <span id="username" class="hidden">userName: <span class="username"></span></span>
-          <div style="width: 30px ;height:5px;">
-            <button class="show" id="signIn" style="width: 20px;height: 5px;">Login with Casdoor</button>
-            <button class="hidden" id="signOut" style="width: 20px;height: 5px;">logout </button>
-          </div>
-        </div>
+      <div style="display: flex;align-items: center; justify-content: center;">
+        <button class="hidden" id="info_url" style="width: 50px;height: 30px;border: none;" onclick="gotoUserPage()">我的</button>
+        <button class="hidden" id="signOut" style="width: 50px;height: 30px;border: none;">退出</button>
+        <button class="show" id="signIn" style="width: 50px;height: 30px;border: none;">登录</button>
       </div>
     </div>
 

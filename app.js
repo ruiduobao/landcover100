@@ -385,7 +385,7 @@ app.post('/uploadSHPvector', async (req, res) => {
 
 //调用python裁剪栅格
 const { exec } = require('child_process');
-
+//使用矢量裁剪栅格数据
 app.post('/clip_raster', (req, res) => {
     // 假设请求体中包含了矢量数据文件的路径
     const vectorDataFilePath = req.body.vectorDataFilePath;
@@ -428,7 +428,29 @@ app.post('/clip_raster', (req, res) => {
         }
     });
 });
+//计算面积路由
+app.post('/calculate_area', (req, res) => {
+    const geojsonFilePath = req.body.geojsonFilePath;
 
+    // Python 环境和脚本路径
+    const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
+    const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/cal_vector_area.py";
+
+    exec(`${pythonEnv} "${scriptPath}" "${geojsonFilePath}"`, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`执行出错: ${error}`);
+            return res.status(500).send(`Server error: ${error.message}`);
+        }
+        if (stderr) {
+            console.error(`stderr: ${stderr}`);
+            return res.status(500).send(`Script error: ${stderr}`);
+        }
+
+        // 将 stdout（面积结果）发送回客户端
+        console.log(`stdout: ${stdout}`);
+        res.send({ area: stdout.trim() });
+    });
+});
 //创建栅格通过geoserver发布的路由
 const publishRasterData = async (workspace, storename, coverageName, filePath) => {
 

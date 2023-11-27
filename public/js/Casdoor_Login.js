@@ -4,15 +4,15 @@ const Server_URL="http://localhost:3003"
 // const Server_URL='https://www.landcover100.com'
 window.addEventListener('load', () => {
   if (window.location.href.indexOf('code') !== -1) {
-    let usernameElement = document.querySelector(".username");
+    // let usernameElement = document.querySelector(".username");
     let signOutBtn = document.querySelector("#signOut");
     let signInBtn = document.querySelector("#signIn");
-    let usernameLabel = document.querySelector("#username");
+    // let usernameLabel = document.querySelector("#username");
     let info_urlLabel = document.querySelector("#info_url");
 
     signInBtn.className = "hidden";
     signOutBtn.className = "show";
-    usernameLabel.className = "show";
+    // usernameLabel.className = "show";
     info_urlLabel.className="show";
 
     signOutBtn.addEventListener("click", signOut);
@@ -40,7 +40,8 @@ window.addEventListener('load', () => {
     function setInfo(res) {
       let userinfo = res;
       sessionStorage.setItem('userinfo', JSON.stringify(userinfo));
-      usernameElement.innerHTML = userinfo.name;
+    //   usernameElement.textContent = userinfo.name;
+      info_urlLabel.textContent = userinfo.name;
     }
 
     function signOut() {
