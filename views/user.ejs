@@ -1,0 +1,90 @@
+<!-- 用户个人信息界面 -->
+
+<style>
+    .user-info {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f2f2f2;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    .user-info h2 {
+      text-align: center;
+    }
+    
+    .user-info .item {
+      display: block;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc; /* 添加边框 */
+      background: #e6e6e6; /* 添加背景色 */
+    }
+    
+    .user-info .label {
+      display: inline-block;
+      width: 100px;
+      font-weight: bold;
+    }
+    
+    .user-info .value {
+      display: inline-block;
+    }
+    
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    </style>
+    
+    <div class="user-info">
+      <h2><%= name %>的用户信息</h2>
+    
+      <div class="item">
+        <div class="label">用户名:</div>
+        <div class="value"><%= name %></div>
+      </div>
+    
+      <div class="item">
+        <div class="label">注册时间:</div>
+        <div class="value"><%= createdTime %></div>
+      </div>
+    
+      <div class="item">
+        <div class="label">剩余下载次数:</div>
+        <div class="value"><%= score %></div>
+      </div>
+    
+      <div class="item">  
+        <div class="label">用户类型:</div> 
+        <div class="value"><%= type %></div>
+      </div>
+    
+      <div class="item">
+        <div class="label">绑定电话:</div>
+        <div class="value"><%= phone %></div> 
+      </div>
+    
+      <!-- 其他 .item -->
+    
+      <button onclick="goBack()">返回下载</button>
+    </div>
+    
+    <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script>

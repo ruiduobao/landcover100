@@ -6,18 +6,53 @@
 <title>遥感产品数据云</title>
 <link rel="stylesheet" href="/css/styles.css">
 <script src="https://webapi.amap.com/maps?v=1.4.15&key=b6ba147ffd1e49158d12f7cb16d0f381"></script>
-
+<!-- 引入登录包casdoor -->
+<script type="module">
+  //Import from cdn(you can choose the appropriate cdn source according to your needs), or just from the local(download the casdoor-js-sdk first)
+  import SDK from 'https://unpkg.com/casdoor-js-sdk@0.10.0/lib/esm/sdk.js'
+  const sdkConfig = {
+    serverUrl: "https://login.landcover100.com",
+    clientId: "2ad095dec6ed461cdf87",
+    organizationName: "RuiduobaoOrganization",
+    appName: "LandCover100APP",
+    redirectPath: "/", // in accordance with casdoor configuration
+  }
+  window.sdk = new SDK(sdkConfig)
+</script>
 
 </head>
 <body>
 
 <div id="top_DIV">
+    <!-- 注册登录界面 -->
+    <div style="display: flex;height: 20vh; align-items: center; justify-content: center;">
+      <button class="hidden" id="info_url" style="width: 50px;height: 10px;" onclick="gotoUserPage()">我的</button>
+      <div class="login" style="width: 50px; text-align: center;">
+        <span id="username" class="hidden">userName: <span class="username"></span></span>
+        <div style="width: 50px ;height:20px;">
+          <button class="show" id="signIn" style="width: 50px;height: 10px;">Login with Casdoor</button>
+          <button class="hidden" id="signOut" style="width: 50px;height: 10px;">logout </button>
+        </div>
+      </div>
+    </div>
     <div class="logo"><img src="/img/logo.png" alt="Logo"></div>
     <div class="title-container">
         <h1>遥感产品数据云</h1>
     </div>
     <div class="top_DIV_nav">
-        <a href="#">注册/登录</a>
+      <!-- 注册登录界面 -->
+      <div  id="login_div" style="display: flex;height: 10vh; align-items: center; justify-content: center;">
+        <div class="login" style="width: 20px; text-align: center;">
+    
+          <button class="hidden" id="info_url" style="width: 20px;height: 5px;" onclick="gotoUserPage()">我的</button>
+          
+          <span id="username" class="hidden">userName: <span class="username"></span></span>
+          <div style="width: 30px ;height:5px;">
+            <button class="show" id="signIn" style="width: 20px;height: 5px;">Login with Casdoor</button>
+            <button class="hidden" id="signOut" style="width: 20px;height: 5px;">logout </button>
+          </div>
+        </div>
+      </div>
     </div>
 
 </div>
@@ -320,6 +355,8 @@
 <script src="/js/Menu_Fold_loadwmts.js"></script>
 <!-- 单选数据的控制 -->
 <script src="/js/Single_choice_data.js"></script>
+<!-- casdoor注册登录控制 -->
+<script src="/js/Casdoor_Login.js"></script>
 <script>
 </script>
 </body>

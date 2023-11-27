@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .show {
+      display: block;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="display: flex;height: 100vh; align-items: center; justify-content: center;">
+    <div class="login" style="width: 200px; text-align: center;">
+
+      <button class="info_url" id="info_url" style="width: 200px;height: 50px;" onclick="gotoUserPage()">我的</button>
+      
+      <span id="username" class="hidden">userName: <span class="username"></span></span>
+      <div style="width: 300px ;height:50px;">
+        <button class="show" id="signIn" style="width: 200px;height: 50px;">Login with Casdoor</button>
+        <button class="hidden" id="signOut" style="width: 200px;height: 50px;">logout </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!--init the SDK-->
+  <script type="module">
+    //Import from cdn(you can choose the appropriate cdn source according to your needs), or just from the local(download the casdoor-js-sdk first)
+    import SDK from 'https://unpkg.com/casdoor-js-sdk@0.10.0/lib/esm/sdk.js'
+    const sdkConfig = {
+      serverUrl: "https://login.landcover100.com",
+      clientId: "2ad095dec6ed461cdf87",
+      organizationName: "RuiduobaoOrganization",
+      appName: "LandCover100APP",
+      redirectPath: "/", // in accordance with casdoor configuration
+    }
+    window.sdk = new SDK(sdkConfig)
+  </script>
+  <script type="text/javascript">
+    //设置网址（本地环境和服务器环境）
+    const Server_URL="http://localhost:3003"
+    // const Server_URL='https://www.landcover100.com'
+    window.addEventListener('load', () => {
+      if (window.location.href.indexOf('code') !== -1) {
+        let usernameElement = document.querySelector(".username");
+        let signOutBtn = document.querySelector("#signOut");
+        let signInBtn = document.querySelector("#signIn");
+        let usernameLabel = document.querySelector("#username");
+
+        signInBtn.className = "hidden";
+        signOutBtn.className = "show";
+        usernameLabel.className = "show";
+
+        signOutBtn.addEventListener("click", signOut);
+
+        if (!sessionStorage.getItem('token')) {
+          sdk.signin(Server_URL).then(res => {
+            console.log(res)
+            sessionStorage.setItem('token', res.token);
+          });
+        }
+        //获取用户信息
+        async function getInfo() {
+          let token = sessionStorage.getItem('token');
+          console.log(token)
+          if (!token) { return; }
+          else {
+            return fetch(Server_URL+`http://localhost:3003/api/getUserInfo?token=${token}`).then(res => res.json());
+          }
+        }
+
+        setTimeout(() => {
+          getInfo().then(res => setInfo(res));
+        }, 500);
+
+        function setInfo(res) {
+          let userinfo = res;
+          sessionStorage.setItem('userinfo', JSON.stringify(userinfo));
+          usernameElement.innerHTML = userinfo.name;
+        }
+
+        function signOut() {
+          sessionStorage.removeItem("token");
+          window.location.href = Server_URL;
+        }
+      };
+      //get the element
+      const signInBtn = document.querySelector("#signIn");
+      function gotoSignInPage() {
+        window.location.href = sdk.getSigninUrl();
+      }
+      function gotoSignUppage() {
+        window.location.href = sdk.getSignupUrl();
+      }
+      signInBtn.addEventListener("click", gotoSignInPage);
+    })
+    //跳转到用户主页函数
+    function gotoUserPage(){
+      const userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
+      window.location.href = "/user?userinfo=" + encodeURIComponent(JSON.stringify(userinfo));
+    }
+  </script>
+</body>
+
+</html>
