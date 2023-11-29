@@ -220,3 +220,43 @@
 2023-11-22 18:00:43,209:INFO:裁剪操作成功完成
 2023-11-27 19:01:12,302:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/210521101000_DEM250.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/210521101000.gson
 2023-11-27 19:01:12,536:INFO:裁剪操作成功完成
+2023-11-28 15:57:42,462:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/210500_DEM250.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/210500.gson
+2023-11-28 15:57:42,741:INFO:裁剪操作成功完成
+2023-11-28 16:00:39,264:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/211122_DEM250.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/211122.gson
+2023-11-28 16:00:39,368:INFO:裁剪操作成功完成
+2023-11-28 17:06:05,404:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/210500_DEM250.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/210500.gson
+2023-11-28 17:06:05,532:INFO:裁剪操作成功完成
+2023-11-28 17:08:29,799:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/710000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/710000.gson
+2023-11-28 17:08:30,132:INFO:裁剪操作成功完成
+2023-11-28 17:09:14,699:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:09:14,877:INFO:裁剪操作成功完成
+2023-11-28 17:09:48,920:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:09:49,085:INFO:裁剪操作成功完成
+2023-11-28 17:10:02,334:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:10:02,492:INFO:裁剪操作成功完成
+2023-11-28 17:11:00,413:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/211322111000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/211322111000.gson
+2023-11-28 17:11:00,524:INFO:裁剪操作成功完成
+2023-11-28 17:11:31,721:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:11:31,884:INFO:裁剪操作成功完成
+2023-11-28 17:26:12,374:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM25020231128172611.120000_DEM250.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:26:12,559:INFO:裁剪操作成功完成
+2023-11-28 17:30:32,897:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM25020231128173032.120000_DEM250.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:30:33,050:INFO:裁剪操作成功完成
+2023-11-28 17:33:18,996:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM100020231128173318.120000_DEM1000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:33:19,153:INFO:裁剪操作成功完成
+2023-11-28 17:41:01,036:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM250_20231128174100.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:41:01,187:INFO:裁剪操作成功完成
+2023-11-28 17:43:28,604:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM250_20231128174327.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:43:28,767:INFO:裁剪操作成功完成
+2023-11-28 17:46:45,968:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM250_20231128174645.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-28 17:46:46,120:INFO:裁剪操作成功完成
+2023-11-29 17:22:04,608:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM250_20231129172201.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-29 17:22:04,863:INFO:裁剪操作成功完成
+2023-11-29 17:23:31,340:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM250_20231129172330.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-29 17:23:31,495:INFO:裁剪操作成功完成
+2023-11-29 18:34:04,560:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM1000_20231129183403.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-29 18:34:04,784:INFO:裁剪操作成功完成
+2023-11-29 18:36:03,019:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/360921504000_DEM1000_20231129183602.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/360921504000.gson
+2023-11-29 18:36:03,092:INFO:裁剪操作成功完成
+2023-11-29 18:39:36,483:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/120000_DEM1000_20231129183935.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/120000.gson
+2023-11-29 18:39:36,631:INFO:裁剪操作成功完成

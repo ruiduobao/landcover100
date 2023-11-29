@@ -67,9 +67,17 @@ function findWmtsByIdAndExecute(id) {
       fetchCSV(filePath)
           .then(data => {
               const csvData = parseCSV(data);
+              console.log("csvData",csvData)
               const entry = csvData.find(row => row.id === id);
               if (entry) {
-                  resolve(entry.wmts);
+                resolve({
+                  wmts: entry.wmts,
+                  Absolute_path2: entry.Absolute_path2,
+                  note: entry.note,
+                  dataType: entry.dataType,
+                  resolution: entry.resolution,
+                  zip_level: entry.zip_level
+                });
               } else {
                   reject('No matching ID found');
               }
@@ -80,6 +88,10 @@ function findWmtsByIdAndExecute(id) {
 
 //预览的选中状态以及展示预览图层
 function toggleImageBorder(img,id) {
+    //重置栅格数据源的dataType、resolution、zip_level
+    dataType=null
+    resolution=null
+    zip_level=null
     // 移除所有其他图片的选中状态
     var currentlySelected = document.querySelector('.selected-img');
     if (currentlySelected) {
@@ -101,9 +113,13 @@ function toggleImageBorder(img,id) {
       // 否则，加载新的图层并更新当前图层ID
       img.classList.add('selected-img');
       findWmtsByIdAndExecute(id)
-          .then(wmtsLink => {
-              addWmtsLayerToMap(map, wmtsLink);
+          .then(data => {
+              addWmtsLayerToMap(map, data.wmts);
               currentWmtsLayerId = id;
+              dataType=data.dataType
+              resolution=data.resolution
+              zip_level=data.zip_level
+              console.log(dataType,resolution,data.zip_level)
           })
           .catch(error => console.log(error));
   }

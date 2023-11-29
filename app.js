@@ -430,7 +430,7 @@ app.post('/clip_raster', (req, res) => {
 });
 //计算面积路由
 app.post('/calculate_area', (req, res) => {
-    const geojsonFilePath = req.body.geojsonFilePath;
+    const geojsonFilePath = req.body.vectorDataFilePath;
 
     // Python 环境和脚本路径
     const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
@@ -664,7 +664,12 @@ app.get("/user", (req, res) => {
     });
   })
   
-  // 定义/login路由,用户修改密码后跳转到该网页
-  app.get('/login', (req, res) => {
-      res.redirect(Server_URL); // 重定向到指定的URL
-  });
+// 定义/login路由,用户修改密码后跳转到该网页
+app.get('/login', (req, res) => {
+    res.redirect(Server_URL); // 重定向到指定的URL
+});
+
+//跳转到网站使用须知网页中
+app.get("/UserWebPage", (req, res) => {
+    res.render("UserWebPage");
+})

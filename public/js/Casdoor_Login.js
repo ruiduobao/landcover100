@@ -10,6 +10,7 @@ window.addEventListener('load', () => {
     // let usernameLabel = document.querySelector("#username");
     let info_urlLabel = document.querySelector("#info_url");
 
+    
     signInBtn.className = "hidden";
     signOutBtn.className = "show";
     // usernameLabel.className = "show";
@@ -40,7 +41,7 @@ window.addEventListener('load', () => {
     function setInfo(res) {
       let userinfo = res;
       sessionStorage.setItem('userinfo', JSON.stringify(userinfo));
-    //   usernameElement.textContent = userinfo.name;
+      //usernameElement.textContent = userinfo.name;
       info_urlLabel.textContent = userinfo.name;
     }
 
@@ -48,7 +49,7 @@ window.addEventListener('load', () => {
       sessionStorage.removeItem("token");
       window.location.href = Server_URL;
     }
-  };
+    };
   //get the element
   const signInBtn = document.querySelector("#signIn");
   function gotoSignInPage() {
@@ -63,4 +64,9 @@ window.addEventListener('load', () => {
 function gotoUserPage(){
   const userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
   window.location.href = "/user?userinfo=" + encodeURIComponent(JSON.stringify(userinfo));
+}
+
+// 跳转到使用须知网页中 gotoUserPage
+function gotoUserWebPage(){
+  window.location.href = "/UserWebPage" ;
 }

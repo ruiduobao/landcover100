@@ -1,3 +1,7 @@
+//矢量文件的绝对路径
+let VECTOR_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public"
+//栅格文件保存的绝对路径
+let raster_output_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/"
 //裁剪栅格的路径 让geoserver发布函数调用
 let outputRasterPath
 //裁剪栅格的文件名 让geoserver发布函数调用
@@ -6,6 +10,10 @@ let raster_filename
 let currentWmtsLayer = null; 
 // 定义全局变量以跟踪当前显示的图层
 let currentWmtsLayerId = null;
+//定义栅格数据的dataType、resolution、zip_level
+let dataType
+let resolution
+let zip_level
 
 //下载按钮的显示和隐藏
 function showDownloadDiv() {
@@ -38,22 +46,26 @@ function findDBpathByIdAndExecute(id) {
 //裁剪栅格数据
 function clipRasterData() {
     return new Promise((resolve, reject) => {
+
         // 矢量文件的绝对路径
-        const VECTOR_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public"
         const vectorDataFilePath=VECTOR_DIR_PATH+geojson_path[0]
+        RasterStorageSize=computeAndLog(vectorDataFilePath);
+        console.log("vectorDataFilePath",vectorDataFilePath)
         //准备裁剪的栅格数据路径
         const selected_DataDB_NAME_ID=selected_DataDB_NAME
         console.log(selected_DataDB_NAME_ID)
         //找到栅格数据对应的绝对路径
         findDBpathByIdAndExecute(selected_DataDB_NAME_ID)
         .then(Absolute_path => {
+            raster_filename=null
             console.log(Absolute_path)
             const inputRasterPath=Absolute_path
             //裁剪后的栅格绝对路径
             var filenameWithExtension = geojson_path[0].split('/').pop(); // 获取文件名和后缀
-            raster_filename = filenameWithExtension.split('.').shift()+"_"+selected_DataDB_NAME; // 获取不包含后缀的文件名
-            var raster_output_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/"
+            const raster_filename_old= filenameWithExtension.split('.').shift()+"_"+selected_DataDB_NAME; // 获取不包含后缀的文件名
+            raster_filename=renameFileWithTimestamp(raster_filename_old)//将文件名改为带时间的
             outputRasterPath =raster_output_DIR_PATH+raster_filename+".tif"
+            console.log("outputRasterPath",outputRasterPath)
             //裁剪后的文件名
             raster_output_NAME_FULL=raster_filename+".tif"
 
@@ -84,9 +96,6 @@ function clipRasterData() {
             });
         })
         .catch(error => console.log(error));
-
-
-        
     });
 }
 

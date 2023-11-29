@@ -34,6 +34,7 @@
         <button class="hidden" id="info_url" style="width: 50px;height: 30px;border: none;" onclick="gotoUserPage()">我的</button>
         <button class="hidden" id="signOut" style="width: 50px;height: 30px;border: none;">退出</button>
         <button class="show" id="signIn" style="width: 50px;height: 30px;border: none;">登录</button>
+        <button class="show" id="USE_note" style="width: 80px;height: 30px;border: none;" onclick="gotoUserWebPage()">使用须知</button>
       </div>
     </div>
 
@@ -295,7 +296,6 @@
         </div>
         <h3>查询数据</h3>
           <button onclick="publish_Raster()">查询</button>
-        
         <div id="DOWNLOAD_DIV" style="display: none;">
           <h3>数据裁剪完毕，请下载:</h3>
           <button onclick="Download_Clip_raster()">下载</button>
@@ -339,6 +339,12 @@
 <script src="/js/Single_choice_data.js"></script>
 <!-- casdoor注册登录控制 -->
 <script src="/js/Casdoor_Login.js"></script>
+<!-- 面积计算函数 -->
+<script src="/js/CalArea.js"></script>
+<!-- 时间重命名文件函数 -->
+<script src="/js/RenameFilebyTime.js"></script>
+<!-- 数据大小计算函数 -->
+<script src="/js/CalStorage.js"></script>
 <script>
 </script>
 </body>

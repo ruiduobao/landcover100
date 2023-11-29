@@ -1,44 +1,81 @@
-//计算用户想下载的数据大小 （面积、数据深度、分辨率、压缩率）
-function calculateRasterSize(areaSqKm, dataType, resolution,zip_level) {
-    // 数据类型对应的字节数
+//预计下载文件的大小
+let RasterStorageSize
+async function calculateRasterSize(areaSqKm, dataType, resolution, zip_level) {
     const bytesPerDataType = {
-        'byte': 1,        // 8位
-        'int16': 2,       // 16位有符号整数
-        'uint16': 2,      // 16位无符号整数
-        'int32': 4,       // 32位有符号整数
-        'uint32': 4,      // 32位无符号整数
-        'float32': 4,     // 32位浮点数
-        'float64': 8,     // 64位浮点数
-        'cint16': 4,      // 复数，16位整数
-        'cint32': 8,      // 复数，32位整数
-        'cfloat32': 8,    // 复数，32位浮点数
-        'cfloat64': 16    // 复数，64位浮点数
+        'byte': 1,
+        'int16': 2,
+        'uint16': 2,
+        'int32': 4,
+        'uint32': 4,
+        'float32': 4,
+        'float64': 8,
+        'cint16': 4,
+        'cint32': 8,
+        'cfloat32': 8,
+        'cfloat64': 16
     };
+    // 尝试将参数转换为数字
+    console.log(resolution )
+    areaSqKm = parseFloat(areaSqKm);
+    resolution = parseFloat(resolution);
+    zip_level = parseFloat(zip_level);
+    console.log(resolution )
+    // 检查输入参数是否存在
+    if (areaSqKm === undefined || dataType === undefined || resolution === undefined || zip_level === undefined) {
+        throw new Error('所有参数都必须提供');
+    }
 
     // 检查数据类型是否有效
     if (!bytesPerDataType[dataType]) {
-        throw new Error("无效的数据类型");
+        throw new Error('无效的数据类型');
     }
 
-    // 计算每平方公里的像素数
+    // 检查输入参数类型是否正确
+    if (typeof areaSqKm !== 'number' || typeof resolution !== 'number' || typeof zip_level !== 'number') {
+        throw new Error('面积、分辨率和压缩率必须是数字');
+    }
+
+    // 检查输入参数是否为正数
+    if (areaSqKm <= 0 || resolution <= 0 || zip_level <= 0) {
+        throw new Error('面积、分辨率和压缩率必须是正数');
+    }
+
     const pixelsPerSqKm = (1000 / resolution) ** 2;
-
-    // 计算总像素数
     const totalPixels = areaSqKm * pixelsPerSqKm;
-
-    // 计算文件大小（字节）
     const fileSizeBytes = totalPixels * bytesPerDataType[dataType];
-
-    // 转换文件大小为兆字节 (MB)
-    const fileSizeMB = fileSizeBytes / (zip_level*1024 ** 2);
-
+    const fileSizeMB = fileSizeBytes / (zip_level * 1024 ** 2);
+    console.log(pixelsPerSqKm,totalPixels,fileSizeBytes,fileSizeMB)
+    console.log(type(pixelsPerSqKm),type(totalPixels),type(fileSizeBytes),type(fileSizeMB))
     return fileSizeMB;
 }
 
-// 示例：计算 1 平方公里、float32 数据类型、10 米分辨率的文件大小
-const area = 9600000;          // 平方公里
-const dataType = 'byte';    //
-const resolution = 30;   // 米
-const zip_level= 2
-const fileSize = calculateRasterSize(area, dataType, resolution,zip_level);
-console.log("文件大小:", fileSize, "MB");
+
+
+
+//判定矢量数据的大小
+//1.计算矢量数据的面积
+const Vector_are=CalArea(vectorDataFilePath)
+console.log("Vector_are",Vector_are)
+//2.计算文件大小
+console.log("dataType",dataType)
+console.log("resolution",resolution)
+console.log("zip_level",zip_level)
+RasterStorageSize=calculateRasterSize(Vector_are, dataType, resolution,zip_level)
+
+console.log("RasterStorageSize",RasterStorageSize)
+
+// 判定矢量数据的大小
+async function computeAndLog(vectorDataFilePath) {
+    RasterStorageSize=0
+    // 1.计算矢量数据的面积
+    const Vector_are = await CalArea(vectorDataFilePath);
+    console.log("Vector_are", Vector_are);
+
+    // 2.计算文件大小
+    console.log("dataType", dataType);
+    console.log("resolution", resolution);
+    console.log("zip_level", zip_level);
+    RasterStorageSize = await calculateRasterSize(Vector_are, dataType, resolution, zip_level);
+
+    console.log("RasterStorageSize", RasterStorageSize);
+}
