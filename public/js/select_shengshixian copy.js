@@ -95,9 +95,7 @@ document.addEventListener('DOMContentLoaded', function(){
 // 填充省级select的函数
 function fillProvinceSelect() {
     console.log('选择省份'); 
-
     var provinceSelect = document.getElementById('province_select');
-    provinceSelect.innerHTML = '<option value="">省份</option>'; // 添加默认空选项
     for (var province in provinceCodes) {
         var option = document.createElement('option');
         option.value = provinceCodes[province];
@@ -109,15 +107,6 @@ function fillProvinceSelect() {
     provinceSelect.addEventListener('change', function() {
         var sheng_code = this.value;
         console.log('选中的省级代码是:', sheng_code);
-        
-        //清空下面三级的选项
-        const citySelect = document.getElementById('city_select');
-        const countySelect = document.getElementById('county_select');
-        const xiangSelect = document.getElementById('xiang_select');
-        
-        citySelect.innerHTML = '';  // 清空地级选项
-        countySelect.innerHTML = '';  // 清空县级选项
-        xiangSelect.innerHTML = '';  // 清空乡级选项
 
         // 在这里读取和解析shengshi.md文件，然后更新城市选择框
         fetch('/shengshixian/shengshi.md')

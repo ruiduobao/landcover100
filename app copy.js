@@ -1,7 +1,7 @@
 // app.js
 const express = require('express');
 const app = express();
-
+const port = 3003;
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -15,32 +15,42 @@ require('dotenv').config({
     path: process.env.NODE_ENV === "production" ? ".env.production" : ".env.development"
   });
 
+console.log("process.env.endpoint",process.env.endpoint)
 
 // 在 app.js 中
 app.use(express.static('public'));
 // 用于解析JSON格式的请求体
 app.use(express.json()); 
 
+// //用于存储数据源的gson文件
+// const dataDBPath = path.join(__dirname, 'public', 'raster_data_DB', 'dataDB_time.gson');
+// const dataDB = JSON.parse(fs.readFileSync(dataDBPath, 'utf8'));
 
 app.get('/', (req, res) => {
   res.render('index', { title: '首页'});
 });
-//启动端口
-const port = process.env.port;
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
 //设置一个数据库属性
 const pgp = require('pg-promise')();
-
+//本地数据库
+// const dbConfig = {
+//     host: 'localhost',
+//     port: 5434,
+//     database: 'postgis_34_sample',
+//     user: 'postgres',
+//     password: '12345678'
+// };
 //云端数据库
 const dbConfig = {
-    host: process.env.SHPDB_host,
-    port: process.env.SHPDB_port,
-    database: process.env.SHPDB_database,
-    user: process.env.SHPDB_user,
-    password: process.env.SHPDB_password
+    host: '182.254.147.254',
+    port: 5432,
+    database: 'shengshixian',
+    user: 'ruiduobao',
+    password: 'RDB123456.'
 };
 const db = pgp(dbConfig);
 
@@ -53,7 +63,7 @@ app.post('/getGeoAddress', async (req, res, next) => {
       const error = new Error('Invalid place parameter.');
       return next(error);
   }
-  const GAODE_API_KEY =process.env.GAODE_API_KEY;
+  const GAODE_API_KEY = 'b6ba147ffd1e49158d12f7cb16d0f381';
   const GAODE_GEOCODE_URL = `https://restapi.amap.com/v3/geocode/geo?address=${encodeURIComponent(placeName)}&key=${GAODE_API_KEY}`;
 
   let location = null;
@@ -207,6 +217,32 @@ app.use(fileUpload({
     createParentPath: true // 允许创建多级目录
 }));
 
+// app.post('/uploadvector', (req, res) => {
+//     console.log('Received request for /uploadvector'); // 调试信息
+//     if (!req.files || Object.keys(req.files).length === 0) {
+//         return res.status(400).send('No files were uploaded.');
+//     }
+//     // `file` 是前端传来的文件对象名称
+//     let file = req.files.file; // 确保这里的`file`与前端发送的字段名一致
+//     // 对URL编码过的文件名进行解码
+//     let fileName = decodeURIComponent(file.name);
+//     // 检查文件格式
+//     const validFormats = ['.gson', '.geogson', '.shp', '.geojson', '.kml'];
+//     const fileExtension = path.extname(file.name).toLowerCase();
+    
+//     if (validFormats.includes(fileExtension)) {
+//         // 设置文件保存路径
+//         let uploadPath = path.join(__dirname, 'public', 'vector_upload', fileName);
+//         file.mv(uploadPath, function(err) {
+//             if (err) {
+//                 return res.status(500).send(err);
+//             }
+//             res.json({ message: 'File uploaded successfully', fileUrl: `/vector_upload/${fileName}` });
+//         });
+//     } else {
+//         res.status(400).send('Invalid file format.');
+//     }
+// });
 // 一个POST路由，用于处理文件上传
 app.post('/uploadvector', async (req, res) => {
     //文件上传和类型判断的代码
@@ -249,9 +285,9 @@ app.post('/uploadvector', async (req, res) => {
             });
             // ... 调用 Python 脚本转换文件的代码
             //python的路径
-            const pythonEnv = process.env.pythonEnv;
+            const pythonEnv = " C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
             //kml转gson脚本路径
-            const scriptPath = process.env.kml2gson_scriptPath;
+            const scriptPath = "D:/website/landcover100/public/python_gma/kml2gson.py";
             //矢量文件路径+输出geoson文件路径
             const vectorInFile = uploadPath;
             const vectorOutFile = path.join(__dirname, 'public', 'vector_upload', processedFileName);
@@ -329,8 +365,8 @@ app.post('/uploadSHPvector', async (req, res) => {
         if (shpFilePath) {
             const processedFileName = path.basename(shpFilePath, '.shp') + '.gson';
             const vectorOutFile = path.join(uploadDirectory, processedFileName);
-            const pythonEnv = process.env.pythonEnv;
-            const scriptPath = process.env.shp2gson_scriptPath;
+            const pythonEnv = "C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
+            const scriptPath = "D:/website/landcover100/public/python_gma/shp2gson.py";
 
 
             exec(`${pythonEnv} "${scriptPath}" "${shpFilePath}" "${vectorOutFile}"`, (error, stdout, stderr) => {
@@ -363,9 +399,19 @@ app.post('/clip_raster', (req, res) => {
     console.log('vectorDataFilePath:', vectorDataFilePath);
     console.log('outputRasterPath:', outputRasterPath);
     console.log('inputRasterPath:', inputRasterPath);
-    const pythonEnv = process.env.pythonEnv;
-    const scriptPath = process.env.clip_data_scriptPath;
 
+    // const inputRasterPath = "E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM_1000_3857.tif";
+    // const outputRasterPath = "E:/node_gdal_waibu22223452.tif";
+
+    // const inputRasterPath = "D:/website/landcover100/public/raster_data_DB/DEM_1000_3857.tif";
+    // const outputRasterPath = "D:/website/landcover100/public/raster_output_fromDB/clip_dem.tif";
+    //办公室电脑路径
+    const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
+    const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/clip_data.py";
+    //python的路径
+    // const pythonEnv = " C:/Users/HTHT/.conda/envs/GMA_envir/python.exe";
+    //裁剪脚本路径
+    // const scriptPath = "D:/website/landcover100/public/python_gma/clip_data.py";
 
     exec(`${pythonEnv} "${scriptPath}" "${vectorDataFilePath}" "${inputRasterPath}" "${outputRasterPath}"`, (error, stdout, stderr) => {
         if (error) {
@@ -392,8 +438,8 @@ app.post('/calculate_area', (req, res) => {
     const geojsonFilePath = req.body.vectorDataFilePath;
 
     // Python 环境和脚本路径
-    const pythonEnv = process.env.pythonEnv;
-    const scriptPath = process.env.cal_vector_area_scriptPath;
+    const pythonEnv = "C:/softfiles/envs/GMA_envir/python.exe";
+    const scriptPath = "E:/ruiduobao/MY_website/landcover100_com/public/python_gma/cal_vector_area.py";
 
     exec(`${pythonEnv} "${scriptPath}" "${geojsonFilePath}"`, (error, stdout, stderr) => {
         if (error) {
@@ -415,10 +461,10 @@ const publishRasterData = async (workspace, storename, coverageName, filePath) =
 
     
     // 这里需要根据实际的用户名和密码进行替换
-    const username =process.env.geoserver_username; 
-    const password =process.env.geoserver_password;
+    const username = 'admin'; 
+    const password = 'RDB123456.';
 
-    const geoserverUrl =process.env.geoserverUrl;
+    const geoserverUrl = 'http://182.254.147.254:8080/geoserver';
     const data = fs.readFileSync(filePath);
 
     // 设置基本认证信息
@@ -443,12 +489,11 @@ const publishRasterData = async (workspace, storename, coverageName, filePath) =
     });
 
     // 步骤3：构建WMTS服务链接
-    const geoserver_url=process.env.geoserverUrl
-    const wmtsLink =geoserver_url+`/${workspace}/gwc/service/wmts?layer=${workspace}%3A${coverageName}&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix=12&TileCol=3431&TileRow=1673`
+    
+    const wmtsLink =`http://182.254.147.254:8080/geoserver/${workspace}/gwc/service/wmts?layer=${workspace}%3A${coverageName}&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix=12&TileCol=3431&TileRow=1673`
     return wmtsLink;
 }
 
-//将数据发布到geoserver中
 app.post('/publishRaster', async (req, res) => {
     try {
         const wmtsLink = await publishRasterData(
@@ -484,10 +529,9 @@ app.get('/download_raster', function(req, res) {
 
 //定时清除工作空间和已发布的文件
 async function recreateWorkspace(workspace) {
-    const username =process.env.geoserver_username; 
-    const password =process.env.geoserver_password;
-
-    const geoserverUrl =process.env.geoserverUrl;
+    const username = 'admin'; 
+    const password = 'RDB123456.';
+    const geoserverUrl = 'http://182.254.147.254:8080/geoserver';
 
     try {
         // 删除现有的工作空间
@@ -528,8 +572,8 @@ async function deleteFilesInDirectory(directory) {
 }
 
 setInterval(async () => {
-    const workspace = process.env.workspace;
-    const directory = process.env.geoserver_directory;
+    const workspace = 'landcover100_DEM';
+    const directory = '/usr/share/geoserver/data_dir/data/landcover100_DEM';
 
     await recreateWorkspace(workspace);
     //需要等待部署到服务器之后再进行下一步
@@ -542,20 +586,46 @@ const { SDK } = require('casdoor-nodejs-sdk');
 const cors = require('cors')
 
 //设置网址（本地环境和服务器环境）
-const Server_URL=process.env.Server_URL
+const Server_URL="http://localhost:3003"
+const cert = `
+-----BEGIN CERTIFICATE-----
+MIIE2TCCAsGgAwIBAgIDAeJAMA0GCSqGSIb3DQEBCwUAMCYxDjAMBgNVBAoTBWFk
+bWluMRQwEgYDVQQDDAtjZXJ0X2ZhYzhxNjAeFw0yMzExMjExOTE2MjRaFw00MzEx
+MjExOTE2MjRaMCYxDjAMBgNVBAoTBWFkbWluMRQwEgYDVQQDDAtjZXJ0X2ZhYzhx
+NjCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAMWTVJjfoWu31q1Kj3tR
+NJaN6EhHdeF80uSzfxyH6BxHOi1yTj0mWzMqk7fKft2OxAdTh64bbI6UH0ce/lhm
+88vHV1/iaryGrAy3awe7oGgtnGBWYV24f8CfkTETBQ0o+TeG5Fuz2zR4M2czi/mO
+0XRU7wBpNf+SLqAWUzF2n0Yl5d+7GSKPB+4JV82faAscJgi3BhwifBfN2hxKRkrF
+WM4V8Fr1YvEAXEw1QxbOhqgkAKF32vPQW1vbuzafafO9GBUNJupt3AEVmSBwkw+b
+0IvU8HG/1Gif0GJ1r/gDbRi2EuJL6kVU/VQ864qcffuH7uUV3foOrHJExc/0sjWq
+q4eDvKlXbfzMFukZtfEAVI1CdpePVkIM3uBbgc5YJ0MnFD0Nt9gQNGaKBat2CCwY
+XSXVl6X5HiXu8U/WUXWnul1k2zTbvYG8xYlsJVlqR0VzJ+5dpQJ+OUl3UnvHVY4s
+57xL6b4sOrZa0R3fzQpLOk+WDDK12C55Xbz7P+2Gwno6JDJ1FT2c1h/Qpp9GQWvJ
+elAo/xwCg2emeCEf91Mwf9O8eEdqpG+tX1plDLsBzN6nd43J16yslOzH2UwL2SgC
+vNLUZom5svjOXMnOFF5hr7pcpPQyYryGexvgvzgF84k3Wnkjlwale5M4kHtpnc/2
+e+HtQARDdl/8YLvNRWTEeUZ7AgMBAAGjEDAOMAwGA1UdEwEB/wQCMAAwDQYJKoZI
+hvcNAQELBQADggIBAMOiCcqeM05/DxramTWBDa8nFobvwg2viq6COdINv2u9ExN5
+e+mhYMvuQi9vXZCFS8wVmHxC6i//jXc+A7lbTZiBX3ANwjw8D4tTjKVjEGw2qnmW
+PRgZseqFc1YwA1/IljDyeCx9mr4DZjNE2dMnbtXRYN+etldxSLJTo4pjqp5liRiB
+M8+D/MqfxF9PUAQZVjHtsW9TOcYJ90+LBbJGx4ZesxNteboCCBbUiQnavAwiu2jR
+32Gq5DhojfvFW6xsvCpM24yhYUhGH3CL2V/9dhd2jNlIHtYuwE0MMC0kbjr4/yt8
+t9VSLXUcsHEDs4ho9GfY0AEDf374TlQODZ8WXDUuDNvGv4sE+pkYRNhhJAI/92ve
+XdjtRxnlkUNJ5Z1Dfw97A/L+aeCs4ff7ebM/poi8JSCZucRnQXy4nu67+3+yH5JK
+/u9276hgSwDbXldfjz/HLbienZ2tnv78A8f3V/JGoAAd1H8K1bSG84h9K0RwoBKd
+LhzEFjHX43YnfQ721c3nPYgc4QR7a0LVj3df9IDf0LKOhWPB5V/dWdLBI8txzuXN
+UM9yTiBSWfiTH2aCO/IJgJWdRkijyuZsuBakoWJFyYZtL2LU0bnn3LVDL1mo/YWg
+/PbtxS/kFwjvpvrbwIkoYBINd8v7ulRHOnc5GOGaeT80sfYHxFv1DBLkokyh
+-----END CERTIFICATE-----
+`;
 
-// 获取证书文件的路径
-const certFilePath = process.env.cert_PEM_file_path;
-// 同步读取证书文件
-const cert = fs.readFileSync(certFilePath, 'utf8');
 //casdoor参数
 const authCfg = {
-  endpoint: process.env.endpoint,
-  clientId: process.env.clientId,
-  clientSecret: process.env.clientSecret,
+  endpoint: 'https://login.landcover100.com',
+  clientId: '2ad095dec6ed461cdf87',
+  clientSecret: 'd5fedc8ed12f05841ec6c0257c60ccb66a58226c',
   certificate: cert,
-  orgName: process.env.orgName,
-  appName: process.env.appName,
+  orgName: 'RuiduobaoOrganization',
+  appName: 'LandCover100APP',
 }
 
 const sdk = new SDK(authCfg);
@@ -569,9 +639,9 @@ app.get('/api/getUserInfo', (req, res) => {
     // console.log("/api/getUserInfo")
     // console.log(req)
     let urlObj = url.parse(req.url, true).query;
-    // console.log("urlObj.token",urlObj.token)
+    console.log("urlObj.token",urlObj.token)
     let user = sdk.parseJwtToken(urlObj.token);
-    // console.log("JSON.stringify(user)",JSON.stringify(user))
+    console.log("JSON.stringify(user)",JSON.stringify(user))
     res.write(JSON.stringify(user));
     res.end();
   });
@@ -581,6 +651,9 @@ app.get('/api/getUserInfo', (req, res) => {
     sdk.getAuthToken(urlObj.code).then(response => {
       
       const accessToken = response.access_token;
+      // const accessToken = response;
+      // console.log("JSON.stringify({ token: accessToken })",JSON.stringify({ token: accessToken }))
+      // const refresh_token = response.refresh_token;
       res.send(JSON.stringify({ token: accessToken }));
     });
   });
@@ -605,12 +678,3 @@ app.get('/login', (req, res) => {
 app.get("/UserWebPage", (req, res) => {
     res.render("UserWebPage");
 })
-
-//获取矢量文件和导出的栅格文件保存路径
-app.post('/get_SHP_RASTER_Paths', (req, res) => {
-    res.json({
-      vectorDirPath:process.env.VECTOR_DIR_PATH,
-      rasterOutputDirPath:process.env.raster_output_DIR_PATH,
-    });
-  });
-  

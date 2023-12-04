@@ -2,6 +2,7 @@
 let VECTOR_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public"
 //栅格文件保存的绝对路径
 let raster_output_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/"
+
 //裁剪栅格的路径 让geoserver发布函数调用
 let outputRasterPath
 //裁剪栅格的文件名 让geoserver发布函数调用
