@@ -1,5 +1,7 @@
 // 定义全局变量 用于获取选中的数据源
 let selected_DataDB_NAME;
+// 定义全局变量以跟踪当前显示的图层
+let currentWmtsLayerId = null;
 
 // 设置单选按钮的监听器函数 
 function setupRadioButtons() {
@@ -10,6 +12,15 @@ function setupRadioButtons() {
             if (this.checked) {
                 selected_DataDB_NAME = this.id;
                 console.log("Selected raster_DB ID: " + selected_DataDB_NAME); // 在控制台输出所选ID
+                //选中的图层传递栅格的属性信息
+                findWmtsByIdAndExecute(selected_DataDB_NAME)
+                .then(data => {
+                    currentWmtsLayerId = selected_DataDB_NAME;
+                    dataType=data.dataType
+                    resolution=data.resolution
+                    zip_level=data.zip_level
+                })
+                .catch(error => console.log(error));
             }
         });
     });

@@ -1,6 +1,4 @@
-//预计下载文件的大小
-let RasterStorageSize
-async function calculateRasterSize(areaSqKm, dataType, resolution, zip_level) {
+function calculateRasterSize(areaSqKm, dataType, resolution, zip_level) {
     const bytesPerDataType = {
         'byte': 1,
         'int16': 2,
@@ -45,24 +43,11 @@ async function calculateRasterSize(areaSqKm, dataType, resolution, zip_level) {
     const fileSizeBytes = totalPixels * bytesPerDataType[dataType];
     const fileSizeMB = fileSizeBytes / (zip_level * 1024 ** 2);
     console.log(pixelsPerSqKm,totalPixels,fileSizeBytes,fileSizeMB)
-    console.log(typeof(pixelsPerSqKm),typeof(totalPixels),typeof(fileSizeBytes),typeof(fileSizeMB))
+    // console.log(type(pixelsPerSqKm),type(totalPixels),type(fileSizeBytes),type(fileSizeMB))
     return fileSizeMB;
 }
-
-// 判定矢量数据的大小
-async function computeAndLog(vectorDataFilePath) {
-    RasterStorageSize=0
-    // 1.计算矢量数据的面积
-    const Vector_are = await CalArea(vectorDataFilePath);
-    console.log("Vector_are", Vector_are);
-
-    // 2.计算文件大小
-    console.log("dataType", dataType);
-    console.log("resolution", resolution);
-    console.log("zip_level", zip_level);
-    RasterStorageSize = await calculateRasterSize(Vector_are, dataType, resolution, zip_level);
-    console.log("函数内部预计文件大小为RasterStorageSize", RasterStorageSize);
-
-    //返回面积
-    return RasterStorageSize
-}
+areaSqKm="9600000"
+dataType="byte"
+resolution="0.35"
+zip_level="1"
+console.log("calculateRasterSize默认",calculateRasterSize(areaSqKm, dataType, resolution, zip_level) )

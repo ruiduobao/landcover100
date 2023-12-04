@@ -62,15 +62,15 @@
 
         signOutBtn.addEventListener("click", signOut);
 
-        if (!sessionStorage.getItem('token')) {
+        if (!localStorage.getItem('token')) {
           sdk.signin(Server_URL).then(res => {
             console.log(res)
-            sessionStorage.setItem('token', res.token);
+            localStorage.setItem('token', res.token);
           });
         }
         //获取用户信息
         async function getInfo() {
-          let token = sessionStorage.getItem('token');
+          let token = localStorage.getItem('token');
           console.log(token)
           if (!token) { return; }
           else {
@@ -84,12 +84,12 @@
 
         function setInfo(res) {
           let userinfo = res;
-          sessionStorage.setItem('userinfo', JSON.stringify(userinfo));
+          localStorage.setItem('userinfo', JSON.stringify(userinfo));
           usernameElement.innerHTML = userinfo.name;
         }
 
         function signOut() {
-          sessionStorage.removeItem("token");
+          localStorage.removeItem("token");
           window.location.href = Server_URL;
         }
       };
@@ -105,7 +105,7 @@
     })
     //跳转到用户主页函数
     function gotoUserPage(){
-      const userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
+      const userinfo = JSON.parse(localStorage.getItem('userinfo'));
       window.location.href = "/user?userinfo=" + encodeURIComponent(JSON.stringify(userinfo));
     }
   </script>

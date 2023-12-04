@@ -26,7 +26,8 @@ def calculate_area_albers_projection(geojson_file):
 
     # 清理
     dataSource = None
-
+    #面积转为平方米
+    total_area=total_area/1_000_000
     return total_area
 
 if __name__ == '__main__':
