@@ -1,8 +1,3 @@
-//矢量文件的绝对路径
-let VECTOR_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public"
-//栅格文件保存的绝对路径
-let raster_output_DIR_PATH="E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/"
-
 //裁剪栅格的路径 让geoserver发布函数调用
 let outputRasterPath
 //裁剪栅格的文件名 让geoserver发布函数调用
@@ -14,7 +9,6 @@ let currentWmtsLayer = null;
 let dataType
 let resolution
 let zip_level
-
 
 
 //下载按钮的显示和隐藏
@@ -36,7 +30,7 @@ function findDBpathByIdAndExecute(id) {
                 const csvData = parseCSV(data);
                 const entry = csvData.find(row => row.id === id);
                 if (entry) {
-                    resolve(entry.Absolute_path2);
+                    resolve(entry[Absolute_path]);
                 } else {
                     reject('No matching ID found');
                 }
@@ -76,10 +70,9 @@ function clipRasterData() {
 
                 //找到栅格数据对应的绝对路径
                 return findDBpathByIdAndExecute(selected_DataDB_NAME_ID)
-                    .then(Absolute_path => {
+                    .then(RASTER_Absolute_path => {
                         raster_filename = null
-                        console.log(Absolute_path)
-                        const inputRasterPath = Absolute_path
+                        const inputRasterPath = RASTER_Absolute_path
 
                         //裁剪后的栅格绝对路径
                         var filenameWithExtension = geojson_path[0].split('/').pop(); // 获取文件名和后缀

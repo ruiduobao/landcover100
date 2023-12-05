@@ -1,7 +1,6 @@
 // casdoor的登录脚本(登录和已登录，本地有cookie的直接显示个人信息)
 // 设置网址（本地环境和服务器环境）
-let Server_URL;
-Server_URL="http://localhost:3003"
+
 // 用户token信息
 let token;
 

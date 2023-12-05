@@ -83,7 +83,7 @@ function findWmtsByIdAndExecute(id) {
               if (entry) {
                 resolve({
                   wmts: entry.wmts,
-                  Absolute_path2: entry.Absolute_path2,
+                  Absolute_path2: entry[Absolute_path],
                   note: entry.note,
                   dataType: entry.dataType,
                   resolution: entry.resolution,

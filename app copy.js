@@ -15,7 +15,6 @@ require('dotenv').config({
     path: process.env.NODE_ENV === "production" ? ".env.production" : ".env.development"
   });
 
-console.log("process.env.endpoint",process.env.endpoint)
 
 // 在 app.js 中
 app.use(express.static('public'));
