@@ -444,7 +444,7 @@ const publishRasterData = async (workspace, storename, coverageName, filePath) =
 
     // 步骤3：构建WMTS服务链接
     const geoserver_url=process.env.geoserverUrl
-    const wmtsLink =geoserver_url+`/${workspace}/gwc/service/wmts?layer=${workspace}%3A${coverageName}&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TRANSPARENT=true&TileMatrix=12&TileCol=3431&TileRow=1673`
+    const wmtsLink =geoserver_url+`/${workspace}/gwc/service/wmts?layer=${workspace}%3A${coverageName}&style=&tilematrixset=WebMercatorQuad&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix=12&TileCol=3431&TileRow=1673`
     return wmtsLink;
 }
 

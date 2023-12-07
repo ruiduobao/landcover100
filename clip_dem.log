@@ -353,3 +353,13 @@
 2023-12-05 20:05:35,265:INFO:裁剪操作成功完成
 2023-12-05 20:06:04,990:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_data_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/150223_DEM1000_20231205200604.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/150223.gson
 2023-12-05 20:06:05,160:INFO:裁剪操作成功完成
+2023-12-06 21:12:57,851:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/610102007000_DEM250_20231206211256.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/610102007000.gson
+2023-12-06 21:12:57,884:ERROR:裁剪操作发生错误: Unable to open E:/ruiduobao/MY_website/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif! Unsupported raster file!
+2023-12-06 21:12:58,797:INFO:开始裁剪操作: 输入栅格=E:/ruiduobao/MY_website/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/610102007000_DEM250_20231206211258.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/610102007000.gson
+2023-12-06 21:12:58,804:ERROR:裁剪操作发生错误: Unable to open E:/ruiduobao/MY_website/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif! Unsupported raster file!
+2023-12-06 21:16:59,706:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/210123001000_DEM250_20231206211659.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/210123.gson
+2023-12-06 21:16:59,887:INFO:裁剪操作成功完成
+2023-12-06 21:17:02,057:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/210123001000_DEM250_20231206211701.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/210123001000.gson
+2023-12-06 21:17:02,191:INFO:裁剪操作成功完成
+2023-12-06 21:17:15,747:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/210123208000_DEM250_20231206211714.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/210123208000.gson
+2023-12-06 21:17:15,849:INFO:裁剪操作成功完成
