@@ -363,3 +363,17 @@
 2023-12-06 21:17:02,191:INFO:裁剪操作成功完成
 2023-12-06 21:17:15,747:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/210123208000_DEM250_20231206211714.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/210123208000.gson
 2023-12-06 21:17:15,849:INFO:裁剪操作成功完成
+2023-12-11 15:44:25,253:INFO:开始裁剪操作: 输入栅格=undefined, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/140105003000_undefined_20231211154422.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/140105003000.gson
+2023-12-11 15:44:25,271:ERROR:裁剪操作发生错误: Unable to open undefined! Unsupported raster file!
+2023-12-11 15:44:28,584:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_1000m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/140105003000_DEM1000_20231211154427.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/140105003000.gson
+2023-12-11 15:44:28,695:INFO:裁剪操作成功完成
+2023-12-11 16:43:54,402:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/medium_resolution/TAN_DEM/TAN_DEM.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/150200_DEMTANX_20231211164353.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/150200.gson
+2023-12-11 16:43:55,211:INFO:裁剪操作成功完成
+2023-12-11 16:44:46,098:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/medium_resolution/TAN_DEM/TAN_DEM.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/150221214000_DEMTANX_20231211164445.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/150221214000.gson
+2023-12-11 16:44:46,208:INFO:裁剪操作成功完成
+2023-12-11 16:48:36,178:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/medium_resolution/TAN_DEM/TAN_DEM.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231211084833_DEMTANX_20231211164835.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231211084833.geojson
+2023-12-11 16:48:36,304:INFO:裁剪操作成功完成
+2023-12-11 16:48:48,090:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/medium_resolution/Copernicus_DEM/Copernicus_DEM.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231211084845_Copernicus_DEM_20231211164847.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231211084845.geojson
+2023-12-11 16:48:48,208:INFO:裁剪操作成功完成
+2023-12-11 19:30:28,325:INFO:开始裁剪操作: 输入栅格=F:\landcover100_com_DB\Land_Cover\medium_resolution\武汉大学30m_1985-2019\CLCD_v01_2022_albert.tif, 输出栅格=F:\keshan\232721204000\POLYGON.tif, 矢量数据=F:\keshan\232721204000\POLYGON.shp
+2023-12-11 19:30:28,534:INFO:裁剪操作成功完成

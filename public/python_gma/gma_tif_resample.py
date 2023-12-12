@@ -41,7 +41,7 @@ def create_pyramid(tif_file):
     except Exception as e:
         return f"An error occurred: {e}"
 
-InFile=r"F:\landcover100_com_DB\DEM\medium_resolution\SRTM_v3_DEM\mosaic\SRTM_v3_DEM.tif"
-OutFile=r"F:\landcover100_com_DB\DEM\medium_resolution\SRTM_v3_DEM\mosaic\SRTM_v3_DEM_geoserver.tif"
-rasp.Basic.Resample(InFile, OutFile,0.005)
+InFile=r"F:\landcover100_com_DB\Land_Cover\medium_resolution\武汉大学30m_1985-2019\CLCD_v01_2022_albert.tif"
+OutFile=r"F:\landcover100_com_DB\Land_Cover\medium_resolution\武汉大学30m_1985-2019\CLCD_v01_2022_albert_resample.tif"
+rasp.Basic.Resample(InFile, OutFile,300)
 create_pyramid(OutFile)

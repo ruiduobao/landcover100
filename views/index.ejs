@@ -57,22 +57,27 @@
                   <ul class="hidden">
                         <li>
                           <span class="toggle">MODIS土地覆盖</span> 
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="modis2020" onclick="toggleImageBorder(this,this.id)"/></a>
                           <ul class="hidden">
                             <li class="item">
-                              <input type="radio" name="menu_choice" id="modis2020"><label for="modis2020" class="toggle_label"><span class="toggle">2020年</span></label>
-                              <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="modis2020" onclick="toggleImageBorder(this,this.id)"/></a>
+                              <input type="radio" name="menu_choice" id="modis2001"><label for="modis2001" class="toggle_label"><span class="toggle">2001年</span></label>
                             </li>
                             <li class="item">
-                              <input type="radio" name="menu_choice" id="modis2019"><label for="modis2019" class="toggle_label"><span class="toggle">2019年</span></label>
-                              <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="modis2019" onclick="toggleImageBorder(this,this.id)"/></a>
+                              <input type="radio" name="menu_choice" id="modis2002"><label for="modis2002" class="toggle_label"><span class="toggle">2002年</span></label>
+                            </li>
+                            <li class="item">
+                              <input type="radio" name="menu_choice" id="modis2003"><label for="modis2003" class="toggle_label"><span class="toggle">2003年</span></label>
+                            </li>
+                            <li class="item">
+                              <input type="radio" name="menu_choice" id="modis2004"><label for="modis2004" class="toggle_label"><span class="toggle">2004年</span></label>
                             </li>
                           </ul>
                         </li>
         
                         <li>
                           <span class="toggle">IGBP土地覆盖</span> 
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                           <ul class="hidden">
                             <li class="item">
                               <input type="radio" name="menu_choice" id="IGBP2010"><label for="IGBP2010" class="toggle_label"><span class="toggle">2015年</span></label>
@@ -94,7 +99,7 @@
                   <!-- GLC30土地覆盖 1.2.1 -->
                     <li>
                       <span class="toggle">GLC30土地覆盖</span> 
-                      <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#" /></a>
+                      <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#" /></a>
                       <ul class="hidden">
                         <li class="item">
                           <input type="radio" name="menu_choice" id="GLC30_2000"><label for="GLC30_2000" class="toggle_label"><span class="toggle">2000年</span></label>
@@ -111,7 +116,7 @@
                    <!-- CLCD土地覆盖 1.2.2 -->
                     <li>
                       <span class="toggle">CLCD土地覆盖</span> 
-                      <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                      <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                       <ul class="hidden">
                         <li class="item">
                           <input type="radio" name="menu_choice" id="CLCD1985"><label for="CLCD1985" class="toggle_label"><span class="toggle">1985年</span></label>
@@ -134,12 +139,12 @@
                         <li class="item">
                           <input type="radio" name="menu_choice" id="DEM5004"><label for="DEM5004" class="toggle_label"><span class="toggle">250米DEM</span></label>
                           <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                         </li>
                         <li class="item">
                           <input type="radio" name="menu_choice" id="DEM5003"><label for="DEM5003" class="toggle_label"><span class="toggle">250米DEM</span></label>
                           <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                         </li>
                         <li>
                           <span class="toggle">中分辨率DEM</span> 
@@ -147,12 +152,12 @@
                             <li class="item">
                               <input type="radio" name="menu_choice" id="DEM5002"><label for="DEM5002" class="toggle_label"><span class="toggle">NASA_DEM_30m</span></label>
                               <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
-                              <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                              <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                             </li>
                             <li class="item">
                               <input type="radio" name="menu_choice" id="DEM5001"><label for="DEM5001" class="toggle_label"><span class="toggle">ALOS_30m</span></label>
                               <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
-                              <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#" /></a>
+                              <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#" /></a>
                             </li>
                           </ul>
                         </li>
@@ -171,43 +176,34 @@
                         <li class="item">
                           <input type="radio" name="menu_choice" id="DEM250"><label for="DEM250" class="toggle_label"><span class="toggle">250米DEM</span></label>
                           <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM250" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
                         </li>
                         <li class="item">
                           <input type="radio" name="menu_choice" id="DEM1000"><label for="DEM1000" class="toggle_label"><span class="toggle">1000米DEM</span></label>
                           <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM1000" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
                         </li>
                   </ul>
                 </li>
-        
+                <!-- 中分辨率DEM数据 2.1 -->
                 <li class="item">
                   <span class="toggle">中分辨率DEM数据</span> 
                   <ul class="hidden">
+                        <!-- 中分辨率TAN_DEM数据 2.1.1 -->
                         <li class="item">
-                          <input type="radio" name="menu_choice" id="DEM5004"><label for="DEM5004" class="toggle_label"><span class="toggle">250米DEM</span></label>
-                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                          <input type="radio" name="menu_choice" id="DEMTANX"><label for="DEMTANX" class="toggle_label"><span class="toggle">DEM_TANX</span></label>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size"  id="DEMTANX" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="https://mp.weixin.qq.com/s/CFBYssYt7VIyrQTZRU2Mlw" title="数据说明"  target="_blank"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                         </li>
+                        <!-- 中分辨率Copernicus_DEM数据 2.1.2 -->
                         <li class="item">
-                          <input type="radio" name="menu_choice" id="DEM5003"><label for="DEM5003" class="toggle_label"><span class="toggle">250米DEM</span></label>
-                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                          <input type="radio" name="menu_choice" id="Copernicus_DEM"><label for="Copernicus_DEM" class="toggle_label"><span class="toggle">哥白尼DEM</span></label>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="Copernicus_DEM" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="https://mp.weixin.qq.com/s/mShNKPcfbCh-SclSw52dXA" title="数据说明"  target="_blank"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                         </li>
-                        <li>
-                          <span class="toggle">中分辨率DEM</span> 
-                          <ul class="hidden">
-                            <li class="item">
-                              <input type="radio" name="menu_choice" id="DEM5002"><label for="DEM5002" class="toggle_label"><span class="toggle">NASA_DEM_30m</span></label>
-                              <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" onclick="toggleImageBorder(this,this.id)"/></a>
-                              <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
-                            </li>
-                            <li class="item">
-                              <input type="radio" name="menu_choice" id="DEM5001"><label for="DEM5001" class="toggle_label"><span class="toggle">ALOS_30m</span></label>
-                              <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM5001" onclick="toggleImageBorder(this,this.id)"/></a>
-                              <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#" /></a>
-                            </li>
-                          </ul>
+                        <!-- 中分辨率SRTM_V3_DEM数据 2.1.3 -->
+                        <li class="item">
+                          <input type="radio" name="menu_choice" id="SRTM_V3_DEM"><label for="SRTM_V3_DEM" class="toggle_label"><span class="toggle">SRTM_V3_DEM</span></label>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="SRTM_V3_DEM" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="https://www.earthdata.nasa.gov/news/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia" title="数据说明"  target="_blank"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                         </li>
                   </ul>
                 </li>
@@ -218,12 +214,12 @@
                         <li class="item">
                           <input type="radio" name="menu_choice" id="DEM5004"><label for="DEM5004" class="toggle_label"><span class="toggle">250米DEM</span></label>
                           <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM250m" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                         </li>
                         <li class="item">
                           <input type="radio" name="menu_choice" id="DEM250m"><label for="DEM250m" class="toggle_label"><span class="toggle">250米DEM</span></label>
                           <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM250m" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                         </li>
                               <li>
                                 <span class="toggle">中分辨率DEM</span> 
@@ -231,12 +227,12 @@
                                   <li class="item">
                                     <input type="radio" name="menu_choice" id="NASA_DEM_30m"><label for="NASA_DEM_30m" class="toggle_label"><span class="toggle">NASA_DEM_30m</span></label>
                                     <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="NASA_DEM_30m" onclick="toggleImageBorder(this,this.id)"/></a>
-                                    <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#"/></a>
+                                    <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                                   </li>
                                   <li class="item">
                                     <input type="radio" name="menu_choice" id="ALOS_30m"><label for="ALOS_30m" class="toggle_label"><span class="toggle">ALOS_30m</span></label>
                                     <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="ALOS_30m" onclick="toggleImageBorder(this,this.id)"/></a>
-                                    <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" herf="#" /></a>
+                                    <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#" /></a>
                                   </li>
                                 </ul>
                               </li>

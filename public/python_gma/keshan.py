@@ -1,28 +1,22 @@
-# -*- coding: utf-8 -*-
+import os
 
-import logging
-import sys
-from gma import vesp
+def create_nested_subfolders(source_path, target_base_path):
+    # 提取源路径中的最后两个要素
+    last_two_elements = source_path.rstrip(os.sep).split(os.sep)[-2:]
 
-# 配置日志记录
-logging.basicConfig(filename='shp2gson.log', level=logging.INFO,format='%(asctime)s:%(levelname)s:%(message)s',encoding='utf-8')
+    # 构建完整的目标路径
+    full_target_path = os.path.join(target_base_path, *last_two_elements)
+    print(last_two_elements)
+    # 如果目标路径不存在，则创建它
+    if not os.path.exists(full_target_path):
+        os.makedirs(full_target_path)
+        print(f"Created folder: {full_target_path}")
+    else:
+        print(f"Folder already exists: {full_target_path}")
+    name=last_two_elements[0]+"_"+last_two_elements[1]
+    return full_target_path,name
 
-def shp2gson(InFile, OutFile):
-
-    try:
-        logging.info(f"开始shp2gson操作: 输入矢量={InFile}, 输出矢量={OutFile}")
-
-        #GMA 2.0版本
-        vesp.Basic.ToOtherFormat(InFile, OutFile, OutFormat = 'GeoJSON')
-        logging.info("shp2gson操作成功完成")
-        print("donecovert")
-    except Exception as e:
-        logging.error(f"shp2gson操作发生错误: {e}")
-        print(f"kml2gson操作发生错误: {e}")
-
-        raise
-
-if __name__ == '__main__':
-    InFile = r"C:\Users\HTHT\Downloads\shp\蚕食.shp"
-    OutFile = r"C:\Users\HTHT\Downloads\shp\蚕食.geogson"
-    shp2gson(InFile, OutFile)
+# 使用示例
+source_path = "F:\\landcover100_com_DB\\Land_Cover\\high_resolution\\ESRI_worldcover\\2017-2021年全国土地利用分类数据（精度为10m）\\2021\\52"
+target_base_path = "F:\\landcover100_com_DB\\Land_Cover\\high_resolution\\ESRI_worldcover\\mosaic\\mosaic"
+print(create_nested_subfolders(source_path, target_base_path)[1])
