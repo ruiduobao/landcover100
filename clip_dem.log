@@ -377,3 +377,13 @@
 2023-12-11 16:48:48,208:INFO:裁剪操作成功完成
 2023-12-11 19:30:28,325:INFO:开始裁剪操作: 输入栅格=F:\landcover100_com_DB\Land_Cover\medium_resolution\武汉大学30m_1985-2019\CLCD_v01_2022_albert.tif, 输出栅格=F:\keshan\232721204000\POLYGON.tif, 矢量数据=F:\keshan\232721204000\POLYGON.shp
 2023-12-11 19:30:28,534:INFO:裁剪操作成功完成
+2023-12-12 17:51:49,887:INFO:开始裁剪操作: 输入栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\class.tif, 输出栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\class_CHINA_1992.tif, 矢量数据=F:\landcover100_com_DB\others\中国范围矢量\2023年省级.shp
+2023-12-12 17:51:49,983:ERROR:裁剪操作发生错误: Cannot compute bounding box of cutline. Cannot find source SRS
+2023-12-12 17:52:28,507:INFO:开始裁剪操作: 输入栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\class.tif, 输出栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\class_CHINA_1992.tif, 矢量数据=F:\landcover100_com_DB\others\中国范围矢量\2023年省级.shp
+2023-12-12 17:52:28,591:ERROR:裁剪操作发生错误: Cannot compute bounding box of cutline. Cannot find source SRS
+2023-12-12 17:55:54,578:INFO:开始裁剪操作: 输入栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\class_repoject.tif, 输出栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\class_CHINA_1992.tif, 矢量数据=F:\landcover100_com_DB\others\中国范围矢量\2023年省级.shp
+2023-12-12 17:55:55,069:INFO:裁剪操作成功完成
+2023-12-12 18:50:09,137:INFO:开始裁剪操作: 输入栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\gdalwarp.tif, 输出栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\class_CHINA_1992.tif, 矢量数据=F:\landcover100_com_DB\others\中国范围矢量\2023年省级.shp
+2023-12-12 18:50:19,337:INFO:裁剪操作成功完成
+2023-12-12 18:52:09,318:INFO:开始裁剪操作: 输入栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\gdalwarp.tif, 输出栅格=F:\landcover100_com_DB\Land_Cover\low_resolution\ESA_CCI_300m\class_CHINA_1992.tif, 矢量数据=F:\landcover100_com_DB\others\中国范围矢量\2023年省级.shp
+2023-12-12 18:52:20,868:INFO:裁剪操作成功完成
