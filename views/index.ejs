@@ -51,14 +51,15 @@
             <li>
               <span class="toggle">土地覆盖数据</span>
               <ul class="hidden">
-                <!-- 土地覆盖数据 1.1 -->
+                <!-- 低分辨率土地覆盖数据 1.1 -->
                 <li class="item">
                   <span class="toggle">低分辨率土地覆盖数据</span> 
                   <ul class="hidden">
                         <li>
+                          <!-- 低分辨率modis土地覆盖数据 1.1.1 -->
                           <span class="toggle">MODIS土地覆盖</span> 
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
-                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="modis2020" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="MODIS_Landcover" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="https://zhuanlan.zhihu.com/p/619527268" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                           <ul class="hidden">
                             <li class="item">
                               <input type="radio" name="menu_choice" id="modis2001"><label for="modis2001" class="toggle_label"><span class="toggle">2001年</span></label>
@@ -72,30 +73,110 @@
                             <li class="item">
                               <input type="radio" name="menu_choice" id="modis2004"><label for="modis2004" class="toggle_label"><span class="toggle">2004年</span></label>
                             </li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2005"><label for="modis2005" class="toggle_label"><span class="toggle">2005年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2006"><label for="modis2006" class="toggle_label"><span class="toggle">2006年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2007"><label for="modis2007" class="toggle_label"><span class="toggle">2007年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2008"><label for="modis2008" class="toggle_label"><span class="toggle">2008年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2009"><label for="modis2009" class="toggle_label"><span class="toggle">2009年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2010"><label for="modis2010" class="toggle_label"><span class="toggle">2010年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2011"><label for="modis2011" class="toggle_label"><span class="toggle">2011年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2012"><label for="modis2012" class="toggle_label"><span class="toggle">2012年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2013"><label for="modis2013" class="toggle_label"><span class="toggle">2013年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2014"><label for="modis2014" class="toggle_label"><span class="toggle">2014年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2015"><label for="modis2015" class="toggle_label"><span class="toggle">2015年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2016"><label for="modis2016" class="toggle_label"><span class="toggle">2016年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2017"><label for="modis2017" class="toggle_label"><span class="toggle">2017年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2018"><label for="modis2018" class="toggle_label"><span class="toggle">2018年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2019"><label for="modis2019" class="toggle_label"><span class="toggle">2019年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="modis2020"><label for="modis2020" class="toggle_label"><span class="toggle">2020年</span></label></li>
                           </ul>
                         </li>
         
                         <li>
-                          <span class="toggle">IGBP土地覆盖</span> 
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+                          <!-- 低分辨率ESA_CCI土地覆盖数据 1.1.2 -->
+                          <span class="toggle">ESA_CCI_300米土地覆盖</span> 
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="ESA_CCI" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="https://www.esa-landcover-cci.org/" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                           <ul class="hidden">
-                            <li class="item">
-                              <input type="radio" name="menu_choice" id="IGBP2010"><label for="IGBP2010" class="toggle_label"><span class="toggle">2015年</span></label>
-                              <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="IGBP2010" onclick="toggleImageBorder(this,this.id)"/></a>
-                            </li>
-                            <li class="item">
-                              <input type="radio" name="menu_choice" id="IGBP2005"><label for="IGBP2005" class="toggle_label"><span class="toggle">2010年</span></label>
-                              <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="IGBP2005" onclick="toggleImageBorder(this,this.id)"/></a>
-                            </li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_1992"><label for="ESA_CCI_1992" class="toggle_label"><span class="toggle">1992年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_1993"><label for="ESA_CCI_1993" class="toggle_label"><span class="toggle">1993年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_1994"><label for="ESA_CCI_1994" class="toggle_label"><span class="toggle">1994年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_1995"><label for="ESA_CCI_1995" class="toggle_label"><span class="toggle">1995年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_1996"><label for="ESA_CCI_1996" class="toggle_label"><span class="toggle">1996年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_1997"><label for="ESA_CCI_1997" class="toggle_label"><span class="toggle">1997年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_1998"><label for="ESA_CCI_1998" class="toggle_label"><span class="toggle">1998年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_1999"><label for="ESA_CCI_1999" class="toggle_label"><span class="toggle">1999年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2000"><label for="ESA_CCI_2000" class="toggle_label"><span class="toggle">2000年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2001"><label for="ESA_CCI_2001" class="toggle_label"><span class="toggle">2001年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2002"><label for="ESA_CCI_2002" class="toggle_label"><span class="toggle">2002年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2003"><label for="ESA_CCI_2003" class="toggle_label"><span class="toggle">2003年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2004"><label for="ESA_CCI_2004" class="toggle_label"><span class="toggle">2004年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2005"><label for="ESA_CCI_2005" class="toggle_label"><span class="toggle">2005年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2006"><label for="ESA_CCI_2006" class="toggle_label"><span class="toggle">2006年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2007"><label for="ESA_CCI_2007" class="toggle_label"><span class="toggle">2007年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2008"><label for="ESA_CCI_2008" class="toggle_label"><span class="toggle">2008年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2009"><label for="ESA_CCI_2009" class="toggle_label"><span class="toggle">2009年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2010"><label for="ESA_CCI_2010" class="toggle_label"><span class="toggle">2010年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2011"><label for="ESA_CCI_2011" class="toggle_label"><span class="toggle">2011年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2012"><label for="ESA_CCI_2012" class="toggle_label"><span class="toggle">2012年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2013"><label for="ESA_CCI_2013" class="toggle_label"><span class="toggle">2013年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2014"><label for="ESA_CCI_2014" class="toggle_label"><span class="toggle">2014年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2015"><label for="ESA_CCI_2015" class="toggle_label"><span class="toggle">2015年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2016"><label for="ESA_CCI_2016" class="toggle_label"><span class="toggle">2016年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2017"><label for="ESA_CCI_2017" class="toggle_label"><span class="toggle">2017年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2018"><label for="ESA_CCI_2018" class="toggle_label"><span class="toggle">2018年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2019"><label for="ESA_CCI_2019" class="toggle_label"><span class="toggle">2019年</span></label></li>
+                            <li class="item"><input type="radio" name="menu_choice" id="ESA_CCI_2020"><label for="ESA_CCI_2020" class="toggle_label"><span class="toggle">2020年</span></label></li>
+                          </ul>
+                        </li>
+
+                        <li>
+                          <!-- 低分辨率GEZE土地覆盖数据 1.1.3 -->
+                          <span class="toggle">GEZE_9km土地覆盖</span> 
+
+                          <a href="https://gaez.fao.org/" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="GAZE_2010_tosee" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <ul class="hidden">
+                            <li class="item"><input type="radio" name="menu_choice" id="GAZE_2010"><label for="GAZE_2010" class="toggle_label"><span class="toggle">GAZE_v4_2010年</span></label></li>
+
+                          </ul>
+                        </li>
+                        <li>
+                          <!-- 低分辨率GLCNMO土地覆盖数据 1.1.4 -->
+                          <span class="toggle">GLCNMO土地覆盖</span> 
+
+                          <a href="https://globalmaps.github.io/glcnmo.html/" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="GLCNMO_tosee" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <ul class="hidden">
+                            <li class="item"><input type="radio" name="menu_choice" id="GLCNMO"><label for="GLCNMO" class="toggle_label"><span class="toggle">GLCNMO_V3_2013年</span></label></li>
+
                           </ul>
                         </li>
         
                   </ul>
                 </li>
-        
+               <!-- 中分辨率土地覆盖数据 1.2 -->
                 <li class="item">
                   <span class="toggle">中分辨率土地覆盖数据</span> 
                   <ul class="hidden">
+                  <!-- GLC30土地覆盖 1.2.1 -->
+                  <li>
+                    <span class="toggle">AGLC土地覆盖</span> 
+                    <a href="http://www.jors.cn/jrs/ch/reader/view_abstract.aspx?file_no=202109002&flag=1" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#" /></a>
+                    <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="GLCNMO_tosee" onclick="toggleImageBorder(this,this.id)"/></a>
+                    <ul class="hidden">
+                      <li class="item">
+                        <input type="radio" name="menu_choice" id="GLC30_2000"><label for="GLC30_2000" class="toggle_label"><span class="toggle">2000年</span></label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="GLC30_2000" onclick="toggleImageBorder(this,this.id)"/></a>
+                      </li>
+                      <li class="item">
+                        <input type="radio" name="menu_choice" id="GLC30_2010"><label for="GLC30_2010" class="toggle_label"><span class="toggle">2010年</span></label>
+                        <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="GLC30_2010" onclick="toggleImageBorder(this,this.id)"/></a>
+
+                      </li>
+                    </ul>
+                    
+                  </li>
                   <!-- GLC30土地覆盖 1.2.1 -->
                     <li>
                       <span class="toggle">GLC30土地覆盖</span> 
@@ -132,8 +213,9 @@
                   
                   </ul>
                 </li>
-        
-                <li>
+
+                <!-- 高分辨率土地覆盖数据 1.3-->
+                <li class="item">
                   <span class="toggle">高分辨率土地覆盖数据</span> 
                   <ul class="hidden">
                         <li class="item">
@@ -183,7 +265,7 @@
                         </li>
                   </ul>
                 </li>
-                <!-- 中分辨率DEM数据 2.1 -->
+                <!-- 中分辨率DEM数据 2.2 -->
                 <li class="item">
                   <span class="toggle">中分辨率DEM数据</span> 
                   <ul class="hidden">
@@ -205,35 +287,141 @@
                           <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="SRTM_V3_DEM" onclick="toggleImageBorder(this,this.id)"/></a>
                           <a href="https://www.earthdata.nasa.gov/news/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia" title="数据说明"  target="_blank"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                         </li>
+                        <!-- 中分辨率SRTM_V3_DEM数据 2.1.4 -->
+                        <li class="item">
+                          <input type="radio" name="menu_choice" id="ASTER_DEM"><label for="ASTER_DEM" class="toggle_label"><span class="toggle">ASTER_DEM_30m</span></label>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="ASTER_DEM" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="https://cmr.earthdata.nasa.gov/search/concepts/C1711961296-LPCLOUD.html" title="数据说明"  target="_blank"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+                        </li>
+                        <!-- 中分辨率AW3D30_V4数据 2.1.5 -->
+                        <li class="item">
+                          <input type="radio" name="menu_choice" id="AW3D30_V4"><label for="AW3D30_V4" class="toggle_label"><span class="toggle">AW3D30_V4</span></label>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="AW3D30_V4" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/data/aw3d30v4.0_product_e_1.0.pdf" title="数据说明"  target="_blank"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+                        </li>
+                        <!-- 中分辨率NASA_DEM数据 2.1.6 -->
+                        <li class="item">
+                          <input type="radio" name="menu_choice" id="NASA_DEM_30m"><label for="NASA_DEM_30m" class="toggle_label"><span class="toggle">NASA_DEM_30m</span></label>
+                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="NASA_DEM_30m" onclick="toggleImageBorder(this,this.id)"/></a>
+                          <a href="https://www.earthdata.nasa.gov/esds/competitive-programs/measures/nasadem" title="数据说明"  target="_blank"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+                        </li>
                   </ul>
                 </li>
-        
-                <li>
+                <!-- 高分辨率DEM数据 2.3 -->
+                <li class="item">
                   <span class="toggle">高分辨率DEM数据</span> 
                   <ul class="hidden">
                         <li class="item">
-                          <input type="radio" name="menu_choice" id="DEM5004"><label for="DEM5004" class="toggle_label"><span class="toggle">250米DEM</span></label>
-                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM250m" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
-                        </li>
-                        <li class="item">
-                          <input type="radio" name="menu_choice" id="DEM250m"><label for="DEM250m" class="toggle_label"><span class="toggle">250米DEM</span></label>
-                          <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM250m" onclick="toggleImageBorder(this,this.id)"/></a>
-                          <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+
                         </li>
                               <li>
-                                <span class="toggle">中分辨率DEM</span> 
+                                <span class="toggle">ALOS_DEM_12.5m</span> 
+                                <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="DEM_ALOS_12m" onclick="toggleImageBorder(this,this.id)"/></a>
+                                <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
                                 <ul class="hidden">
                                   <li class="item">
-                                    <input type="radio" name="menu_choice" id="NASA_DEM_30m"><label for="NASA_DEM_30m" class="toggle_label"><span class="toggle">NASA_DEM_30m</span></label>
-                                    <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="NASA_DEM_30m" onclick="toggleImageBorder(this,this.id)"/></a>
-                                    <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#"/></a>
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_SH"><label for="DEM_ALOS_12m_SH" class="toggle_label"><span class="toggle">上海市</span></label>
                                   </li>
                                   <li class="item">
-                                    <input type="radio" name="menu_choice" id="ALOS_30m"><label for="ALOS_30m" class="toggle_label"><span class="toggle">ALOS_30m</span></label>
-                                    <a href="#" title="数据预览"><img src="/img/tosee.png" alt="Icon 2" class="icon-size" id="ALOS_30m" onclick="toggleImageBorder(this,this.id)"/></a>
-                                    <a href="#" title="数据说明"><img src="/img/quo.png" alt="Icon 1" class="icon-size" href="#" /></a>
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_YN"><label for="DEM_ALOS_12m_YN" class="toggle_label"><span class="toggle">云南省</span></label>
                                   </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_NMG"><label for="DEM_ALOS_12m_NMG" class="toggle_label"><span class="toggle">内蒙古</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_BJ"><label for="DEM_ALOS_12m_BJ" class="toggle_label"><span class="toggle">北京</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_TW"><label for="DEM_ALOS_12m_TW" class="toggle_label"><span class="toggle">台湾省</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_JL"><label for="DEM_ALOS_12m_JL" class="toggle_label"><span class="toggle">吉林省</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_SC"><label for="DEM_ALOS_12m_SC" class="toggle_label"><span class="toggle">四川省</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_TJ"><label for="DEM_ALOS_12m_TJ" class="toggle_label"><span class="toggle">天津市</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_NX"><label for="DEM_ALOS_12m_NX" class="toggle_label"><span class="toggle">宁夏</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_AH"><label for="DEM_ALOS_12m_AH" class="toggle_label"><span class="toggle">安徽</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_SD"><label for="DEM_ALOS_12m_SD" class="toggle_label"><span class="toggle">山东</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_SX"><label for="DEM_ALOS_12m_SX" class="toggle_label"><span class="toggle">山西省</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_GD"><label for="DEM_ALOS_12m_GD" class="toggle_label"><span class="toggle">广东</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_GX"><label for="DEM_ALOS_12m_GX" class="toggle_label"><span class="toggle">广西</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_XJ"><label for="DEM_ALOS_12m_XJ" class="toggle_label"><span class="toggle">新疆</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_JS"><label for="DEM_ALOS_12m_JS" class="toggle_label"><span class="toggle">江苏</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_JX"><label for="DEM_ALOS_12m_JX" class="toggle_label"><span class="toggle">江西</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_HEB"><label for="DEM_ALOS_12m_HEB" class="toggle_label"><span class="toggle">河北</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_HN"><label for="DEM_ALOS_12m_HN" class="toggle_label"><span class="toggle">河南</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_ZJ"><label for="DEM_ALOS_12m_ZJ" class="toggle_label"><span class="toggle">浙江</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_HAN"><label for="DEM_ALOS_12m_HAN" class="toggle_label"><span class="toggle">海南</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_HUB"><label for="DEM_ALOS_12m_HUB" class="toggle_label"><span class="toggle">湖北</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_HUN"><label for="DEM_ALOS_12m_HUN" class="toggle_label"><span class="toggle">湖南</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_AM"><label for="DEM_ALOS_12m_AM" class="toggle_label"><span class="toggle">澳门</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_GS"><label for="DEM_ALOS_12m_GS" class="toggle_label"><span class="toggle">甘肃</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_FJ"><label for="DEM_ALOS_12m_FJ" class="toggle_label"><span class="toggle">福建</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_XZ"><label for="DEM_ALOS_12m_XZ" class="toggle_label"><span class="toggle">西藏</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_GZ"><label for="DEM_ALOS_12m_GZ" class="toggle_label"><span class="toggle">贵州</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_LN"><label for="DEM_ALOS_12m_LN" class="toggle_label"><span class="toggle">辽宁</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_CQ"><label for="DEM_ALOS_12m_CQ" class="toggle_label"><span class="toggle">重庆</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_SXS"><label for="DEM_ALOS_12m_SXS" class="toggle_label"><span class="toggle">陕西</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_QH"><label for="DEM_ALOS_12m_QH" class="toggle_label"><span class="toggle">青海</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_XG"><label for="DEM_ALOS_12m_XG" class="toggle_label"><span class="toggle">香港</span></label>
+                                  </li>
+                                  <li class="item">
+                                    <input type="radio" name="menu_choice" id="DEM_ALOS_12m_HLJ"><label for="DEM_ALOS_12m_HLJ" class="toggle_label"><span class="toggle">黑龙江</span></label>
+                                  </li>
+
                                 </ul>
                               </li>
                             </ul>

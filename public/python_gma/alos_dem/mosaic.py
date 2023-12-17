@@ -1,3 +1,5 @@
+import gma
+from tqdm import tqdm
 from gma import rasp
 from osgeo import gdal
 
@@ -40,8 +42,9 @@ def create_pyramid(tif_file):
         return "Pyramid layers added successfully to the TIFF file."
     except Exception as e:
         return f"An error occurred: {e}"
-
-InFile=r"F:\landcover100_com_DB\Land_Cover\medium_resolution\AGLC\GLC_CHINA2014.tif"
-OutFile=r"F:\landcover100_com_DB\Land_Cover\medium_resolution\AGLC\GLC_CHINA2014_geoserver.tif"
-rasp.Basic.Resample(InFile, OutFile,0.005)
-# create_pyramid(OutFile)
+    
+INPUT_DIR=r"F:\landcover100_com_DB\DEM\high_resolution\ALOS_DEM_12.5m\geoserver\tifs\WGS_TIF_CHANGEDATA"
+outfile=r"F:\landcover100_com_DB\DEM\high_resolution\ALOS_DEM_12.5m\geoserver\mosaic\ALOS_DEM_CHINA_GEOSERVER2.tif"
+InFiles = gma.osf.FindPath(INPUT_DIR)
+gma.rasp.Basic.Mosaic(InFiles,outfile,InNoData = 0, OutNoData = 0)
+create_pyramid(outfile)
