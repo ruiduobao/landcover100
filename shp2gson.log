@@ -24,3 +24,5 @@
 2023-11-17 16:15:48,560:INFO:shp2gson操作成功完成
 2023-11-18 01:39:52,496:INFO:开始shp2gson操作: 输入矢量=D:\website\landcover100\public\vector_upload\22.shp, 输出矢量=D:\website\landcover100\public\vector_upload\22.gson
 2023-11-18 01:39:52,578:INFO:shp2gson操作成功完成
+2023-12-18 13:17:28,781:INFO:开始shp2gson操作: 输入矢量=E:\ruiduobao\MY_website\landcover100_com\public\vector_upload\POLYGON.shp, 输出矢量=E:\ruiduobao\MY_website\landcover100_com\public\vector_upload\POLYGON.gson
+2023-12-18 13:17:28,843:INFO:shp2gson操作成功完成

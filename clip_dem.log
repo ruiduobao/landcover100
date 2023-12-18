@@ -425,3 +425,61 @@
 2023-12-17 18:35:29,837:INFO:裁剪操作成功完成
 2023-12-17 19:00:59,281:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/GLCNMO_1000m/mosaic/GLCNMO_1000m_V3.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217110057_GLCNMO_20231217190058.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217110057.geojson
 2023-12-17 19:00:59,369:INFO:裁剪操作成功完成
+2023-12-17 19:33:14,526:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/AGLC/AGLC_CHINA2004.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/411100_AGLC_2004_20231217193313.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/411100.gson
+2023-12-17 19:33:14,818:INFO:裁剪操作成功完成
+2023-12-17 19:47:16,456:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC30/2000年全国_GLC30_30米土地覆盖数据.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/411100_GLC30_2000_20231217194715.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/411100.gson
+2023-12-17 19:47:16,723:INFO:裁剪操作成功完成
+2023-12-17 19:47:17,318:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC30/2000年全国_GLC30_30米土地覆盖数据.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/411100_GLC30_2000_20231217194716.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/411100.gson
+2023-12-17 19:47:17,581:INFO:裁剪操作成功完成
+2023-12-17 20:24:44,208:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/CLCD_1985_2022/RENAME/2005_CLCD.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/410400_CLCD_2005_20231217202443.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/410400.gson
+2023-12-17 20:24:45,481:INFO:裁剪操作成功完成
+2023-12-17 21:01:21,019:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/1990年GLC_FCS30米全国土地覆盖数据.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/361000_GLC_FCS_1990_20231217210120.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/361000.gson
+2023-12-17 21:01:22,185:INFO:裁剪操作成功完成
+2023-12-17 21:01:38,762:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/2020年GLC_FCS30米全国土地覆盖数据.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/361000_GLC_FCS_2020_20231217210138.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/361000.gson
+2023-12-17 21:01:39,933:INFO:裁剪操作成功完成
+2023-12-17 21:18:51,945:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2020/GLCLUC_2020_china.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217131849_GLCLUC_2020_20231217211851.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217131849.geojson
+2023-12-17 21:18:51,958:ERROR:裁剪操作发生错误: Unable to open F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2020/GLCLUC_2020_china.tif! Unsupported raster file!
+2023-12-17 21:19:21,223:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2020/GLCLUC_2020_china.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217131849_GLCLUC_2020_20231217211920.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217131849.geojson
+2023-12-17 21:19:21,230:ERROR:裁剪操作发生错误: Unable to open F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2020/GLCLUC_2020_china.tif! Unsupported raster file!
+2023-12-17 21:19:29,725:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2015/GLCLUC_2015_china.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217131926_GLCLUC_2015_20231217211929.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217131926.geojson
+2023-12-17 21:19:29,733:ERROR:裁剪操作发生错误: Unable to open F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2015/GLCLUC_2015_china.tif! Unsupported raster file!
+2023-12-17 21:19:39,330:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2015/GLCLUC_2015_china.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217131926_GLCLUC_2015_20231217211938.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217131926.geojson
+2023-12-17 21:19:39,337:ERROR:裁剪操作发生错误: Unable to open F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2015/GLCLUC_2015_china.tif! Unsupported raster file!
+2023-12-17 21:20:01,322:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2000/GLCLUC_2000_china.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217131926_GLCLUC_2000_20231217212000.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217131926.geojson
+2023-12-17 21:20:01,330:ERROR:裁剪操作发生错误: Unable to open F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2000/GLCLUC_2000_china.tif! Unsupported raster file!
+2023-12-17 21:20:18,520:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2010/GLCLUC_2010_china.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217132015_GLCLUC_2010_20231217212017.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217132015.geojson
+2023-12-17 21:20:18,527:ERROR:裁剪操作发生错误: Unable to open F:/landcover100_com_DB/Land_Cover/medium_resolution/GLC_FCS/mosaic/GLCLUC/2010/GLCLUC_2010_china.tif! Unsupported raster file!
+2023-12-17 21:25:54,056:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/medium_resolution/GLCLUC/mosaic/GLCLUC/2015/GLCLUC_2015_china.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217132551_GLCLUC_2015_20231217212553.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217132551.geojson
+2023-12-17 21:25:54,508:INFO:裁剪操作成功完成
+2023-12-17 22:06:03,658:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/high_resolution/FROM-LC/MOSAIC/FROM_LC_2017_CHINA_geoserver.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217140601_FROM_LC_20231217220603.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217140601.geojson
+2023-12-17 22:06:03,719:INFO:裁剪操作成功完成
+2023-12-17 22:06:40,597:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/high_resolution/ESA_worldcover/ESA_Worldcover_China_2020.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/420702104000_ESA_2020_20231217220639.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/420702104000.gson
+2023-12-17 22:06:40,767:INFO:裁剪操作成功完成
+2023-12-17 22:06:52,572:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/high_resolution/ESA_worldcover/ESA_Worldcover_China_2020.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/420702100000_ESA_2020_20231217220651.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/420702100000.gson
+2023-12-17 22:06:52,718:INFO:裁剪操作成功完成
+2023-12-17 22:21:54,595:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/high_resolution/ALOS_DEM_12.5m/TIF/云南.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217142152_DEM_ALOS_12m_YN_20231217222153.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217142152.geojson
+2023-12-17 22:21:54,782:INFO:裁剪操作成功完成
+2023-12-17 22:25:31,884:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217142529_modis2001_20231217222531.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217142529.geojson
+2023-12-17 22:25:32,286:INFO:裁剪操作成功完成
+2023-12-17 22:25:54,746:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/GLCNMO_1000m/mosaic/GLCNMO_1000m_V3.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217142547_GLCNMO_20231217222554.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217142547.geojson
+2023-12-17 22:25:54,807:INFO:裁剪操作成功完成
+2023-12-17 22:26:12,690:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/high_resolution/ESA_worldcover/ESA_Worldcover_China_2020.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231217142608_ESA_2020_20231217222612.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231217142608.geojson
+2023-12-17 22:26:14,327:INFO:裁剪操作成功完成
+2023-12-18 13:10:06,929:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/420902_DEM250_20231218131003.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/420902.gson
+2023-12-18 13:10:07,170:INFO:裁剪操作成功完成
+2023-12-18 14:49:54,766:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/420804100000_modis2001_20231218144951.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/420804100000.gson
+2023-12-18 14:49:54,905:INFO:裁剪操作成功完成
+2023-12-18 14:50:04,226:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/420804100000_modis2001_20231218145003.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/420804100000.gson
+2023-12-18 14:50:04,326:INFO:裁剪操作成功完成
+2023-12-18 14:50:53,593:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/421300_modis2001_20231218145052.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/421300.gson
+2023-12-18 14:50:53,852:INFO:裁剪操作成功完成
+2023-12-18 14:52:14,153:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/421100_modis2001_20231218145213.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/421100.gson
+2023-12-18 14:52:14,402:INFO:裁剪操作成功完成
+2023-12-18 14:54:21,652:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/411025205000_modis2001_20231218145420.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/411025205000.gson
+2023-12-18 14:54:21,803:INFO:裁剪操作成功完成
+2023-12-18 14:56:21,192:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/DEM/low_resolution/CHINA_DEM_250m.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/420000_DEM250_20231218145620.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/420000.gson
+2023-12-18 14:56:21,966:INFO:裁剪操作成功完成
+2023-12-18 15:18:05,229:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231218071759_modis2001_20231218151804.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231218071759.geojson
+2023-12-18 15:18:05,303:INFO:裁剪操作成功完成
+2023-12-18 15:18:12,797:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231218071759_modis2001_20231218151812.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231218071759.geojson
+2023-12-18 15:18:12,865:INFO:裁剪操作成功完成

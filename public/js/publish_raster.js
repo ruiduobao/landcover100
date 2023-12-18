@@ -103,6 +103,8 @@ function clipRasterData() {
                             })
                             .then(data => {
                                 console.log('裁剪成功，结果文件路径:', data.outputPath);
+                                //下载数据
+                                // window.location.href = '/download_raster?filePath='+data.outputPath
                                 return data; // 返回结果
                             })
                             .catch(error => {
@@ -168,41 +170,52 @@ function addWmtsLayerToMap(map, wmtsBaseUrl) {
 
 // 从本地传输tif到服务器，并发布数据
 function publish_Raster() {
+    // 加载动画
+    document.getElementById('loading').style.display = 'flex';
     //下载函数隐藏
     hideDownloadDiv()
     // 先裁剪栅格
     clipRasterData()
     .then(() => {
+        // 隐藏动画
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none';
+        }, 600); // 调整这个时间
+        
         const workspace = 'landcover100_DEM';
         const storename = raster_filename;
         const coverageName = raster_filename;
         const filePath = outputRasterPath;
 
-        return fetch('/publishRaster', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                workspace: workspace,
-                storename: storename,
-                coverageName: coverageName,
-                filePath: filePath,
-            }),
-        });
+        //裁剪后的文件名
+        raster_output_NAME_FULL=raster_filename+".tif"
+        window.location.href = '/download_raster?filePath=' + raster_output_NAME_FULL;
+
+        // return fetch('/publishRaster', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         workspace: workspace,
+        //         storename: storename,
+        //         coverageName: coverageName,
+        //         filePath: filePath,
+        //     }),
+        // });
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-        console.log('Raster Published! WMTS Link: ' + data.wmtsLink);
-        //下载按钮显示
-        showDownloadDiv()
-        // 将发布的数据加载到地图中
-        addWmtsLayerToMap(map, data.wmtsLink);
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log('Success:', data);
+    //     console.log('Raster Published! WMTS Link: ' + data.wmtsLink);
+    //     //下载按钮显示
+    //     showDownloadDiv()
+    //     // 将发布的数据加载到地图中
+    //     addWmtsLayerToMap(map, data.wmtsLink);
         
-    })
-    .catch((error) => {
-        // 这个 catch 会捕获裁剪和发布中的任何错误
-        console.error('Error:', error);
-    });
+    // })
+    // .catch((error) => {
+    //     // 这个 catch 会捕获裁剪和发布中的任何错误
+    //     console.error('Error:', error);
+    // });
 }

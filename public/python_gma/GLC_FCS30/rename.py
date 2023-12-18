@@ -9,7 +9,7 @@ def rename_tif_files(directory):
                 old_file_path = os.path.join(root, file)
 
                 # 构建新文件名和新文件路径
-                new_file_name = file.replace('GLC', 'AGLC')
+                new_file_name = file.replace('.tif', '_CLCD.tif')
                 new_file_path = os.path.join(root, new_file_name)
 
                 # 重命名文件
@@ -17,5 +17,5 @@ def rename_tif_files(directory):
                 print(f"Renamed '{old_file_path}' to '{new_file_path}'")
 
 # 使用示例
-folder_path = r"F:\landcover100_com_DB\Land_Cover\medium_resolution\AGLC\\"
+folder_path = r"F:\landcover100_com_DB\Land_Cover\medium_resolution\CLCD_1985_2022\RENAME\\"
 rename_tif_files(folder_path)
