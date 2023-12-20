@@ -170,52 +170,65 @@ function addWmtsLayerToMap(map, wmtsBaseUrl) {
 
 // 从本地传输tif到服务器，并发布数据
 function publish_Raster() {
-    // 加载动画
-    document.getElementById('loading').style.display = 'flex';
-    //下载函数隐藏
-    hideDownloadDiv()
-    // 先裁剪栅格
-    clipRasterData()
-    .then(() => {
-        // 隐藏动画
-        setTimeout(function() {
-            document.getElementById('loading').style.display = 'none';
-        }, 600); // 调整这个时间
-        
-        const workspace = 'landcover100_DEM';
-        const storename = raster_filename;
-        const coverageName = raster_filename;
-        const filePath = outputRasterPath;
+    //先判断有没有选中数据源
+    if (selected_DataDB_NAME !== null && selected_DataDB_NAME !== undefined) {
+            //判断有没有矢量
+            if (geojson_path.length === 0) {
+                alert("请选择下载区域")
+            } else {
+                
+                // 加载动画
+                document.getElementById('loading').style.display = 'flex';
+                //下载函数隐藏
+                hideDownloadDiv()
+                // 先裁剪栅格
+                clipRasterData()
+                .then(() => {
+                    // 隐藏动画
+                    setTimeout(function() {
+                        document.getElementById('loading').style.display = 'none';
+                    }, 600); // 调整这个时间
 
-        //裁剪后的文件名
-        raster_output_NAME_FULL=raster_filename+".tif"
-        window.location.href = '/download_raster?filePath=' + raster_output_NAME_FULL;
+                    const workspace = 'landcover100_DEM';
+                    const storename = raster_filename;
+                    const coverageName = raster_filename;
+                    const filePath = outputRasterPath;
 
-        // return fetch('/publishRaster', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         workspace: workspace,
-        //         storename: storename,
-        //         coverageName: coverageName,
-        //         filePath: filePath,
-        //     }),
-        // });
-    })
-    // .then(response => response.json())
-    // .then(data => {
-    //     console.log('Success:', data);
-    //     console.log('Raster Published! WMTS Link: ' + data.wmtsLink);
-    //     //下载按钮显示
-    //     showDownloadDiv()
-    //     // 将发布的数据加载到地图中
-    //     addWmtsLayerToMap(map, data.wmtsLink);
-        
-    // })
-    // .catch((error) => {
-    //     // 这个 catch 会捕获裁剪和发布中的任何错误
-    //     console.error('Error:', error);
-    // });
+                    //裁剪后的文件名
+                    raster_output_NAME_FULL=raster_filename+".tif"
+                    window.location.href = '/download_raster?filePath=' + raster_output_NAME_FULL;
+
+                    // return fetch('/publishRaster', {
+                    //     method: 'POST',
+                    //     headers: {
+                    //         'Content-Type': 'application/json',
+                    //     },
+                    //     body: JSON.stringify({
+                    //         workspace: workspace,
+                    //         storename: storename,
+                    //         coverageName: coverageName,
+                    //         filePath: filePath,
+                    //     }),
+                    // });
+                })
+                // .then(response => response.json())
+                // .then(data => {
+                //     console.log('Success:', data);
+                //     console.log('Raster Published! WMTS Link: ' + data.wmtsLink);
+                //     //下载按钮显示
+                //     showDownloadDiv()
+                //     // 将发布的数据加载到地图中
+                //     addWmtsLayerToMap(map, data.wmtsLink);
+                    
+                // })
+                // .catch((error) => {
+                //     // 这个 catch 会捕获裁剪和发布中的任何错误
+                //     console.error('Error:', error);
+                // });
+                        }
+
+    }
+    else{alert("请选择数据源")}
+
+
 }

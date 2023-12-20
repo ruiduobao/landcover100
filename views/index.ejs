@@ -528,10 +528,14 @@
             </div>
         </div>
         <h3>查询数据</h3>
-          <button onclick="publish_Raster()">查询</button>
+        <div class="button-container">
+          <button id="download-button"  onclick="publish_Raster()">下载</button>
+        </div>
+
         <div id="DOWNLOAD_DIV" style="display: none;">
           <h3>数据裁剪完毕，请下载:</h3>
           <button onclick="Download_Clip_raster()">下载</button>
+
         </div>
     </div>
     <div id="right_DIV">

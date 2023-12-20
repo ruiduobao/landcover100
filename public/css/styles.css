@@ -201,3 +201,24 @@ label {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+/* 按钮颜色 */
+ /* 按钮背景颜色 */
+  /* 包裹按钮的容器 */
+  .button-container {
+    text-align: center;
+  }
+
+  /* 按钮样式 */
+  #download-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  /* 鼠标悬停时的样式 */
+  #download-button:hover {
+    background-color: #2980b9;
+  }
