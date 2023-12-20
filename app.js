@@ -6,6 +6,9 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 
+
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 app.set('view engine', 'ejs');
 
 //家里电脑路径
@@ -14,6 +17,28 @@ console.log("当前环境:", process.env.NODE_ENV);
 require('dotenv').config({
     path: process.env.NODE_ENV === "production" ? ".env.production" : ".env.development"
   });
+
+
+// Swagger JSDoc 配置
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'landcover100的API',
+            version: '1.0.0',
+            description: '初始调用landcover100的API',
+        },
+    },
+    apis: ['./app.js'], // 指向包含 Swagger 注释的文件
+};
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// 使用 Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
+
+
 
 
 // 在 app.js 中
@@ -44,6 +69,30 @@ const dbConfig = {
 };
 const db = pgp(dbConfig);
 
+// 新增路由来处理地理编码请求
+// 示例端点，使用 Swagger JSDoc 注释
+/**
+ * 
+ * /getGeoAddress:
+ *   post:
+ *     summary: 获取地理编码地址
+ *     description: 使用高德地图 API 根据提供的地址获取地理编码。
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               address:
+ *                 type: string
+ *                 description: 要查询的地址。
+ *     responses:
+ *       200:
+ *         description: 地址的地理编码信息。
+ *       400:
+ *         description: 请求参数无效。
+ */
 // 新增路由来处理地理编码请求
 app.post('/getGeoAddress', async (req, res, next) => {
   const placeName = req.body.address; // 从请求体中获取地址
@@ -94,6 +143,33 @@ app.post('/getGeoAddress', async (req, res, next) => {
 
 
 // 从数据库中导出矢量文件到路径
+/**
+ * @swagger
+ * /getGsonDB:
+ *   post:
+ *     summary: 从数据库中导出矢量文件
+ *     description: 根据提供的数据代码（dataCode），从数据库中导出相应的矢量文件。
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - code
+ *             properties:
+ *               code:
+ *                 type: string
+ *                 description: 数据代码，可以是6位（省级、市级）、12位（乡级）数字。
+ *                 example: "110000"
+ *     responses:
+ *       200:
+ *         description: 成功导出矢量文件。
+ *       400:
+ *         description: 请求参数无效或格式错误。
+ *       500:
+ *         description: 服务器内部错误。
+ */
 app.post('/getGsonDB', async (req, res) => {
   const dataCode = req.body.code;
 
@@ -170,7 +246,40 @@ async function queryLatestYearData(schema, baseTableName, dataCode) {
   }
   return [];
 }
+
 //POST路由，处理从前端接收到的GeoJSON数据并保存到文件
+/**
+ * @swagger
+ * /savegeojson:
+ *   post:
+ *     summary: 保存GeoJSON数据到文件
+ *     description: 接收前端发送的GeoJSON数据并将其保存为文件。
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             description: GeoJSON数据对象。
+ *             example: {
+ *               "type": "FeatureCollection",
+ *               "features": [
+ *                 {
+ *                   "type": "Feature",
+ *                   "properties": {},
+ *                   "geometry": {
+ *                     "type": "Point",
+ *                     "coordinates": [-0.127758, 51.507351]
+ *                   }
+ *                 }
+ *               ]
+ *             }
+ *     responses:
+ *       200:
+ *         description: 文件保存成功，返回文件访问URL。
+ *       500:
+ *         description: 服务器内部错误，文件保存失败。
+ */
 app.post('/savegeojson', (req, res) => {
   // 假设我们从请求体中得到了GeoJSON数据
   // 需要一个解析JSON的中间件比如express.json()
@@ -208,6 +317,31 @@ app.use(fileUpload({
 }));
 
 // 一个POST路由，用于处理文件上传
+/**
+ * @swagger
+ * /uploadvector:
+ *   post:
+ *     summary: 处理文件上传
+ *     description: 上传矢量文件（支持 .gson, .geojson, .kml, .shp 格式），并将某些格式转换为 gson。
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *                 description: 要上传的矢量文件。
+ *     responses:
+ *       200:
+ *         description: 文件上传成功，返回文件的URL。
+ *       400:
+ *         description: 无文件上传或文件格式无效。
+ *       500:
+ *         description: 服务器内部错误或文件处理失败。
+ */
 app.post('/uploadvector', async (req, res) => {
     //文件上传和类型判断的代码
     if (!req.files || Object.keys(req.files).length === 0) {
@@ -294,6 +428,33 @@ app.post('/uploadvector', async (req, res) => {
 });
 
 //上传的矢量shp转为gson的单独路由
+/**
+ * @swagger
+ * /uploadSHPvector:
+ *   post:
+ *     summary: 处理 Shapefile (.shp) 文件上传并转换为 GeoJSON (.gson)
+ *     description: 上传 Shapefile 矢量数据文件集 (.shp, .shx, .dbf)，并将其转换为 GeoJSON 格式。
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               'files[]':
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                   format: binary
+ *                 description: 要上传的 Shapefile 文件集，包括 .shp, .shx, .dbf 文件。
+ *     responses:
+ *       200:
+ *         description: 文件上传和转换成功，返回转换后文件的URL。
+ *       400:
+ *         description: 无文件上传、缺少必要文件或文件格式不正确。
+ *       500:
+ *         description: 服务器内部错误或文件处理失败。
+ */
 app.post('/uploadSHPvector', async (req, res) => {
     try {
         //文件上传和类型判断的代码
@@ -354,7 +515,39 @@ app.post('/uploadSHPvector', async (req, res) => {
 
 //调用python裁剪栅格
 const { exec } = require('child_process');
+
 //使用矢量裁剪栅格数据
+/**
+ * @swagger
+ * /clip_raster:
+ *   post:
+ *     summary: 根据矢量数据剪切栅格数据
+ *     description: 使用矢量数据文件路径剪切指定的栅格数据文件，并返回剪切后的栅格数据文件路径。
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               vectorDataFilePath:
+ *                 type: string
+ *                 description: 矢量数据文件的路径。
+ *                 example: '/path/to/vector/file.geojson'
+ *               inputRasterPath:
+ *                 type: string
+ *                 description: 输入栅格数据文件的路径。
+ *                 example: '/path/to/input/raster.tif'
+ *               outputRasterPath:
+ *                 type: string
+ *                 description: 输出栅格数据文件的预期路径。
+ *                 example: '/path/to/output/raster.tif'
+ *     responses:
+ *       200:
+ *         description: 栅格数据剪切成功，返回输出文件路径。
+ *       500:
+ *         description: 服务器内部错误或脚本执行错误。
+ */
 app.post('/clip_raster', (req, res) => {
     // 假设请求体中包含了矢量数据文件的路径
     const vectorDataFilePath = req.body.vectorDataFilePath;
@@ -387,7 +580,31 @@ app.post('/clip_raster', (req, res) => {
         }
     });
 });
+
 //计算面积路由
+/**
+ * @swagger
+ * /calculate_area:
+ *   post:
+ *     summary: 计算矢量数据的面积
+ *     description: 根据提供的 GeoJSON 文件路径，计算其代表的矢量数据的面积。
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               vectorDataFilePath:
+ *                 type: string
+ *                 description: GeoJSON 矢量数据文件的路径。
+ *                 example: '/path/to/vector/file.geojson'
+ *     responses:
+ *       200:
+ *         description: 成功计算面积，返回面积值。
+ *       500:
+ *         description: 服务器内部错误或脚本执行错误。
+ */
 app.post('/calculate_area', (req, res) => {
     const geojsonFilePath = req.body.vectorDataFilePath;
 
@@ -449,6 +666,56 @@ const publishRasterData = async (workspace, storename, coverageName, filePath) =
 }
 
 //将数据发布到geoserver中
+/**
+ * @swagger
+ * /publishRaster:
+ *   post:
+ *     summary: 将栅格数据发布到 GeoServer
+ *     description: 接收栅格数据文件的相关信息，并将其发布到 GeoServer，返回 WMTS 链接。
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - workspace
+ *               - storename
+ *               - coverageName
+ *               - filePath
+ *               - username
+ *               - password
+ *             properties:
+ *               workspace:
+ *                 type: string
+ *                 description: GeoServer 中的工作区名称。
+ *                 example: 'myWorkspace'
+ *               storename:
+ *                 type: string
+ *                 description: GeoServer 中的数据存储名称。
+ *                 example: 'myDataStore'
+ *               coverageName:
+ *                 type: string
+ *                 description: 栅格数据的覆盖名称。
+ *                 example: 'myCoverage'
+ *               filePath:
+ *                 type: string
+ *                 description: 栅格数据文件的路径。
+ *                 example: '/path/to/raster.tif'
+ *               username:
+ *                 type: string
+ *                 description: GeoServer 登录用户名。
+ *                 example: 'admin'
+ *               password:
+ *                 type: string
+ *                 description: GeoServer 登录密码。
+ *                 example: 'geoserver'
+ *     responses:
+ *       200:
+ *         description: 数据发布成功，返回 WMTS 链接。
+ *       500:
+ *         description: 服务器内部错误或发布过程中出错。
+ */
 app.post('/publishRaster', async (req, res) => {
     try {
         const wmtsLink = await publishRasterData(
@@ -468,6 +735,31 @@ app.post('/publishRaster', async (req, res) => {
 
 
 //下载文件路由 请求路径，下载文件
+/**
+ * @swagger
+ * /download_raster:
+ *   get:
+ *     summary: 下载栅格数据文件
+ *     description: 根据提供的文件路径参数，下载指定的栅格数据文件。
+ *     parameters:
+ *       - in: query
+ *         name: filePath
+ *         required: true
+ *         description: 要下载的栅格数据文件的相对路径。
+ *         schema:
+ *           type: string
+ *           example: 'example_raster.tif'
+ *     responses:
+ *       200:
+ *         description: 文件下载成功。
+ *         content:
+ *           application/octet-stream:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *       400:
+ *         description: 提供的文件路径无效或文件不存在。
+ */
 app.get('/download_raster', function(req, res) {
     // 直接使用 rasterDataFilePath 变量进行下载
     // 获取相对于 public 目录的文件路径
@@ -564,7 +856,33 @@ app.use(cors({
     origin: Server_URL,
     credentials: true
   }))
+
 //获取用户信息
+/**
+ * @swagger
+ * /api/getUserInfo:
+ *   get:
+ *     summary: 获取用户信息
+ *     description: 根据提供的 JWT 令牌获取用户信息。
+ *     parameters:
+ *       - in: query
+ *         name: token
+ *         required: true
+ *         description: JWT 认证令牌。
+ *         schema:
+ *           type: string
+ *           example: 'your_jwt_token_here'
+ *     responses:
+ *       200:
+ *         description: 成功获取用户信息。
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               description: 用户信息对象。
+ *       400:
+ *         description: 缺少或无效的 JWT 令牌。
+ */
 app.get('/api/getUserInfo', (req, res) => {
     // console.log("/api/getUserInfo")
     // console.log(req)
@@ -585,6 +903,26 @@ app.get('/api/getUserInfo', (req, res) => {
     });
   });
 //跳转到用户主页信息的路由
+/**
+ * @swagger
+ * /user:
+ *   get:
+ *     summary: 跳转到用户主页
+ *     description: 根据提供的用户信息跳转到用户的主页。
+ *     parameters:
+ *       - in: query
+ *         name: userinfo
+ *         required: true
+ *         description: 用户信息的 JSON 字符串。
+ *         schema:
+ *           type: string
+ *           example: '{"name":"John Doe", "createdTime":"2023-01-01", "score": 100, "type":"normal", "phone":"1234567890"}'
+ *     responses:
+ *       200:
+ *         description: 用户主页渲染成功。
+ *       400:
+ *         description: 缺少或无效的用户信息。
+ */
 app.get("/user", (req, res) => {
     const userinfo = JSON.parse(req.query.userinfo);
     res.render("user", {
@@ -597,20 +935,62 @@ app.get("/user", (req, res) => {
   })
   
 // 定义/login路由,用户修改密码后跳转到该网页
+/**
+ * @swagger
+ * /login:
+ *   get:
+ *     summary: 登录重定向
+ *     description: 将用户重定向到登录服务。
+ *     responses:
+ *       302:
+ *         description: 成功重定向到登录页面。
+ */
 app.get('/login', (req, res) => {
     res.redirect(Server_URL); // 重定向到指定的URL
 });
 
 //跳转到网站使用须知网页中
+/**
+ * @swagger
+ * /UserWebPage:
+ *   get:
+ *     summary: 跳转到网站使用须知网页
+ *     description: 将用户重定向到网站的使用须知页面。
+ *     responses:
+ *       200:
+ *         description: 成功渲染网站使用须知网页。
+ */
 app.get("/UserWebPage", (req, res) => {
     res.render("UserWebPage");
 })
 
 //获取矢量文件和导出的栅格文件保存路径
+/**
+ * @swagger
+ * /get_SHP_RASTER_Paths:
+ *   post:
+ *     summary: 获取矢量文件和栅格文件的保存路径
+ *     description: 返回服务器上矢量文件和导出的栅格文件的保存路径。
+ *     responses:
+ *       200:
+ *         description: 成功返回矢量文件和栅格文件的保存路径。
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 vectorDirPath:
+ *                   type: string
+ *                   description: 矢量文件的保存路径。
+ *                 rasterOutputDirPath:
+ *                   type: string
+ *                   description: 导出的栅格文件的保存路径。
+ */
 app.post('/get_SHP_RASTER_Paths', (req, res) => {
     res.json({
       vectorDirPath:process.env.VECTOR_DIR_PATH,
       rasterOutputDirPath:process.env.raster_output_DIR_PATH,
     });
   });
-  
+
+
