@@ -68,7 +68,222 @@ const dbConfig = {
     password: process.env.SHPDB_password
 };
 const db = pgp(dbConfig);
+//创建新界面的路由
+//getResourceTree 获取树状结构数据列表:扁平化数据接口即可;每个节点应包含 id,父级节点id，展示名称及其他必要字段
+const csv = require('csv-parser'); 
 
+// 获取并解析 CSV 文件中的数据
+const getCSVData = async (csvFilePath) => {
+    return new Promise((resolve, reject) => {
+      const results = [];
+      fs.createReadStream(csvFilePath)
+        .pipe(csv())
+        .on('data', (data) => {
+          // 创建一个新对象，移除键名中的所有单引号
+          const cleanData = Object.keys(data).reduce((acc, key) => {
+            // 使用正则表达式移除键名两端的单引号
+            const cleanKey = key.replace(/^'(.*)'$/, '$1');
+            acc[cleanKey] = data[key];
+            return acc;
+          }, {});
+          results.push(cleanData);
+        })
+        .on('end', () => {
+          resolve(results);
+        })
+        .on('error', (err) => {
+          reject(err);
+        });
+    });
+  };
+
+// 获取并解析 JSON 文件中的数据
+const getJSONData = async (jsonFilePath) => {
+    return new Promise((resolve, reject) => {
+      let rawData = '';
+  
+      fs.createReadStream(jsonFilePath)
+        .on('data', (chunk) => {
+          rawData += chunk;
+        })
+        .on('end', () => {
+          try {
+            const data = JSON.parse(rawData);
+            resolve(data);
+          } catch (error) {
+            reject(error);
+          }
+        })
+        .on('error', (err) => {
+          reject(err);
+        });
+    });
+  };
+  // 新建路由以处理带有 id 的请求
+/**
+ * @swagger
+ * /getResourceTree:
+ *   post:
+ *     summary: 获取资源树信息
+ *     description: 根据传递的id,从CSV文件中查找对应的资源树信息,并从JSON文件中查找对应的波段信息,合并后返回给用户
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 description: 需要获取信息的资源id
+ *     responses:
+ *       200:
+ *         description: 成功返回资源树信息
+ *         content:
+ *           application/json:
+ *             schema: 
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                   description: 数据源id
+ *                 id_type:
+ *                   type: string
+ *                   description: 遥感产品的具体类型
+ *                 pid1:
+ *                   type: string
+ *                   description: 遥感产品的大类,比如DEM、土地覆盖等
+ *                 pid2:
+ *                   type: string
+ *                   description: 遥感产品的小类,比如高分辨率DEM、低分辨率DEM
+ *                 name:
+ *                   type: string
+ *                   description: 遥感产品的中文名  
+ *                 geoser_DB:
+ *                   type: string
+ *                   description: 该数据的预览图层在geoserver存储的仓库
+ *                 geoserver_layer:
+ *                   type: string
+ *                   description: 该数据的预览图层在geoserver仓库中存储的图层
+ *                 dataType: 
+ *                   type: string
+ *                   description: 栅格数据深度
+ *                 resolution:
+ *                   type: string 
+ *                   description: 栅格分辨率
+ *                 zip_level:
+ *                   type: string
+ *                   description: 栅格原始文件大小与压缩后的比值
+ *                 URL:
+ *                   type: string
+ *                   description: 数据说明链接
+ *                 others: 
+ *                   type: string
+ *                   description: 其他
+ *                 Absolute_path:
+ *                   type: string
+ *                   description: 在开发环境中的栅格文件路径
+ *                 resPath:
+ *                   type: string
+ *                   description: 在部署环境中的栅格文件路径  
+ *                 wmts:
+ *                   type: string
+ *                   description: 预览图层的wmts地址
+ *                 band:
+ *                   type: array
+ *                   items: 
+ *                     type: object
+ *                     properties:
+ *                       band: 
+ *                         type: string
+ *                         description: 波段次序
+ *                       bandName:
+ *                         type: string
+ *                         description: 波段名称
+ *                       introduction:
+ *                         type: string
+ *                         description: 波段介绍
+ *                       value:
+ *                         type: object
+ *                         description: 波段中每个值对应的类别
+ *                         items: 
+ *                              value: 
+ *                                type: number
+ *                                description: 像素值
+ *                              color:
+ *                                type: string
+ *                                description: 像素渲染的RGB颜色
+ *                              description:
+ *                                type: string
+ *                                description: 该像素值对应的地物类别
+ *                 note:
+ *                   type: string
+ *                   description: 注意事项
+ *       404:
+ *         description: 未找到对应的id
+ *       500:
+ *         description: 服务器内部错误
+ */
+
+app.post('/getResourceTree', async (req, res) => {
+    try {
+      // 配置 CSV 文件的路径
+      const csvFilePath = path.join(__dirname, 'public', 'WMTS_excel','GET_INFO_JSON', 'data_toClip_info.csv');
+      const data = await getCSVData(csvFilePath);
+      //读取gson文件的路径（获取波段信息）
+      const rasterDbInfo = await getJSONData(path.join(__dirname, 'public', 'WMTS_excel', 'GET_INFO_JSON', 'RASTERDB_INFO_ALL.json'));
+    //   console.log(rasterDbInfo)
+      // 从请求体中获取 ID
+      const id = req.body.id;
+      
+      
+      const treeInfo = data.find(row => row.id === id);
+      if (!treeInfo) {
+        // 如果没有找到对应的 id，返回错误信息
+        return res.status(404).json({ error: 'ID not found' });
+      }
+      const bandInfo = rasterDbInfo.find(item => item.id_type === treeInfo.id_type);
+      // 返回 JSON 格式的数据
+      res.json({
+        //数据源id
+        id: treeInfo.id,
+        //遥感产品的具体类型
+        id_type: treeInfo.id_type,
+        //遥感产品的大类，比如DEM、土地覆盖等
+        pid1: treeInfo.pid1,
+        //遥感产品的小类，比如高分辨率DEM、低分辨率DEM
+        pid2: treeInfo.pid2,
+        //遥感产品的中文名
+        name: treeInfo.name,
+        //该数据的预览图层在geoserver存储的仓库
+        geoser_DB: treeInfo.geoser_DB,
+        //该数据的预览图层在geoserver仓库中存储的图层
+        geoserver_layer: treeInfo.geoserver_layer,
+        //栅格数据深度
+        dataType: treeInfo.dataType,
+        //栅格分辨率
+        resolution: treeInfo.resolution,
+        //栅格原始文件大小与压缩后的比值
+        zip_level: treeInfo.zip_level,
+        //数据说明链接
+        URL: treeInfo.URL,
+        //其他
+        others: treeInfo.others,
+        //在开发环境中的栅格文件路径
+        Absolute_path: treeInfo.Absolute_path,
+        //在部署环境中的栅格文件路径
+        resPath: treeInfo.resPath,
+        //预览图层的wmts地址
+        wmts: treeInfo.wmts,
+        //栅格数据的波段详细信息
+        band: bandInfo.band_info,
+        //注意事项
+        note: treeInfo.note
+      });
+    } catch (error) {
+      // 处理可能的错误
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 // 新增路由来处理地理编码请求
 // 示例端点，使用 Swagger JSDoc 注释
 /**

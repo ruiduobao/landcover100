@@ -274,6 +274,13 @@
     "object-assign" "^4"
     "vary" "^1"
 
+"csv-parser@^3.0.0":
+  "integrity" "sha512-s6OYSXAK3IdKqYO33y09jhypG/bSDHPuyCme/IdEHfWpLf/jKcpitVFyOC6UemgGk8v7Q5u2XE0vvwmanxhGlQ=="
+  "resolved" "https://registry.npmjs.org/csv-parser/-/csv-parser-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "minimist" "^1.2.0"
+
 "data-uri-to-buffer@^4.0.0":
   "integrity" "sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A=="
   "resolved" "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-4.0.1.tgz"
@@ -723,6 +730,11 @@
   "version" "5.1.6"
   dependencies:
     "brace-expansion" "^2.0.1"
+
+"minimist@^1.2.0":
+  "integrity" "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="
+  "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz"
+  "version" "1.2.8"
 
 "ms@^2.1.1":
   "integrity" "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
