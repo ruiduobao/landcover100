@@ -1,0 +1,263 @@
+[
+  {
+    "id": "landcover_modis",
+    "pid1": "土地覆盖数据",
+    "pid2": "低分辨率土地覆盖数据",
+    "NAME": "modis土地覆盖",
+    "band": [
+      {
+        "band": "B1",
+        "bandName": "LC_Type1",
+        "introduction": "国际地球生物圈计划（IGBP）土地覆盖分类方案",
+        "value": [
+          {"value": 0, "color": "000000", "description": "水体"},
+          {"value": 1, "color": "05450a", "description": "常绿针叶林：由常绿针叶树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 2, "color": "086a10", "description": "常绿阔叶林：由常绿阔叶和棕榈树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 3, "color": "54a708", "description": "落叶针叶林：由落叶针叶（落叶松）树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 4, "color": "78d203", "description": "落叶阔叶林：由落叶阔叶树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 5, "color": "009900", "description": "混交林：既不是落叶也不是常绿（各占40-60%）的树种占主导（冠层>2m）。树木覆盖度>60%。"},
+          {"value": 6, "color": "c6b044", "description": "闭丛草原：由草本植物和灌木（高度<2m）占主导。树木覆盖度10-60%。"},
+          {"value": 7, "color": "dcd159", "description": "开丛草原：由草本植物和灌木（高度<2m）占主导。树木覆盖度<10%。"},
+          {"value": 8, "color": "dade48", "description": "永久湿地：土壤或植被表面长期或永久被淡水覆盖的区域。"},
+          {"value": 9, "color": "fbff13", "description": "草地：由草本植物占主导，有时也有少量灌木或树木（高度<2m）。"},
+          {"value": 10, "color": "b6ff05", "description": "干草地：由草本植物占主导，有时也有少量灌木或树木（高度<2m），但在干旱季节会枯萎或死亡。"},
+          {"value": 11, "color": "27ff87", "description": "农田/自然植被复合体：人类活动对土地利用产生了重要影响，但仍有一定程度的自然植被存在，如农田、牧场、人工林等。"},
+          {"value": 12, "color": "c24f44", "description": "非灌溉耕地：人类活动对土地利用产生了重要影响，如耕作、收割等，但没有灌溉设施。"},
+          {"value": 13, "color": "a5a5a5", "description": "城市和建筑物：人类活动对土地利用产生了重要影响，如建筑、道路、桥"}
+        ]
+      },
+      {
+        "band": "B2",
+        "bandName": "LC_Type2",
+        "introduction": "马里兰大学（UMD）土地覆盖分类方案",
+        "value": [
+          {"value": 0, "color": "000000", "description": "水体"},
+          {"value": 1, "color": "05450a", "description": "常绿针叶林：由常绿针叶树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 2, "color": "086a10", "description": "常绿阔叶林：由常绿阔叶和棕榈树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 3, "color": "54a708", "description": "落叶针叶林：由落叶针叶（落叶松）树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 4, "color": "78d203", "description": "落叶阔叶林：由落叶阔叶树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 5, "color": "009900", "description": "混交林：既不是落叶也不是常绿（各占40-60%）的树种占主导（冠层>2m）。树木覆盖度>60%。"},
+          {"value": 6, "color": "c6b044", "description": "灌木丛：由灌木（高度<2m）占主导。树木覆盖度<10%。"},
+          {"value": 7, "color": "dcd159", "description": "开放灌木丛：由灌木（高度<2m）占主导。树木覆盖度<10%。"},
+          {"value": 8, "color": "dade48", "description": "草地：由草本植物占主导，有时也有少量灌木或树木（高度<2m）。"},
+          {"value": 9, "color": "fbff13", "description": "裸地或稀疏植被：土壤、沙漠或岩石占主导，植被覆盖度<15%。"},
+          {"value": 10, "color": "b6ff05", "description": "农田/自然植被复合体：人类活动对土地利用产生了重要影响，但仍有一定程度的自然植被存在，如农田、牧场、人工林等。"},
+          {"value": 11, "color": "27ff87", "description": "非灌溉耕地：人类活动对土地利用产生了重要影响，如耕作、收割等，但没有灌溉设施。"},
+          {"value": 12, "color": "c24f44", "description": "城市和建筑物：人类活动对土地利用产生了重要影响，如建筑、道路、桥梁等。"},
+          {"value": 13, "color": "a5a5a5", "description": "雪和冰：永久或季节性的雪和冰覆盖区域。"}
+        ]
+      },
+	  {
+      "band": "B3",
+      "bandName": "LC_Type3",
+      "introduction": "基于叶面积指LAI/fPAR分类方案",
+      "value": [
+        {"value": 0, "color": "000000", "description": "水体"},
+        {"value": 1, "color": "05450a", "description": "LAI < 0.1"},
+        {"value": 2, "color": "086a10", "description": "0.1 ≤ LAI < 0.5"},
+        {"value": 3, "color": "54a708", "description": "0.5 ≤ LAI < 1.0"},
+        {"value": 4, "color": "78d203", "description": "1.0 ≤ LAI < 1.5"},
+        {"value": 5, "color": "009900", "description": "1.5 ≤ LAI < 2.0"},
+        {"value": 6, "color": "c6b044", "description": "2.0 ≤ LAI < 2.5"},
+        {"value": 7, "color": "dcd159", "description": "2.5 ≤ LAI < 3.0"},
+        {"value": 8, "color": "dade48", "description": "3.0 ≤ LAI < 4.0"},
+        {"value": 9, "color": "fbff13", "description": "4.0 ≤ LAI < 6.0"},
+        {"value": 10, "color": "b6ff05", "description": "LAI ≥ 6.0"}
+      ]
+	 },
+	 {
+      "band": "B4",
+      "bandName": "LC_Type4",
+      "introduction": "生物地球化学循环（BGC）分类方案",
+      "value": [
+        {"value": 0, "color": "000000", "description": "水体"},
+        {"value": 1, "color": "05450a", "description": "针叶林"},
+        {"value": 2, "color": "086a10", "description": "阔叶林"},
+        {"value": 3, "color": "54a708", "description": "混交林"},
+        {"value": 4, "color": "78d203", "description": "草原"},
+        {"value": 5, "color": "009900", "description": "灌木丛"},
+        {"value": 6, "color": "c6b044", "description": "裸地或稀疏植被"},
+        {"value": 7, "color": "dcd159", "description": "农田/自然植被复合体"},
+        {"value": 8, "color": "dade48", "description": "城市和建筑物"},
+        {"value": 9, "color": "fbff13", "description": "雪和冰"}
+      ]
+     },
+	 {
+      "band": "B5",
+      "bandName": "LC_Type5",
+      "introduction": "植物功能类型分类方案",
+      "value": [
+        {"value": 0, "color": "000000", "description": "水体"},
+        {"value": 1, "color": "05450a", "description": "针叶乔木"},
+        {"value": 2, "color": "086a10", "description": "阔叶乔木"},
+        {"value": 3, "color": "54a708", "description": "针阔混交乔木"},
+        {"value": 4, "color": "78d203", "description": "针叶灌木"},
+        {"value": 5, "color": "009900", "description": "阔叶灌木"},
+        {"value": 6, "color": "c6b044", "description": "草本植物"},
+        {"value": 7, "color": "dcd159", "description": "农田"},
+        {"value": 8, "color": "dade48", "description": "裸地或稀疏植被"},
+        {"value": 9, "color": "fbff13", "description": "城市和建筑物"},
+        {"value": 10, "color": "b6ff05", "description": "雪和冰"},
+        {"value": 11, "color": "27ff87", "description": "藻类"},
+        {"value": 12, "color": "c24f44", "description": "苔藓"},
+        {"value": 13, "color": "a5a5a5", "description": "灌木/草本混合体"},
+        {"value": 14, "color": "ff6d4c", "description": "腐殖质"}
+      ]
+    },
+	{
+      "band": "B6",
+      "bandName": "LC_Prop1_Assessment",
+      "introduction": "LCCS1土地覆盖层置信度",
+      "value": [
+      ]
+    },
+	{
+      "band": "B7",
+      "bandName": "LC_Prop2_Assessment",
+      "introduction": "LCCS2土地覆盖层置信度",
+      "value": [
+      ]
+    },
+	{
+      "band": "B8",
+      "bandName": "LC_Prop3_Assessment",
+      "introduction": "LCCS3土地覆盖层置信度层",
+      "value": [
+      ]
+    },
+	{
+      "band": "B9",
+      "bandName": "LC_Prop1",
+      "introduction": "粮农组织土地覆盖分类系统1（LCCS1）土地覆盖层",
+      "value": [
+        {"value": 1, "description": "树木覆盖区域"},
+        {"value": 2, "description": "灌木覆盖区域"},
+        {"value": 3, "description": "草本植物覆盖区域"},
+        {"value": 4, "description": "裸地或稀疏植被覆盖区域"},
+        {"value": 5, "description": "暴露的岩石"},
+        {"value": 6, "description": "暴露的土壤"},
+        {"value": 7, "description": "暴露的沙砾"},
+        {"value": 8, "description": "暴露的砾石"},
+        {"value": 9, "description": "暴露的石块"},
+        {"value": 10, "description": "暴露的碎石"},
+        {"value": 11, "description": "暴露的冰川"},
+        {"value": 12, "description": "暴露的雪"},
+        {"value": 13, "description": "暴露的冻土"},
+        {"value": 14, "description": "农田"},
+        {"value": 15, "description": "灌溉农田"},
+        {"value": 16, "description": "非灌溉农田"},
+        {"value": 17, "description": "多年生农作物"},
+        {"value": 18, "description": "多年生灌木农作物"},
+        {"value": 19, "description": "多年生草本农作物"},
+        {"value": 20, "description": "多年生树木农作物"},
+        {"value": 21, "description": "多年生混合农作物"},
+        {"value": 22, "description": "短期农作物（一年生）"},
+        {"value": 23, "description": "短期灌木农作物（一年生）"},
+        {"value": 24, "description": "短期草本农作物（一年生）"},
+        {"value": 25, "description": "短期树木农作物（一年生）"},
+        {"value": 26, "description": "短期混合农作物（一年生）"},
+        {"value": 27, "description": "牧场或草地"},
+        {"value": 28, "description": "自然牧场或草地"},
+        {"value": 29, "description": "改良牧场或草地"},
+        {"value": 30, "description": "建筑物和其他人造结构覆盖区域"},
+        {"value": 31, "description": "建筑物覆盖区域"},
+        {"value": 32, "description": "其他人造结构覆盖区域"},
+        {"value": 33, "description": "裸地或稀疏植被覆盖区域（人造）"},
+        {"value": 34, "description": "水体覆盖区域"},
+        {"value": 35, "description": "海洋水体覆盖区域"},
+        {"value": 36, "description": "内陆水体覆盖区域"},
+        {"value": 37, "description": "内陆淡水体覆盖区域"},
+        {"value": 38, "description": "内陆咸水体覆盖区域"},
+        {"value": 39, "description": "内陆混合水体覆盖区域"},
+        {"value": 40, "description": "湿地覆盖区域"},
+        {"value": 41, "description": "自然湿地覆盖区域"},
+        {"value": 42, "description": "改良湿地覆盖区域"},
+        {"value": 43, "description": "淹没湿地覆盖区域"}
+      ]
+    },
+	{
+      "band": "B10",
+      "bandName": "LC_Prop2",
+      "introduction": "粮农组织土地覆盖分类系统1（LCCS2）土地覆盖层",
+      "value": [
+        {"value": 1, "description": "未利用的土地"},
+        {"value": 2, "description": "自然保护区域"},
+        {"value": 3, "description": "严格自然保护区域"},
+        {"value": 4, "description": "管理的自然保护区域"},
+        {"value": 5, "description": "受限的自然保护区域"},
+        {"value": 6, "description": "森林利用区域"},
+        {"value": 7, "description": "森林采伐区域"},
+        {"value": 8, "description": "森林种植区域"},
+        {"value": 9, "description": "森林管理区域"},
+        {"value": 10, "description": "森林休闲区域"},
+        {"value": 11, "description": "农业利用区域"},
+        {"value": 12, "description": "畜牧业利用区域"},
+        {"value": 13, "description": "畜牧业放牧区域"},
+        {"value": 14, "description": "畜牧业饲养区域"},
+        {"value": 15, "description": "畜牧业混合区域"},
+        {"value": 16, "description": "农业耕作区域"},
+        {"value": 17, "description": "农业灌溉区域"},
+        {"value": 18, "description": "农业非灌溉区域"},
+        {"value": 19, "description": "农业混合区域"},
+        {"value": 20, "description": "渔业利用区域"},
+        {"value": 21, "description": "海洋渔业利用区域"},
+        {"value": 22, "description": "海洋捕捞渔业利用区域"},
+        {"value": 23, "description": "海洋养殖渔业利用区域"},
+        {"value": 24, "description": "海洋混合渔业利用区域"},
+        {"value": 25, "description": "内陆渔业利用区域"},
+        {"value": 26, "description": "内陆捕捞渔业利用区域"},
+        {"value": 27, "description": "内陆养殖渔业利用区域"},
+        {"value": 28, "description": "内陆混合渔业利用区域"},
+        {"value": 29, "description": "林业利用区域"},
+        {"value": 30, "description": "林业采伐区域"},
+        {"value": 31, "description": "林业种植区域"},
+        {"value": 32, "description": "林业管理区域"},
+        {"value": 33, "description": "林业休闲区域"},
+        {"value": 34, "description": "建设利用区域"},
+        {"value": 35, "description": "建设居住区域"},
+        {"value": 36, "description": "建设工业或商业区域"},
+        {"value": 37, "description": "建设公共服务或设施区域"},
+        {"value": 38, "description": "建设交通或通讯设施区域"},
+        {"value": 39, "description": "建设混合或其他类型的建筑物或结构物覆盖的土地"},
+        {"value": 40, "description": "废弃的土地"}
+      ]
+    },
+	{
+      "band": "B11",
+      "bandName": "QC",
+      "introduction": "质量波段",
+      "value": [
+        {"value": 1, "description": "湿润的土地"},
+        {"value": 2, "description": "湿润的土壤"},
+        {"value": 3, "description": "湿润的岩石"},
+        {"value": 4, "description": "湿润的沙砾"},
+        {"value": 5, "description": "湿润的砾石"},
+        {"value": 6, "description": "湿润的石块"},
+        {"value": 7, "description": "湿润的碎石"},
+        {"value": 8, "description": "湿润的冰川"},
+        {"value": 9, "description": "湿润的雪"},
+        {"value": 10, "description": "湿润的冻土"},
+        {"value": 11, "description": "干燥的土地"},
+        {"value": 12, "description": "干燥的土壤"},
+        {"value": 13, "description": "干燥的岩石"},
+        {"value": 14, "description": "干燥的沙砾"},
+        {"value": 15, "description": "干燥的砾石"}
+      ]
+    },
+	{
+      "band": "B12",
+      "bandName": "QC",
+      "introduction": "质量波段",
+      "value": [
+      ]
+    },
+	{
+      "band": "B13",
+      "bandName": "LW",
+      "introduction": "MOD44W中陆地（类别2）和水体掩膜（类别1）",
+      "value": [
+      ]
+    },
+    ]
+  }
+]

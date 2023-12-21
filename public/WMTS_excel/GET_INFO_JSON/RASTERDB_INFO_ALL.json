@@ -1,0 +1,730 @@
+[
+  {
+    "id_type": "landcover_modis",
+    "pid1": "土地覆盖数据",
+    "pid2": "低分辨率土地覆盖数据",
+    "NAME": "modis土地覆盖",
+    "band_info": [
+      {
+        "band": "B1",
+        "bandName": "LC_Type1",
+        "introduction": "国际地球生物圈计划（IGBP）土地覆盖分类方案",
+        "value": [
+          {"value": 0, "color": "000000", "description": "水体"},
+          {"value": 1, "color": "05450a", "description": "常绿针叶林：由常绿针叶树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 2, "color": "086a10", "description": "常绿阔叶林：由常绿阔叶和棕榈树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 3, "color": "54a708", "description": "落叶针叶林：由落叶针叶（落叶松）树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 4, "color": "78d203", "description": "落叶阔叶林：由落叶阔叶树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 5, "color": "009900", "description": "混交林：既不是落叶也不是常绿（各占40-60%）的树种占主导（冠层>2m）。树木覆盖度>60%。"},
+          {"value": 6, "color": "c6b044", "description": "闭丛草原：由草本植物和灌木（高度<2m）占主导。树木覆盖度10-60%。"},
+          {"value": 7, "color": "dcd159", "description": "开丛草原：由草本植物和灌木（高度<2m）占主导。树木覆盖度<10%。"},
+          {"value": 8, "color": "dade48", "description": "永久湿地：土壤或植被表面长期或永久被淡水覆盖的区域。"},
+          {"value": 9, "color": "fbff13", "description": "草地：由草本植物占主导，有时也有少量灌木或树木（高度<2m）。"},
+          {"value": 10, "color": "b6ff05", "description": "干草地：由草本植物占主导，有时也有少量灌木或树木（高度<2m），但在干旱季节会枯萎或死亡。"},
+          {"value": 11, "color": "27ff87", "description": "农田/自然植被复合体：人类活动对土地利用产生了重要影响，但仍有一定程度的自然植被存在，如农田、牧场、人工林等。"},
+          {"value": 12, "color": "c24f44", "description": "非灌溉耕地：人类活动对土地利用产生了重要影响，如耕作、收割等，但没有灌溉设施。"},
+          {"value": 13, "color": "a5a5a5", "description": "城市和建筑物：人类活动对土地利用产生了重要影响，如建筑、道路、桥"}
+        ]
+      },
+      {
+        "band": "B2",
+        "bandName": "LC_Type2",
+        "introduction": "马里兰大学（UMD）土地覆盖分类方案",
+        "value": [
+          {"value": 0, "color": "000000", "description": "水体"},
+          {"value": 1, "color": "05450a", "description": "常绿针叶林：由常绿针叶树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 2, "color": "086a10", "description": "常绿阔叶林：由常绿阔叶和棕榈树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 3, "color": "54a708", "description": "落叶针叶林：由落叶针叶（落叶松）树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 4, "color": "78d203", "description": "落叶阔叶林：由落叶阔叶树（冠层>2m）占主导。树木覆盖度>60%。"},
+          {"value": 5, "color": "009900", "description": "混交林：既不是落叶也不是常绿（各占40-60%）的树种占主导（冠层>2m）。树木覆盖度>60%。"},
+          {"value": 6, "color": "c6b044", "description": "灌木丛：由灌木（高度<2m）占主导。树木覆盖度<10%。"},
+          {"value": 7, "color": "dcd159", "description": "开放灌木丛：由灌木（高度<2m）占主导。树木覆盖度<10%。"},
+          {"value": 8, "color": "dade48", "description": "草地：由草本植物占主导，有时也有少量灌木或树木（高度<2m）。"},
+          {"value": 9, "color": "fbff13", "description": "裸地或稀疏植被：土壤、沙漠或岩石占主导，植被覆盖度<15%。"},
+          {"value": 10, "color": "b6ff05", "description": "农田/自然植被复合体：人类活动对土地利用产生了重要影响，但仍有一定程度的自然植被存在，如农田、牧场、人工林等。"},
+          {"value": 11, "color": "27ff87", "description": "非灌溉耕地：人类活动对土地利用产生了重要影响，如耕作、收割等，但没有灌溉设施。"},
+          {"value": 12, "color": "c24f44", "description": "城市和建筑物：人类活动对土地利用产生了重要影响，如建筑、道路、桥梁等。"},
+          {"value": 13, "color": "a5a5a5", "description": "雪和冰：永久或季节性的雪和冰覆盖区域。"}
+        ]
+      },
+	  {
+      "band": "B3",
+      "bandName": "LC_Type3",
+      "introduction": "基于叶面积指LAI/fPAR分类方案",
+      "value": [
+        {"value": 0, "color": "000000", "description": "水体"},
+        {"value": 1, "color": "05450a", "description": "LAI < 0.1"},
+        {"value": 2, "color": "086a10", "description": "0.1 ≤ LAI < 0.5"},
+        {"value": 3, "color": "54a708", "description": "0.5 ≤ LAI < 1.0"},
+        {"value": 4, "color": "78d203", "description": "1.0 ≤ LAI < 1.5"},
+        {"value": 5, "color": "009900", "description": "1.5 ≤ LAI < 2.0"},
+        {"value": 6, "color": "c6b044", "description": "2.0 ≤ LAI < 2.5"},
+        {"value": 7, "color": "dcd159", "description": "2.5 ≤ LAI < 3.0"},
+        {"value": 8, "color": "dade48", "description": "3.0 ≤ LAI < 4.0"},
+        {"value": 9, "color": "fbff13", "description": "4.0 ≤ LAI < 6.0"},
+        {"value": 10, "color": "b6ff05", "description": "LAI ≥ 6.0"}
+      ]
+	 },
+	 {
+      "band": "B4",
+      "bandName": "LC_Type4",
+      "introduction": "生物地球化学循环（BGC）分类方案",
+      "value": [
+        {"value": 0, "color": "000000", "description": "水体"},
+        {"value": 1, "color": "05450a", "description": "针叶林"},
+        {"value": 2, "color": "086a10", "description": "阔叶林"},
+        {"value": 3, "color": "54a708", "description": "混交林"},
+        {"value": 4, "color": "78d203", "description": "草原"},
+        {"value": 5, "color": "009900", "description": "灌木丛"},
+        {"value": 6, "color": "c6b044", "description": "裸地或稀疏植被"},
+        {"value": 7, "color": "dcd159", "description": "农田/自然植被复合体"},
+        {"value": 8, "color": "dade48", "description": "城市和建筑物"},
+        {"value": 9, "color": "fbff13", "description": "雪和冰"}
+      ]
+     },
+	 {
+      "band": "B5",
+      "bandName": "LC_Type5",
+      "introduction": "植物功能类型分类方案",
+      "value": [
+        {"value": 0, "color": "000000", "description": "水体"},
+        {"value": 1, "color": "05450a", "description": "针叶乔木"},
+        {"value": 2, "color": "086a10", "description": "阔叶乔木"},
+        {"value": 3, "color": "54a708", "description": "针阔混交乔木"},
+        {"value": 4, "color": "78d203", "description": "针叶灌木"},
+        {"value": 5, "color": "009900", "description": "阔叶灌木"},
+        {"value": 6, "color": "c6b044", "description": "草本植物"},
+        {"value": 7, "color": "dcd159", "description": "农田"},
+        {"value": 8, "color": "dade48", "description": "裸地或稀疏植被"},
+        {"value": 9, "color": "fbff13", "description": "城市和建筑物"},
+        {"value": 10, "color": "b6ff05", "description": "雪和冰"},
+        {"value": 11, "color": "27ff87", "description": "藻类"},
+        {"value": 12, "color": "c24f44", "description": "苔藓"},
+        {"value": 13, "color": "a5a5a5", "description": "灌木/草本混合体"},
+        {"value": 14, "color": "ff6d4c", "description": "腐殖质"}
+      ]
+    },
+	{
+      "band": "B6",
+      "bandName": "LC_Prop1_Assessment",
+      "introduction": "LCCS1土地覆盖层置信度",
+      "value": [
+      ]
+    },
+	{
+      "band": "B7",
+      "bandName": "LC_Prop2_Assessment",
+      "introduction": "LCCS2土地覆盖层置信度",
+      "value": [
+      ]
+    },
+	{
+      "band": "B8",
+      "bandName": "LC_Prop3_Assessment",
+      "introduction": "LCCS3土地覆盖层置信度层",
+      "value": [
+      ]
+    },
+	{
+      "band": "B9",
+      "bandName": "LC_Prop1",
+      "introduction": "粮农组织土地覆盖分类系统1（LCCS1）土地覆盖层",
+      "value": [
+        {"value": 1, "description": "树木覆盖区域"},
+        {"value": 2, "description": "灌木覆盖区域"},
+        {"value": 3, "description": "草本植物覆盖区域"},
+        {"value": 4, "description": "裸地或稀疏植被覆盖区域"},
+        {"value": 5, "description": "暴露的岩石"},
+        {"value": 6, "description": "暴露的土壤"},
+        {"value": 7, "description": "暴露的沙砾"},
+        {"value": 8, "description": "暴露的砾石"},
+        {"value": 9, "description": "暴露的石块"},
+        {"value": 10, "description": "暴露的碎石"},
+        {"value": 11, "description": "暴露的冰川"},
+        {"value": 12, "description": "暴露的雪"},
+        {"value": 13, "description": "暴露的冻土"},
+        {"value": 14, "description": "农田"},
+        {"value": 15, "description": "灌溉农田"},
+        {"value": 16, "description": "非灌溉农田"},
+        {"value": 17, "description": "多年生农作物"},
+        {"value": 18, "description": "多年生灌木农作物"},
+        {"value": 19, "description": "多年生草本农作物"},
+        {"value": 20, "description": "多年生树木农作物"},
+        {"value": 21, "description": "多年生混合农作物"},
+        {"value": 22, "description": "短期农作物（一年生）"},
+        {"value": 23, "description": "短期灌木农作物（一年生）"},
+        {"value": 24, "description": "短期草本农作物（一年生）"},
+        {"value": 25, "description": "短期树木农作物（一年生）"},
+        {"value": 26, "description": "短期混合农作物（一年生）"},
+        {"value": 27, "description": "牧场或草地"},
+        {"value": 28, "description": "自然牧场或草地"},
+        {"value": 29, "description": "改良牧场或草地"},
+        {"value": 30, "description": "建筑物和其他人造结构覆盖区域"},
+        {"value": 31, "description": "建筑物覆盖区域"},
+        {"value": 32, "description": "其他人造结构覆盖区域"},
+        {"value": 33, "description": "裸地或稀疏植被覆盖区域（人造）"},
+        {"value": 34, "description": "水体覆盖区域"},
+        {"value": 35, "description": "海洋水体覆盖区域"},
+        {"value": 36, "description": "内陆水体覆盖区域"},
+        {"value": 37, "description": "内陆淡水体覆盖区域"},
+        {"value": 38, "description": "内陆咸水体覆盖区域"},
+        {"value": 39, "description": "内陆混合水体覆盖区域"},
+        {"value": 40, "description": "湿地覆盖区域"},
+        {"value": 41, "description": "自然湿地覆盖区域"},
+        {"value": 42, "description": "改良湿地覆盖区域"},
+        {"value": 43, "description": "淹没湿地覆盖区域"}
+      ]
+    },
+	{
+      "band": "B10",
+      "bandName": "LC_Prop2",
+      "introduction": "粮农组织土地覆盖分类系统1（LCCS2）土地覆盖层",
+      "value": [
+        {"value": 1, "description": "未利用的土地"},
+        {"value": 2, "description": "自然保护区域"},
+        {"value": 3, "description": "严格自然保护区域"},
+        {"value": 4, "description": "管理的自然保护区域"},
+        {"value": 5, "description": "受限的自然保护区域"},
+        {"value": 6, "description": "森林利用区域"},
+        {"value": 7, "description": "森林采伐区域"},
+        {"value": 8, "description": "森林种植区域"},
+        {"value": 9, "description": "森林管理区域"},
+        {"value": 10, "description": "森林休闲区域"},
+        {"value": 11, "description": "农业利用区域"},
+        {"value": 12, "description": "畜牧业利用区域"},
+        {"value": 13, "description": "畜牧业放牧区域"},
+        {"value": 14, "description": "畜牧业饲养区域"},
+        {"value": 15, "description": "畜牧业混合区域"},
+        {"value": 16, "description": "农业耕作区域"},
+        {"value": 17, "description": "农业灌溉区域"},
+        {"value": 18, "description": "农业非灌溉区域"},
+        {"value": 19, "description": "农业混合区域"},
+        {"value": 20, "description": "渔业利用区域"},
+        {"value": 21, "description": "海洋渔业利用区域"},
+        {"value": 22, "description": "海洋捕捞渔业利用区域"},
+        {"value": 23, "description": "海洋养殖渔业利用区域"},
+        {"value": 24, "description": "海洋混合渔业利用区域"},
+        {"value": 25, "description": "内陆渔业利用区域"},
+        {"value": 26, "description": "内陆捕捞渔业利用区域"},
+        {"value": 27, "description": "内陆养殖渔业利用区域"},
+        {"value": 28, "description": "内陆混合渔业利用区域"},
+        {"value": 29, "description": "林业利用区域"},
+        {"value": 30, "description": "林业采伐区域"},
+        {"value": 31, "description": "林业种植区域"},
+        {"value": 32, "description": "林业管理区域"},
+        {"value": 33, "description": "林业休闲区域"},
+        {"value": 34, "description": "建设利用区域"},
+        {"value": 35, "description": "建设居住区域"},
+        {"value": 36, "description": "建设工业或商业区域"},
+        {"value": 37, "description": "建设公共服务或设施区域"},
+        {"value": 38, "description": "建设交通或通讯设施区域"},
+        {"value": 39, "description": "建设混合或其他类型的建筑物或结构物覆盖的土地"},
+        {"value": 40, "description": "废弃的土地"}
+      ]
+    },
+	{
+      "band": "B11",
+      "bandName": "QC",
+      "introduction": "质量波段",
+      "value": [
+        {"value": 1, "description": "湿润的土地"},
+        {"value": 2, "description": "湿润的土壤"},
+        {"value": 3, "description": "湿润的岩石"},
+        {"value": 4, "description": "湿润的沙砾"},
+        {"value": 5, "description": "湿润的砾石"},
+        {"value": 6, "description": "湿润的石块"},
+        {"value": 7, "description": "湿润的碎石"},
+        {"value": 8, "description": "湿润的冰川"},
+        {"value": 9, "description": "湿润的雪"},
+        {"value": 10, "description": "湿润的冻土"},
+        {"value": 11, "description": "干燥的土地"},
+        {"value": 12, "description": "干燥的土壤"},
+        {"value": 13, "description": "干燥的岩石"},
+        {"value": 14, "description": "干燥的沙砾"},
+        {"value": 15, "description": "干燥的砾石"}
+      ]
+    },
+	{
+      "band": "B12",
+      "bandName": "QC",
+      "introduction": "质量波段",
+      "value": [
+      ]
+    },
+	{
+      "band": "B13",
+      "bandName": "LW",
+      "introduction": "MOD44W中陆地（类别2）和水体掩膜（类别1）",
+      "value": [
+      ]
+    }
+    ]
+  },
+  {
+    "id_type": "landcover_ESA_CCI",
+    "pid1": "土地覆盖数据",
+    "pid2": "低分辨率土地覆盖数据",
+    "NAME": "ESA_CCI土地覆盖",
+    "band_info": [
+            {
+              "band": "B1",
+              "bandName": "ESA_CCI_Type",
+              "introduction": "ESA_CCI土地覆盖分类方案",
+              "value": [
+                {"value": 0, "description": "无数据", "color": "0,0,0"},
+                {"value": 10, "description": "雨养农田", "color": "255,255,100"},
+                {"value": 11, "description": "雨养农田，草本植被", "color": "255,255,100"},
+                {"value": 12, "description": "雨养农田，树木或灌木覆盖", "color": "255,255,0"},
+                {"value": 20, "description": "灌溉农田或洪泛后", "color": "170,240,240"},
+                {"value": 30, "description": "混合农田（>50%）和自然植被（树木、灌木、草本覆盖）（<50%）", "color": "220,240,100"},
+                {"value": 40, "description": "混合自然植被（树木、灌木、草本覆盖）（>50%）和农田（<50%）", "color": "200,200,100"},
+                {"value": 50, "description": "树木覆盖，阔叶，常绿，覆盖度大于15%", "color": "0,100,0"},
+                {"value": 60, "description": "树木覆盖，阔叶，落叶，覆盖度大于15%", "color": "0,160,0"},
+                {"value": 61, "description": "树木覆盖，阔叶，落叶，覆盖度大于40%", "color": "0,160,0"},
+                {"value": 62, "description": "树木覆盖，阔叶，落叶，覆盖度在15-40%之间", "color": "170,200,0"},
+                {"value": 70, "description": "树木覆盖，针叶，常绿，覆盖度大于15%", "color": "0,60,0"},
+                {"value": 71, "description": "树木覆盖，针叶，常绿，覆盖度大于40%", "color": "0,60,0"},
+                {"value": 72, "description": "树木覆盖，针叶，常绿，覆盖度在15-40%之间", "color": "0,80,0"},
+                {"value": 80, "description": "树木覆盖，针叶，落叶，覆盖度大于15%", "color": "40,80,0"},
+                {"value": 81, "description": "树木覆盖，针叶，落叶，覆盖度大于40%", "color": "40,80,0"},
+                {"value": 82, "description": "树木覆盖，针叶，落叶，覆盖度在15-40%之间", "color": "40,100,0"},
+                {"value": 90, "description": "树木覆盖，混合叶型（阔叶和针叶）", "color": "120,130,0"},
+                {"value": 100, "description": "混合树木和灌木覆盖（>50%）和草本覆盖（<50%）", "color": "140,160,0"},
+                {"value": 110, "description": "混合草本覆盖（>50%）和树木、灌木覆盖（<50%）", "color": "190,150,0"},
+                {"value": 120, "description": "灌木地", "color": "150,100,0"},
+                {"value": 121, "description": "常绿灌木地", "color": "150,100,0"},
+                {"value": 122, "description": "落叶灌木地", "color": "150,100,0"},
+                {"value": 130, "description": "草地", "color": "255,180,50"},
+                {"value": 140, "description": "地衣和苔藓", "color": "255,220,210"},
+                {"value": 150, "description": "稀疏植被（树木、灌木、草本覆盖）（<15%）", "color": "255,235,175"},
+                {"value": 151, "description": "稀疏树木（<15%）", "color": "255,200,100"},
+                {"value": 152, "description": "稀疏灌木（<15%）", "color": "255,210,120"},
+                {"value": 153, "description": "稀疏草本覆盖（<15%）", "color": "255,235,175"},
+                {"value": 160, "description": "树木覆盖，湿地，淡水或卤水", "color": "0,120,90"},
+                {"value": 170, "description": "树木覆盖，湿地，盐水", "color": "0,150,120"},
+                {"value": 180, "description": "灌木或草本覆盖，湿地，淡水/盐水/卤水", "color": "0,220,130"},
+                {"value": 190, "description": "城市区域", "color": "195,20,0"},
+                {"value": 200, "description": "裸地", "color": "255,245,215"},
+                {"value": 201, "description": "固化裸地", "color": "220,220,220"},
+                {"value": 202, "description": "非固化裸地", "color": "255,245,215"},
+                {"value": 210, "description": "水体", "color": "0,70,200"},
+                {"value": 220, "description": "永久性雪和冰", "color": "255,255,255"}
+              ]
+            }
+          ]
+    
+  },
+  {
+    "id_type": "landcover_GAZE",
+    "pid1": "土地覆盖数据",
+    "pid2": "低分辨率土地覆盖数据",
+    "NAME": "GAZE土地覆盖",
+    "band_info": [
+            {
+              "band": "B1",
+              "bandName": "landcover_GAZE",
+              "introduction": "GAZE土地覆盖分类方案",
+              "value": [
+                {"value": 1, "description": ">75%作物", "color": "230,152,0"},
+                {"value": 2, "description": ">75%森林", "color": "38,115,0"},
+                {"value": 3, "description": ">75%草地/灌木", "color": "112,186,0"},
+                {"value": 4, "description": ">75%非植被", "color": "204,204,204"},
+                {"value": 5, "description": "50-75%作物", "color": "230,230,0"},
+                {"value": 6, "description": "50-75%森林", "color": "76,230,0"},
+                {"value": 7, "description": "50-75%草地/灌木", "color": "211,255,190"},
+                {"value": 8, "description": "50-75%非植被", "color": "204,204,204"},
+                {"value": 9, "description": ">50%人工", "color": "168,0,0"},
+                {"value": 10, "description": "混合", "color": "168,125,0"},
+                {"value": 11, "description": "水体", "color": "0,92,230"}
+              ]
+            }
+          ]
+  },
+  {
+    "id_type": "landcover_GLCNMO",
+    "pid1": "土地覆盖数据",
+    "pid2": "低分辨率土地覆盖数据",
+    "NAME": "GLCNMO土地覆盖",
+    "band_info": [
+  {
+    "band": "B1",
+    "bandName": "landcover_GLCNMO",
+    "introduction": "landcover_GLCNMO土地覆盖分类方案",
+    "value": [
+      {"value": 1, "description": "常绿阔叶林", "color": "21,55,21"},
+      {"value": 2, "description": "落叶阔叶林", "color": "57,149,65"},
+      {"value": 3, "description": "常绿针叶林", "color": "0,160,49"},
+      {"value": 4, "description": "落叶针叶林", "color": "85,139,52"},
+      {"value": 5, "description": "混交林", "color": "57,180,65"},
+      {"value": 6, "description": "开阔林地", "color": "139,189,139"},
+      {"value": 7, "description": "灌木地", "color": "189,189,49"},
+      {"value": 8, "description": "草本植被", "color": "246,246,50"},
+      {"value": 9, "description": "带稀疏树木/灌木的草本植被", "color": "180,213,139"},
+      {"value": 10, "description": "稀疏植被", "color": "168,125,0"},
+      {"value": 11, "description": "耕地", "color": "252,175,82"},
+      {"value": 12, "description": "稻田", "color": "100,80,100"},
+      {"value": 13, "description": "农田/其他植被混合", "color": "190,160,190"},
+      {"value": 14, "description": "红树林", "color": "100,80,100"},
+      {"value": 15, "description": "湿地", "color": "180,220,234"},
+      {"value": 16, "description": "裸土地（固化）（砾石、岩石）", "color": "150,80,150"},
+      {"value": 17, "description": "裸土地（未固化）（沙）", "color": "200,200,200"},
+      {"value": 18, "description": "城市", "color": "255,0,0"},
+      {"value": 19, "description": "雪/冰", "color": "255,255,255"},
+      {"value": 20, "description": "水体", "color": "170,200,240"}
+        ]
+      }
+    ]
+
+  },
+  {
+    "id_type": "landcover_CLCD",
+    "pid1": "土地覆盖数据",
+    "pid2": "中分辨率土地覆盖数据",
+    "NAME": "CLCD土地覆盖",
+    "band_info": [    
+      {
+        "band": "B1",
+        "bandName": "CLCD土地覆盖类型",
+        "introduction": "CLCD土地覆盖分类方案",
+        "value": [
+          {"value": 1, "description": "农田", "color": "250,227,156"},
+          {"value": 2, "description": "森林", "color": "68,111,51"},
+          {"value": 3, "description": "灌木", "color": "51,160,44"},
+          {"value": 4, "description": "草原", "color": "171,211,123"},
+          {"value": 5, "description": "水域", "color": "30,105,180"},
+          {"value": 6, "description": "冰雪", "color": "166,206,227"},
+          {"value": 7, "description": "裸地", "color": "207,189,163"},
+          {"value": 8, "description": "不透水面", "color": "226,66,144"},
+          {"value": 9, "description": "湿地", "color": "40,155,232"}
+        ]    
+       }
+    ]
+  },
+  {
+    "id_type": "landcover_AGLC",
+    "pid1": "土地覆盖数据",
+    "pid2": "中分辨率土地覆盖数据",
+    "NAME": "AGLC土地覆盖",
+    "band_info": {
+      "band": "B1",
+      "bandName": "AGLC土地覆盖类型",
+      "introduction": "AGLC覆盖分类方案",
+      "value": [
+        {"value": 10, "description": "农田", "color": "176,255,91,255"},
+        {"value": 20, "description": "森林", "color": "49,116,0,255"},
+        {"value": 30, "description": "草原", "color": "96,236,0,255"},
+        {"value": 40, "description": "灌木地", "color": "124,168,0,255"},
+        {"value": 50, "description": "湿地", "color": "71,190,222,255"},
+        {"value": 60, "description": "水域", "color": "61,77,213,255"},
+        {"value": 70, "description": "苔原", "color": "205,0,216,255"},
+        {"value": 80, "description": "不透水表面", "color": "205,0,216,255"},
+        {"value": 90, "description": "裸地", "color": "255,166,0,255"},
+        {"value": 100, "description": "冰雪", "color": "255,255,201,255"}
+      ]
+    }
+  },
+  {
+    "id_type": "landcover_GLC30",
+    "pid1": "土地覆盖数据",
+    "pid2": "中分辨率土地覆盖数据",
+    "NAME": "GLC30土地覆盖",
+    "band_info": {
+          "band": "B1",
+          "bandName": "GLC30土地覆盖类型",
+          "introduction": "GLC30土地覆盖分类方案",
+          "value": [
+            {"value": 10, "description": "耕地", "color": "250,160,255"},
+            {"value": 20, "description": "林地", "color": "0,100,0"},
+            {"value": 30, "description": "草地", "color": "100,255,0"},
+            {"value": 40, "description": "灌木地", "color": "0,255,120"},
+            {"value": 50, "description": "湿地", "color": "0,100,255"},
+            {"value": 60, "description": "水体", "color": "0,0,255"},
+            {"value": 70, "description": "苔原", "color": "100,100,50"},
+            {"value": 80, "description": "人造地表", "color": "255,0,0"},
+            {"value": 90, "description": "裸地", "color": "190,190,190"},
+            {"value": 100, "description": "冰川和永久积雪", "color": "200,240,255"},
+            {"value": 255, "description": "海域", "color": "0,200,255"},
+            {"value": 0, "description": "无数据", "color": "0,0,0"}
+          ]
+        }
+  },
+  {
+    "id_type": "landcover_GLC_FCS",
+    "pid1": "土地覆盖数据",
+    "pid2": "中分辨率土地覆盖数据",
+    "NAME": "GLC_FCS土地覆盖",
+    "band_info": {
+        "band": "B1",
+        "bandName": "GLC_FCS土地覆盖类型",
+        "introduction": "GLC_FCS土地覆盖分类方案",
+        "value": [
+          {"value": 10, "description": "雨养耕地", "color": "255,255,100"},
+          {"value": 11, "description": "草本植被覆盖", "color": "255,255,10"},
+          {"value": 12, "description": "树木或灌木覆盖（果园）", "color": "255,255,0"},
+          {"value": 20, "description": "灌溉耕地", "color": "170,240,240"},
+          {"value": 51, "description": "开阔常绿阔叶林", "color": "76,115,0"},
+          {"value": 52, "description": "闭阔常绿阔叶林", "color": "0,100,0"},
+          {"value": 61, "description": "开阔落叶阔叶林（0.15 < fc < 0.4）", "color": "170,200,0"},
+          {"value": 62, "description": "闭阔落叶阔叶林（fc > 0.4）", "color": "0,160,0"},
+          {"value": 71, "description": "开阔常绿针叶林（0.15 < fc < 0.4）", "color": "0,80,0"},
+          {"value": 72, "description": "闭阔常绿针叶林（fc > 0.4）", "color": "0,60,0"},
+          {"value": 81, "description": "开阔落叶针叶林（0.15 < fc < 0.4）", "color": "40,100,0"},
+          {"value": 82, "description": "闭阔落叶针叶林（fc > 0.4）", "color": "40,80,0"},
+          {"value": 91, "description": "开阔混交叶片林（阔叶树和针叶树）", "color": "160,180,50"},
+          {"value": 92, "description": "闭阔混交叶片林（阔叶树和针叶树）", "color": "120,130,0"},
+          {"value": 120, "description": "灌木地", "color": "150,100,0"},
+          {"value": 121, "description": "常绿灌木地", "color": "150,75,0"},
+          {"value": 122, "description": "落叶灌木地", "color": "150,100,0"},
+          {"value": 130, "description": "草地", "color": "255,180,50"},
+          {"value": 140, "description": "地衣和苔藓植被", "color": "255,220,210"},
+          {"value": 150, "description": "稀疏植被（fc < 0.15）", "color": "255,235,175"},
+          {"value": 152, "description": "稀疏灌木地（fc < 0.15）", "color": "255,210,120"},
+          {"value": 153, "description": "稀疏草本植被（fc < 0.15）", "color": "255,235,175"},
+          {"value": 180, "description": "湿地", "color": "0,220,130"},
+          {"value": 190, "description": "不透水表面", "color": "195,20,0"},
+          {"value": 200, "description": "裸地", "color": "255,245,215"},
+          {"value": 201, "description": "固化裸地", "color": "220,220,220"},
+          {"value": 202, "description": "非固化裸地", "color": "255,245,215"},
+          {"value": 210, "description": "水体", "color": "0,70,200"},
+          {"value": 220, "description": "永久性冰雪覆盖", "color": "255,255,255"},
+          {"value": 250, "description": "填充值", "color": "255,255,255"}
+        ]
+      }
+
+  },
+  {
+    "id_type": "landcover_GLCLUC",
+    "pid1": "土地覆盖数据",
+    "pid2": "中分辨率土地覆盖数据",
+    "NAME": "GLCLUC土地覆盖",
+    "band": {
+      "band": "B1",
+      "bandName": "GLCLUC土地覆盖类型",
+      "introduction": "GLCLUC土地覆盖分类方案",
+      "value": [
+        {"value": 0, "description": "真实沙漠:3%短植被覆盖", "color": "FEFECC"},
+        {"value": 1, "description": "真实沙漠:7%短植被覆盖", "color": "FAFAC3"},
+        {"value": 2, "description": "半干旱:11%短植被覆盖", "color": "F7F7BB"},
+        {"value": 3, "description": "半干旱:15%短植被覆盖", "color": "F4F4B3"},
+        {"value": 4, "description": "半干旱:19%短植被覆盖", "color": "F1F1AB"},
+        {"value": 5, "description": "半干旱:23%短植被覆盖", "color": "EDEDA2"},
+        {"value": 6, "description": "半干旱:27%短植被覆盖", "color": "EAEA9A"},
+        {"value": 7, "description": "半干旱:31%短植被覆盖", "color": "E7E792"},
+        {"value": 8, "description": "半干旱:35%短植被覆盖", "color": "E4E48A"},
+        {"value": 9, "description": "半干旱:39%短植被覆盖", "color": "E0E081"},
+        {"value": 10, "description": "半干旱:43%短植被覆盖", "color": "DDDD79"},
+        {"value": 11, "description": "半干旱:47%短植被覆盖", "color": "DADA71"},
+        {"value": 12, "description": "半干旱:51%短植被覆盖", "color": "D7D769"},
+        {"value": 13, "description": "半干旱:55%短植被覆盖", "color": "D3D360"},
+        {"value": 14, "description": "半干旱:59%短植被覆盖", "color": "D0D058"},
+        {"value": 15, "description": "半干旱:63%短植被覆盖", "color": "CDCD50"},
+        {"value": 16, "description": "半干旱:67%短植被覆盖", "color": "CACA48"},
+        {"value": 17, "description": "半干旱:71%短植被覆盖", "color": "C6C63F"},
+        {"value": 18, "description": "半干旱:75%短植被覆盖", "color": "C3C337"},
+        {"value": 19, "description": "密集短植被:79%短植被覆盖", "color": "C0C02F"},
+        {"value": 20, "description": "密集短植被:83%短植被覆盖", "color": "BDBD27"},
+        {"value": 21, "description": "密集短植被:87%短植被覆盖", "color": "B9B91E"},
+        {"value": 22, "description": "密集短植被:91%短植被覆盖", "color": "B6B616"},
+        {"value": 23, "description": "密集短植被:95%短植被覆盖", "color": "B3B30E"},
+        {"value": 24, "description": "密集短植被:100%短植被覆盖", "color": "B0B006"},
+        {"value": 25, "description": "树木覆盖:3米树", "color": "609C60"},
+        {"value": 26, "description": "树木覆盖:4米树", "color": "5C985C"},
+        {"value": 27, "description": "树木覆盖:5米树", "color": "589558"},
+        {"value": 28, "description": "树木覆盖:6米树", "color": "549254"},
+        {"value": 29, "description": "树木覆盖:7米树", "color": "508E50"},
+        {"value": 30, "description": "树木覆盖:8米树", "color": "4C8B4C"},
+        {"value": 31, "description": "树木覆盖:9米树", "color": "488848"},
+        {"value": 32, "description": "树木覆盖:10米树", "color": "448544"},
+        {"value": 33, "description": "树木覆盖:11米树", "color": "408140"},
+        {"value": 34, "description": "树木覆盖:12米树", "color": "3C7E3C"},
+        {"value": 35, "description": "树木覆盖:13米树", "color": "387B38"},
+        {"value": 36, "description": "树木覆盖:14米树", "color": "347834"},
+        {"value": 37, "description": "树木覆盖:15米树", "color": "317431"},
+        {"value": 38, "description": "树木覆盖:16米树", "color": "2D712D"},
+        {"value": 39, "description": "树木覆盖:17米树", "color": "296E29"},
+        {"value": 40, "description": "树木覆盖:18米树", "color": "256B25"},
+        {"value": 41, "description": "树木覆盖:19米树", "color": "216721"},
+        {"value": 42, "description": "树木覆盖:20米树", "color": "1D641D"},
+        {"value": 43, "description": "树木覆盖:21米树", "color": "196119"},
+        {"value": 44, "description": "树木覆盖:22米树", "color": "155E15"},
+        {"value": 45, "description": "树木覆盖:23米树", "color": "115A11"},
+        {"value": 46, "description": "树木覆盖:24米树", "color": "0D570D"},
+        {"value": 47, "description": "树木覆盖:25米树", "color": "095409"},
+        {"value": 48, "description": "树木覆盖:>25米树", "color": "065106"},
+        {"value": 100, "description": "盐碱地:3%短植被覆盖", "color": "BFC0C0"},
+        {"value": 101, "description": "盐碱地:7%短植被覆盖", "color": "B7BDC2"},
+        {"value": 102, "description": "稀疏植被:11%短植被覆盖", "color": "AFBBC4"},
+        {"value": 103, "description": "稀疏植被:15%短植被覆盖", "color": "A8B8C6"},
+        {"value": 104, "description": "稀疏植被:19%短植被覆盖", "color": "A0B6C9"},
+        {"value": 105, "description": "稀疏植被:23%短植被覆盖", "color": "99B3CB"},
+        {"value": 106, "description": "稀疏植被:27%短植被覆盖", "color": "91B1CD"},
+        {"value": 107, "description": "稀疏植被:31%短植被覆盖", "color": "89AFD0"},
+        {"value": 108, "description": "稀疏植被:35%短植被覆盖", "color": "82ACD2"},
+        {"value": 109, "description": "稀疏植被:39%短植被覆盖", "color": "7AAAD4"},
+        {"value": 110, "description": "稀疏植被:43%短植被覆盖", "color": "73A7D6"},
+        {"value": 111, "description": "稀疏植被:47%短植被覆盖", "color": "6BA5D9"},
+        {"value": 112, "description": "稀疏植被:51%短植被覆盖", "color": "64A3DB"},
+        {"value": 113, "description": "稀疏植被:55%短植被覆盖", "color": "5CA0DD"},
+        {"value": 114, "description": "稀疏植被:59%短植被覆盖", "color": "549EE0"},
+        {"value": 115, "description": "稀疏植被:63%短植被覆盖", "color": "4D9BE2"},
+        {"value": 116, "description": "稀疏植被:67%短植被覆盖", "color": "4599E4"},
+        {"value": 117, "description": "稀疏植被:71%短植被覆盖", "color": "3E96E6"},
+        {"value": 118, "description": "稀疏植被:75%短植被覆盖", "color": "3694E9"},
+        {"value": 119, "description": "密集短植被:79%短植被覆盖", "color": "2E92EB"},
+        {"value": 120, "description": "密集短植被：83%短植被覆盖", "color": "27,143,237"},
+        {"value": 121, "description": "密集短植被：87%短植被覆盖", "color": "31,141,240"},
+        {"value": 122, "description": "密集短植被：91%短植被覆盖", "color": "24,138,242"},
+        {"value": 123, "description": "密集短植被：95%短植被覆盖", "color": "16,136,244"},
+        {"value": 124, "description": "密集短植被：100%短植被覆盖", "color": "9,134,247"},
+        {"value": 125, "description": "树木覆盖：3m树木", "color": "85,165,165"},
+        {"value": 126, "description": "树木覆盖：4m树木", "color": "83,161,162"},
+        {"value": 127, "description": "树木覆盖：5m树木", "color": "81,158,159"},
+        {"value": 128, "description": "树木覆盖：6m树木", "color": "79,155,156"},
+        {"value": 129, "description": "树木覆盖：7m树木", "color": "77,152,154"},
+        {"value": 130, "description": "树木覆盖：8m树木", "color": "75,149,151"},
+        {"value": 131, "description": "树木覆盖：9m树木", "color": "73,146,148"},
+        {"value": 132, "description": "树木覆盖：10m树木", "color": "71,143,145"},
+        {"value": 133, "description": "树木覆盖：11m树木", "color": "69,139,143"},
+        {"value": 134, "description": "树木覆盖：12m树木", "color": "67,136,140"},
+        {"value": 135, "description": "树木覆盖：13m树木", "color": "65,133,137"},
+        {"value": 136, "description": "树木覆盖：14m树木", "color": "63,130,134"},
+        {"value": 137, "description": "树木覆盖：15m树木", "color": "61,127,132"},
+        {"value": 138, "description": "树木覆盖：16m树木", "color": "59,124,129"},
+        {"value": 139, "description": "树木覆盖：17m树木", "color": "57,121,126"},
+        {"value": 140, "description": "树木覆盖：18m树木", "color": "55,118,123"},
+        {"value": 141, "description": "树木覆盖：19m树木", "color": "53,114,121"},
+        {"value": 142, "description": "树木覆盖：20m树木", "color": "51,111,118"},
+        {"value": 143, "description": "树木覆盖：21m树木", "color": "49,108,115"},
+        {"value": 144, "description": "树木覆盖：22m树木", "color": "47,105,112"},
+        {"value": 145, "description": "树木覆盖：23m树木", "color": "45,102,110"},
+        {"value": 146, "description": "树木覆盖：24m树木", "color": "43,99,107"},
+        {"value": 147, "description": "树木覆盖：25m树木", "color": "41,96,104"},
+        {"value": 148, "description": "树木覆盖：＞25m树木", "color": "40,93,102"},
+        {"value": 200, "description": "开阔水域：年度覆盖20-29%", "color": "25,100,235"},
+        {"value": 201, "description": "开阔水域：年度覆盖30-39%", "color": "21,85,228"},
+        {"value": 202, "description": "开阔水域：年度覆盖40-49%", "color": "17,71,221"},
+        {"value": 203, "description": "开阔水域：年度覆盖50-59%", "color": "14,57,214"},
+        {"value": 204, "description": "开阔水域：年度覆盖60-69%", "color": "10,42,207"},
+        {"value": 205, "description": "开阔水域：年度覆盖70-79%", "color": "7,28,200"},
+        {"value": 206, "description": "开阔水域：年度覆盖80-89%", "color": "3,14,193"},
+        {"value": 207, "description": "开阔水域：年度覆盖90-100%", "color": "0,0,186"},
+        {"value": 241, "description": "雪/冰", "color": "255,255,255"},
+        {"value": 244, "description": "耕地", "color": "255,125,0"},
+        {"value": 250, "description": "建设用地", "color": "100,220,220"},
+        {"value": 254, "description": "海洋", "color": "17,17,51"}
+      ]
+    }
+  },
+  {
+    "id_type": "landcover_ESA",
+    "pid1": "土地覆盖数据",
+    "pid2": "高分辨率土地覆盖数据",
+    "NAME": "ESA土地覆盖",
+    "band": {
+      "band": "B1",
+      "bandName": "ESA土地覆盖类型",
+      "introduction": "ESA土地覆盖分类方案",
+      "value": [
+        {"value": 10, "color": "0,100,0", "description": "树木覆盖"},
+        {"value": 20, "color": "255,187,34", "description": "灌木地"},
+        {"value": 30, "color": "255,255,76", "description": "草地"},
+        {"value": 40, "color": "240,150,255", "description": "耕地"},
+        {"value": 50, "color": "250,0,0", "description": "建设用地"},
+        {"value": 60, "color": "180,180,180", "description": "裸地/稀疏植被"},
+        {"value": 70, "color": "240,240,240", "description": "雪和冰"},
+        {"value": 80, "color": "0,100,200", "description": "常年水体"},
+        {"value": 90, "color": "0,150,160", "description": "草本湿地"},
+        {"value": 95, "color": "0,207,117", "description": "红树林"},
+        {"value": 100, "color": "250,230,160", "description": "苔藓和地衣"}
+      ]
+    }
+    
+  },
+  {
+    "id_type": "landcover_FROM_LC",
+    "pid1": "土地覆盖数据",
+    "pid2": "高分辨率土地覆盖数据",
+    "NAME": "FROM_LC",
+    "band": {
+      "band": "B1",
+      "bandName": "FROM_LC土地覆盖类型",
+      "introduction": "FROM_LC土地覆盖分类方案",
+      "value": [
+        {"value": 10, "color": "163,255,115", "description": "农地"},
+        {"value": 20, "color": "38,115,0", "description": "森林"},
+        {"value": 30, "color": "76,230,0", "description": "草地"},
+        {"value": 40, "color": "112,168,0", "description": "灌丛"},
+        {"value": 50, "color": "0,92,255", "description": "湿地"},
+        {"value": 60, "color": "0,92,255", "description": "水体"},
+        {"value": 80, "color": "197,0,255", "description": "不透水层"},
+        {"value": 90, "color": "255,170,0", "description": "裸地"},
+        {"value": 100, "color": "0,255,197", "description": "冰雪"},
+        {"value": 120, "color": "255,255,255", "description": "云"}
+      ]
+    }
+    
+  },
+  {
+    "id_type": "DEM_250m_DEM",
+    "pid1": "DEM高程数据",
+    "pid2": "低分辨率DEM数据",
+    "NAME": "250米DEM",
+    "band": ""
+  },
+  {
+    "id_type": "DEM_1000m_DEM",
+    "pid1": "DEM高程数据",
+    "pid2": "低分辨率DEM数据",
+    "NAME": "1000米DEM",
+    "band": ""
+  },
+  {
+    "id_type": "DEM_ALOS_DEM",
+    "pid1": "DEM高程数据",
+    "pid2": "高分辨率DEM数据",
+    "NAME": "12.5米ALOS_DEM",
+    "band": ""
+  },
+  {
+    "id_type": "DEM_TANX",
+    "pid1": "DEM高程数据",
+    "pid2": "中分辨率DEM数据",
+    "NAME": "TANX30米DEM",
+    "band": ""
+  },
+  {
+    "id_type": "DEM_Copernicus_DEM",
+    "pid1": "DEM高程数据",
+    "pid2": "中分辨率DEM数据",
+    "NAME": "30米Copernicus_DEM",
+    "band": ""
+  },
+  {
+    "id_type": "DEM_SRTM_V3.0_DEM",
+    "pid1": "DEM高程数据",
+    "pid2": "中分辨率DEM数据",
+    "NAME": "30米SRTM_V3.0_DEM",
+    "band": ""
+  },
+  {
+    "id_type": "DEM_ASTER_DEM",
+    "pid1": "DEM高程数据",
+    "pid2": "中分辨率DEM数据",
+    "NAME": "30米ASTER_DEM",
+    "band": ""
+  },
+  {
+    "id_type": "DEM_AW3D30_V4",
+    "pid1": "DEM高程数据",
+    "pid2": "中分辨率DEM数据",
+    "NAME": "30米AW3D30_V4",
+    "band": ""
+  },
+  {
+    "id_type": "DEM_NASA_DEM",
+    "pid1": "DEM高程数据",
+    "pid2": "中分辨率DEM数据",
+    "NAME": "30米NASA_DEM",
+    "band": ""
+  }
+]
