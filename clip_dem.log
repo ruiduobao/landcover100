@@ -497,3 +497,5 @@
 2023-12-18 17:06:24,409:INFO:裁剪操作成功完成
 2023-12-20 12:00:23,800:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/20231220040018_modis2001_20231220120020.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector/20231220040018.geojson
 2023-12-20 12:00:23,960:INFO:裁剪操作成功完成
+2023-12-22 10:28:03,275:INFO:开始裁剪操作: 输入栅格=F:/landcover100_com_DB/Land_Cover/low_resolution/MODIS_landcover/MODIS_LANDCOVER2001.tif, 输出栅格=E:/ruiduobao/MY_website/landcover100_com/public/raster_output_fromDB/210700_modis2001_20231222102759.tif, 矢量数据=E:/ruiduobao/MY_website/landcover100_com/public/vector_fromDB/210700.gson
+2023-12-22 10:28:03,654:INFO:裁剪操作成功完成

@@ -284,6 +284,188 @@ app.post('/getResourceTree', async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
+
+//获取行政区划树结构
+const provinceCodes = {
+    '北京市': '110000',
+    '天津市': '120000',
+    '河北省': '130000',
+    '山西省': '140000',
+    '内蒙古自治区': '150000',
+    '辽宁省': '210000',
+    '吉林省': '220000',
+    '黑龙江省': '230000',
+    '上海市': '310000',
+    '江苏省': '320000',
+    '浙江省': '330000',
+    '安徽省': '340000',
+    '福建省': '350000',
+    '江西省': '360000',
+    '山东省': '370000',
+    '河南省': '410000',
+    '湖北省': '420000',
+    '湖南省': '430000',
+    '广东省': '440000',
+    '广西壮族自治区': '450000',
+    '海南省': '460000',
+    '重庆市': '500000',
+    '四川省': '510000',
+    '贵州省': '520000',
+    '云南省': '530000',
+    '西藏自治区': '540000',
+    '陕西省': '610000',
+    '甘肃省': '620000',
+    '青海省': '630000',
+    '宁夏回族自治区': '640000',
+    '新疆维吾尔自治区': '650000',
+    '香港特别行政区': '810000',
+    '澳门特别行政区': '820000',
+    '台湾省': '710000'}
+
+// 同步读取markdown文件
+function loadMarkdownData(filePath) {
+    try {
+        const data = fs.readFileSync(filePath, 'utf8');
+        return parseDistrictData(data); // 确保您有这个函数来处理读取的数据
+    } catch (error) {
+        console.error('读取markdown文件出错:', error);
+        return null;
+    }
+}
+// 解析markdown文档
+function parseDistrictData(markdown) {
+        // console.log('Markdown data type:', typeof markdown); // 打印markdown的数据类型
+        // console.log('Markdown content:', markdown); // 打印markdown的内容
+        const lines = markdown.split('\n');
+        const tree = {};
+    
+        let currentProvince, currentCity, currentCounty;
+        lines.forEach(line => {
+            if (line.startsWith('# ')) { // 省级
+                const [, name, code] = line.match(/#\s+\[(.*?)\]\((\d+)\)/);
+                currentProvince = { name, code, cities: {} };
+                tree[code] = currentProvince;
+            } else if (line.startsWith('## ')) { // 市级
+                const [, name, code] = line.match(/##\s+\[(.*?)\]\((\d+)\)/);
+                currentCity = { name, code, counties: {} };
+                currentProvince.cities[code] = currentCity;
+            } else if (line.startsWith('### ')) { // 县级
+                const [, name, code] = line.match(/###\s+\[(.*?)\]\((\d+)\)/);
+                currentCounty = { name, code, towns: {} };
+                currentCity.counties[code] = currentCounty;
+            } else if (line.startsWith('#### ')) { // 镇级
+                const [, name, code] = line.match(/####\s+\[(.*?)\]\((\d+)\)/);
+                const town = { name, code };
+                currentCounty.towns[code] = town;
+            }
+        });
+    
+        return tree;
+    }
+//markdown路径
+const markdownFilePath = path.join(__dirname, 'public', 'shengshixian', 'shengshixianxiang.md');
+const districtTree = loadMarkdownData(markdownFilePath);
+//在构建好的树状结构中查找下一级行政区划
+function findSubDistrictsByCode(tree, code) {
+    for (const provinceCode in tree) {
+        if (provinceCode === code) {
+            return Object.values(tree[provinceCode].cities).map(city => ({
+                name: city.name,
+                code: city.code
+            }));
+        }
+        const province = tree[provinceCode];
+        for (const cityCode in province.cities) {
+            if (cityCode === code) {
+                return Object.values(province.cities[cityCode].counties).map(county => ({
+                    name: county.name,
+                    code: county.code
+                }));
+            }
+            const city = province.cities[cityCode];
+            for (const countyCode in city.counties) {
+                if (countyCode === code) {
+                    return Object.values(city.counties[countyCode].towns).map(town => ({
+                        name: town.name,
+                        code: town.code
+                    }));
+                }
+            }
+        }
+    }
+    // 如果找不到对应的code，返回null
+    return null;
+}
+
+
+//入参为空: 返回全部省级行政区;入参不为空: 返回参数的下一级行区划数据
+/**
+ * @swagger
+ * /IDistrict:
+ *   post:
+ *     summary: 获取行政区划数据
+ *     description: 如果请求体为空，返回所有省级行政区的名称和代码；如果请求体不为空且包含有效 code，返回该行政区划代码对应的下一级行政区划数据。
+ *     operationId: getDistrictData
+ *     tags:
+ *       - 行政区划
+ *     requestBody:
+ *       description: 行政区划代码。如果为空，则返回所有省级行政区数据。
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               code:
+ *                 type: string
+ *                 description: 行政区划代码
+ *                 example: "110000"
+ *     responses:
+ *       '200':
+ *         description: 请求成功。返回对应的行政区划数据。
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   name:
+ *                     type: string
+ *                     description: 行政区划名称
+ *                   code:
+ *                     type: string
+ *                     description: 行政区划代码
+ *       '400':
+ *         description: 请求体格式不正确或包含无效参数
+ *       '404':
+ *         description: 给定的行政区划代码没有找到对应的子行政区划
+ */
+app.post('/IDistrict', async (req, res) => {
+     // 检查请求体是否为空
+     if (Object.keys(req.body).length === 0) {
+        // 请求体为空时，返回所有省级行政区的id和code
+        res.json(provinceCodes);
+    } else {
+        // 请求体不为空时，按需返回下一级行政区划的数据
+        // 这里需要你根据业务逻辑来具体实现
+        // 比如你可以检查req.body中是否包含特定的字段，然后返回对应的数据
+        // 例如：
+        const { code } = req.body;
+        if (code) {
+            const subDistricts = findSubDistrictsByCode(districtTree, code);
+            if (subDistricts) {
+                res.json(subDistricts);
+            } else {
+                res.status(404).send('给定的数据没有子行政区');
+            }
+        } else {
+            // 如果没有提供code，返回错误信息
+            res.status(400).send('行政区划码无效:请求要不是空，要不是行政区划代码');
+        }
+    }
+});
+
 // 新增路由来处理地理编码请求
 // 示例端点，使用 Swagger JSDoc 注释
 /**
@@ -1067,11 +1249,12 @@ const authCfg = {
 
 const sdk = new SDK(authCfg);
 //跨域
-app.use(cors({
-    origin: Server_URL,
-    credentials: true
-  }))
-
+// app.use(cors({
+//     origin: '*',
+//     credentials: true
+//   }))
+// 允许任何源的请求，但不携带凭证
+app.use(cors());
 //获取用户信息
 /**
  * @swagger
