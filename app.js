@@ -1391,4 +1391,71 @@ app.post('/get_SHP_RASTER_Paths', (req, res) => {
     });
   });
 
+/**
+ * @swagger
+ * /searchepsg:
+ *   get:
+ *     summary: 根据EPSG代码搜索
+ *     description: 根据请求参数中的EPSG代码，从本地JSON文件中搜索匹配的EPSG信息并返回。
+ *     parameters:
+ *       - in: query
+ *         name: epsg
+ *         required: true
+ *         description: EPSG代码。
+ *         schema:
+ *           type: integer
+ *           example: 2001
+ *     responses:
+ *       200:
+ *         description: 成功找到匹配的EPSG信息。
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               example:
+ *                 EPSG: 2001
+ *                 Name: "Antigua 1943 / British West Indies Grid"
+ *                 AreaOfUse: [-61.95, 16.94, -61.61, 17.22]
+ *       404:
+ *         description: 没有找到匹配的EPSG代码。
+ *       500:
+ *         description: 服务器内部错误或JSON文件解析出错。
+ */
+// 请求epsg，返回该epsg所在的json文件信息
+// 比如请求链接为：http://localhost:3003/searchepsg?epsg=2001
+app.get('/searchepsg', (req, res) => {
+    // 从查询参数中获取EPSG值
+    const epsgQuery = req.query.epsg;
 
+    // 构建JSON文件的文件路径
+    const jsonFilePath = path.join(__dirname, 'data','EPSG_SEARCH', 'EPSG.json');
+
+    // 读取JSON文件
+    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Server error');
+        }
+
+        // 尝试解析JSON数据
+        let epsgData;
+        try {
+            epsgData = JSON.parse(data);
+        } catch (parseErr) {
+            console.error(parseErr);
+            return res.status(500).send('Error parsing JSON file');
+        }
+
+        // 筛选epsg
+        const result = epsgData.find(epsgEntry => epsgEntry.EPSG === Number(epsgQuery));
+
+        // 如果有匹配的EPSG条目
+        if (result) {
+            // 发送JSON数据
+            res.json(result);
+        } else {
+            // 如果没有找到EPSG，发送404错误
+            res.status(404).send('EPSG code not found');
+        }
+    });
+});
