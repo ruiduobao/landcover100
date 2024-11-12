@@ -9,6 +9,14 @@ node >=18
 yarn
 ```
 
+## 移除 mapboxgl 的 token 校验
+
+安装完依赖之后进行移除。
+
+```
+yarn rmtk
+```
+
 ## 本地开发
 
 ```
