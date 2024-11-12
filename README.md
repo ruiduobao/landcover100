@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+## 开发环境准备
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+node >=18
+天地图申请 token
 
-Currently, two official plugins are available:
+## 安装依赖
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+yarn
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 本地开发
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+yarn dev
+```
+
+## 打包构建
+
+```
+yarn build
+```
+
+---
+
+## 配置说明
+
+1. baseUrl：请求的后台接口的基本路径
+   本地开发直接请求 [https://www.landcover100.com/](https://www.landcover100.com)域名下接口会跨域。因此添加 api path， 在 devServer 进行转发重写路径。
+   生产环境直接同域情况下，直接使用 `https://www.landcover100.com` 即可
+2. BeiAnHao： 备案号
+3. 其他：略
+
+## 请求切片
+
+由于切片也是放在`https://www.landcover100.com` ,开发环境也属于跨域访问， 使用浏览器插件 `Allow CORS` 开启允许跨域访问即可
